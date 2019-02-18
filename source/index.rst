@@ -13,6 +13,12 @@ Welcome to the Posten signering documentation!
    innholdsside
    innholdsside2
 
+.. toctree::
+   :maxdepth: 1
+   :caption: Signeringsoppdrag
+
+   innholdsside
+   innholdsside2
 
 
 Indices and tables
