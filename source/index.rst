@@ -17,7 +17,7 @@ Welcome to the Posten signering documentation!
    :maxdepth: 1
    :caption: Signeringsoppdrag
 
-   innholdsside
+   gdpr
    innholdsside2
 
 
