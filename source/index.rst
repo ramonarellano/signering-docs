@@ -20,6 +20,13 @@ Welcome to the Posten signering documentation!
    gdpr
    innholdsside2
 
+.. toctree::
+   :maxdepth: 1
+   :caption: Integration
+
+   buy-enterprise-certificates
+
+
 
 Indices and tables
 ==================
