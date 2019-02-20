@@ -14,13 +14,13 @@ A test certificate must be used against our test environment. The test certifica
 
 .. tabs::
 
-   .. tab:: Buypass
+   .. group-tab:: Buypass
 
     A test certificate can be bought from the Buypass home page. Please `click here <https://www.buypass.no/produkter/virksomhetssertifikat-esegl>`_ for the Norwegian version, or `here <https://www.buypass.com/products/eseal--and-enterprise-certificate>`_ for the English version. Please select *Test-sertifikat/Test certificate*.
 
     When buying an enterprise certificate from Buypass, you will receive an email containing two *.p12* files. The two files have different serial numbers, and these refer to certficates used for authentication and encryption (*autentisering og kryptering*) and signature (*signering*). You shall only use the one marked for authentication and encryption.
 
-   .. tab:: Commfides
+   .. group-tab:: Commfides
 
     A test certificates can be bought from the Commfides home page. Please `click here <https://www.commfides.com/en/commfides-virksomhetssertifikat/>`_ for the Norwegian version, or `here <https://www.commfides.com/en/commfides-virksomhetssertifikat/>`_ for the English version. Please see *Bestill Testsertifikat/Order Test Certificate*.
 
@@ -35,13 +35,13 @@ Production environment
 
 .. tabs::
 
-   .. tab:: Buypass
+   .. group-tab:: Buypass
 
     A production certificate can be bought from the Buypass home page. Please `click here <https://www.buypass.no/produkter/virksomhetssertifikat-esegl>`_ for the Norwegian version, or `here <https://www.buypass.com/products/eseal--and-enterprise-certificate>`_ for the English version. Please select *Standard sertifikat/Standard Certificate*.
 
     When buying an enterprise certificate from Buypass, you will receive an email containing two *.p12* files. The two files have different serial numbers, and these refer to certficates used for authentication and encryption (*autentisering og kryptering*) and signature (*signering*). You shall only use the one marked for authentication and encryption.
 
-   .. tab:: Commfides
+   .. group-tab:: Commfides
 
     A production can be bought from the Commfides home page. Please `click here <https://www.commfides.com/en/commfides-virksomhetssertifikat/>`_ for the Norwegian version, or `here <https://www.commfides.com/en/commfides-virksomhetssertifikat/>`_ for the English version. Please see *Bestill Virksomhetssertifikat/Order Enterprise Certificate* for use in a production environment.
 
