@@ -18,6 +18,12 @@ Welcome to the Posten signering documentation!
 
    buy-enterprise-certificates
 
+.. toctree::
+   :maxdepth: 1
+   :caption: Docshelp
+
+   syntax-help
+
 
 
 Indices and tables
