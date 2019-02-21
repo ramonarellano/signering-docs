@@ -13,6 +13,6 @@ Brukere kan deaktiveres fra avsenderportalen til den aktuelle virksomheten, elle
 * Anonymisering: En bruker anonymiseres 3 år etter at hun ble deaktivert.
 * Sletting: En bruker slettes 3 år etter at hun ble deaktivert hvis hun ikke har noe tilknytning til noe signeringsoppdrag. En slik tilknytning vil være at hun f.eks. har endret signeringsfristen på et oppdrag eller at hun selv har opprettet oppdraget. 
 
-## Virksomhet
+## Virksomheter
 * Deaktivering: En virksomhet kan deaktiveres med umiddelbar virkning. Etter deaktivering, beholder vi dataene i 3 måneder.
 * Sletting: Sletting av virksomheten skjer etter at en virksomhet har vært deaktivert i 3 måneder. Da slettes alle data som er knyttet til virksomheten.
