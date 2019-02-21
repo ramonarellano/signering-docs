@@ -11,7 +11,7 @@ Som en virksomhet kan du ta i bruk Posten signering på 2 måter, avhengig av be
 ### Avsenderportal
 Avsenderportalen gjør det mulig for en virksomhet å ta i bruk signeringstjenesten uten å gjøre noen tekniske integrasjoner. Dokumentene som skal signeres lastes manuelt opp i portalen. Undertegnere logger inn i portalen for å få tilgang til å lese og signere dokumentene via *portalflyt*. Dette er en enkel og effektiv måte å komme i gang med signeringstjenesten på, og passer bra for mindre volumer. Hvis du er en privat virksomhet, kan du *registrere virksomheten direkte*. Hvis du er en offentlig virksomhet, får du registrert konto i signering via *Difi og samarbeidsportalen*.
 
-### API
+### API-integrasjon
 API-grensesnittet krever en teknisk integrasjon mellom virksomheten og Posten signering. Ved å lage en integrasjon mot tjenesten vil undertegner forholde seg til virksomhetens nettside, og signeringstjenesten vil oppleves som en integrert del av tjenesten. Man kan velge om undertegner skal signere i virksomhetens system eller nettside (*direkteflyt*), eller å la undertegneren logge inn og signere i Postens signeringsportal (*portalflyt*).
 
 #### Integrasjon mot signeringstjenestens API kan gjøres på 3 måter
@@ -24,7 +24,3 @@ Mange kunder benytter et fagsystem som sak- og arkivsystemer, eller andre progra
 
 3. Egenutviklet integrasjon
 API-et er dokumentert, slik at kunder som ønsker det kan gjøre en egen integrasjon.
-
-
-## Portalflyt: Undertegner signerer i Postens signeringsportal
-## Direkteflyt: Undertegner signerer på virksomhetens egne sider
