@@ -80,9 +80,6 @@ A client configuration includes all organization specific configuration and all 
             return new X509Certificate2(certificatePath, certificatePassword, X509KeyStorageFlags.Exportable);
 
 
-
-
-
 ..  NOTE::
     For organizations acting as brokers on behalf of multiple senders, you may specify the sender’s organization number on each signature job. The sender specified for a job will always take precedence over the :code:`globalSender` in :code:`ClientConfiguration`.
 

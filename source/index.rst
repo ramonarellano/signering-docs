@@ -25,6 +25,7 @@ Welcome to the Posten signering documentation!
    buy-enterprise-certificates
    install-enterprise-certificate
    create-client-configuration
+   direct-flow
 
 .. toctree::
    :maxdepth: 1
