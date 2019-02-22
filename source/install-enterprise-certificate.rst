@@ -9,22 +9,25 @@ support .NET Core, .NET Framework and Java.
 
 
 .NET Core
-##########
+==========
+
+Install the certificate
+________________________
 
 The path and password to the certificate must be put somewhere safe. The path is:
 
 .. tabs::
 
-   .. tab:: Windows
+   .. group-tab:: Windows
 
       %APPDATA%\Microsoft\UserSecrets\<user_secrets_id>\secrets.json
 
 
-   .. tab:: macOS
+   .. group-tab:: macOS
 
       ~/.microsoft/usersecrets/<user_secrets_id>/secrets.json
 
-   .. tab:: Linux
+   .. group-tab:: Linux
 
       ~/.microsoft/usersecrets/<user_secrets_id>/secrets.json
 
@@ -50,8 +53,41 @@ From the command line, navigate to the directory where the current .csproj file 
    dotnet user-secrets set "Certificate:Path:Absolute" "<your-certificate.p12>"
    dotnet user-secrets set "Certificate:Password" "<your-certificate-password>"
 
+Trust the certificate
+______________________
+
+In addition to installing the certificate, you must add the certificate to the trust store on the host machine.
+
+.. tabs::
+
+   .. group-tab:: Windows
+
+      Double click the enterprise certificate and choose to install on :code:`Local Machine` or :code:`Current user`. This will install the intermediate and root certificate on the host, which is what we want.
+
+   .. group-tab:: macOS
+
+     #. Open :code:`Keychain Access`
+     #. Choose :code:`login` keychain
+     #. Press the plus-symbol in bottom corner - *Create a new Keychain item*.
+     #. Choose the business certificate and add.
+
+   .. group-tab:: Linux
+
+      Download the root and intermediate certificates from `Difi <https://begrep.difi.no/SikkerDigitalPost/1.2.6/sikkerhet/sertifikathandtering>`_ for your business certificate provider. Note the renaming to have :code:`.crt` ending for :code:`update-ca-certificates`:
+
+      .. code-block:: bash
+
+         sudo cp Buypass_Class_3_Test4_Root_CA.pem /usr/local/share/ca-certificates/Buypass_Class_3_Test4_Root_CA.crt
+         sudo cp Buypass_Class_3_Test4_CA_3.pem /usr/local/share/ca-certificates/Buypass_Class_3_Test4_CA_3.crt
+         sudo update-ca-certificates
+
+
+
 .NET Framework
-###############
+================
+
+.. NOTE::
+   .NET Framework is only supported on the Windows platform.
 
 The following steps will install the certificate in the your certificate store. This should be done on the server where your application will run.
 
