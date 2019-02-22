@@ -9,6 +9,23 @@ Will generate the following url:
 
 `link text <http://google.com>`_
 
+Headers
+*******
+
+.. code-block:: xml
+
+   Innhold restructured text 1
+   *****************************
+
+   Innhold restructured text 2
+   =============================
+
+   Innhold restructured text 3
+   _____________________________
+
+   Innhold restructured text 4
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
 Admonitions
 ***********************
