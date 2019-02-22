@@ -39,7 +39,26 @@ Create job
 
     ..  code-tab:: java
 
-        hei
+        ClientConfiguration clientConfiguration = null; // As initialized earlier
+        PortalClient client = new PortalClient(clientConfiguration);
+
+        byte[] documentBytes = null; // Loaded document bytes
+        PortalDocument document = PortalDocument.builder("Subject", "document.pdf", documentBytes).build();
+
+        PortalJob portalJob = PortalJob.builder(
+                document,
+                PortalSigner.identifiedByPersonalIdentificationNumber("12345678910",
+                        NotificationsUsingLookup.EMAIL_ONLY).build(),
+                PortalSigner.identifiedByPersonalIdentificationNumber("12345678911",
+                        Notifications.builder().withEmailTo("email@example.com").build()).build(),
+                PortalSigner.identifiedByEmail("email@example.com").build()
+        ).build();
+
+        PortalJobResponse portalJobResponse = client.create(portalJob);
+
+..  NOTE::
+    You may identify the signature job’s signers by personal identification number :code:`IdentifiedByPersonalIdentificationNumber` or contact information. When identifying by contact information, you may choose between instantiating a :code:`PortalSigner` using :code:`IdentifiedByEmail, :code:`IdentifiedByMobileNumber` or :code:`IdentifiedByEmailAndMobileNumber`.
+
 
 You can specify a  signature type and required authentication level. If signature type or required authentication level is omitted, default values as specified by the `functional documentation <http://digipost.github.io/signature-api-specification/v1.0/#signaturtype>`_ will apply:
 
@@ -65,7 +84,7 @@ You can specify a  signature type and required authentication level. If signatur
     Note that only public organizations can do :code:`NotificationsUsingLookup`.
 
 
-Get status by token
+Get status changes
 ####################
 
 All changes to signature jobs will be added to a queue. You can poll for these changes. All changes must be confirmed after saving or handling them in your system. The following example shows how this can be handled and examples of data to extract from a change response.
@@ -111,20 +130,19 @@ All changes to signature jobs will be added to a queue. You can poll for these c
 
     ..  code-tab:: java
 
-        hei
+        PortalClient client = null; // As initialized earlier
 
+        PortalJobStatusChanged statusChange = client.getStatusChange();
 
-Get status by polling
-######################
+        if (statusChange.is(PortalJobStatus.NO_CHANGES)) {
+            // Queue is empty. Must wait before polling again
+            Instant nextPermittedPollTime = statusChange.getNextPermittedPollTime();
+        } else {
+            // Recieved status update, act according to status
+            PortalJobStatus signatureJobStatus = statusChange.getStatus();
+            Instant nextPermittedPollTime = statusChange.getNextPermittedPollTime();
+        }
 
-..  tabs::
-
-    ..  code-tab:: c#
-
-        hei
-
-    ..  code-tab:: java
-        hei
 
 
 Get signed documents
@@ -148,7 +166,27 @@ When getting XAdES and PAdES for a PortalJob, remember that the XAdES is per sig
 
     ..  code-tab:: java
 
-        hei
+        PortalClient client = null; // As initialized earlier
+        PortalJobStatusChanged statusChange = null; // As returned when polling for status changes
+
+        // Retrieve PAdES:
+        if (statusChange.isPAdESAvailable()) {
+            InputStream pAdESStream = client.getPAdES(statusChange.getpAdESUrl());
+        }
+
+        // Retrieve XAdES for all signers:
+        for (Signature signature : statusChange.getSignatures()) {
+            if (signature.is(SignatureStatus.SIGNED)) {
+                InputStream xAdESStream = client.getXAdES(signature.getxAdESUrl());
+            }
+        }
+
+        // … or for one specific signer:
+        Signature signature = statusChange.getSignatureFrom(
+                SignerIdentifier.identifiedByPersonalIdentificationNumber("12345678910"));
+        if (signature.is(SignatureStatus.SIGNED)) {
+            InputStream xAdESStream = client.getXAdES(signature.getxAdESUrl());
+        }
 
 
 Specifying queues
@@ -188,7 +226,26 @@ To specify a queue, set :code:`Sender` :code:`pollingQueue` through when constru
 
     ..  code-tab:: java
 
-        hei
+        ClientConfiguration clientConfiguration = null; // As initialized earlier
+        PortalClient client = new PortalClient(clientConfiguration);
+
+        Sender sender = new Sender("000000000", PollingQueue.of("CustomPollingQueue"));
+
+        byte[] documentBytes = null; // Loaded document bytes
+        PortalDocument document = PortalDocument.builder("Subject", "document.pdf", documentBytes).build();
+
+        PortalJob portalJob = PortalJob.builder(
+                document,
+                PortalSigner.identifiedByPersonalIdentificationNumber("12345678910",
+                        NotificationsUsingLookup.EMAIL_ONLY).build(),
+                PortalSigner.identifiedByPersonalIdentificationNumber("12345678911",
+                        Notifications.builder().withEmailTo("email@example.com").build()).build(),
+                PortalSigner.identifiedByEmail("email@example.com").build()
+        ).withSender(sender).build();
+
+        PortalJobResponse portalJobResponse = client.create(portalJob);
+
+        PortalJobStatusChanged statusChange = client.getStatusChange(sender);
 
 Delete documents
 #################
@@ -199,5 +256,8 @@ After receiving a status change, the documents can be deleted as follows:
 
     ..  code-tab:: java
 
-        hei
+        PortalClient client = null; // As initialized earlier
+        PortalJobStatusChanged statusChange = null; // As returned when polling for status changes
+
+        client.deleteDocuments(statusChange.getDeleteDocumentsUrl());
 
