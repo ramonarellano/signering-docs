@@ -116,6 +116,6 @@ Numbered lists
 
 Will generate the following list:
 
-3. Double-click on the actual certificate file (CertificateName.p12)
-4. Save the certificate in Current User or Local Machine and click Next
-5. Use the suggested filename. Click Next.
+3. First numbered item starts with three.
+4. The next numbered item, four.
+5. Auto numbering. Will be 5.
