@@ -1,5 +1,5 @@
 
-Buy Enterprise Certificates
+Buy enterprise certificates
 ***************************
 
 As a sending organization, you must authenticate with an enterprise certificate issued by Buypass or Commfides. You will need a test certificate and a production certificate.
