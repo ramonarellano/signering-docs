@@ -5,6 +5,18 @@ Admonitions
 Example admonitions
 #######################
 
+.. code-block:: xml
+
+    .. CAUTION::
+       Caution message
+    .. DANGER::
+       Danger zone!
+    .. NOTE::
+       Important note!
+    .. TIP::
+       Just a tip!
+
+
 .. CAUTION::
    Caution message
 .. DANGER::
@@ -21,7 +33,7 @@ Tabs are used via an extension and how to use can be found `here <https://github
 
 The different tabs are `tab`, `group-tab` and `code-tab`.
 
-.. code-block:: rtf
+.. code-block:: xml
 
    .. tabs::
 
@@ -58,7 +70,7 @@ Code snippets
 *****************
 
 
-.. code-block:: rtf
+.. code-block::
 
     .. code-block::language
 
