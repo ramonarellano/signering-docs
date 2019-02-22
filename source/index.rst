@@ -30,7 +30,7 @@ Welcome to the Posten signering documentation!
 
 .. toctree::
    :maxdepth: 1
-   :caption: Docshelp
+   :caption: Docs help
 
    syntax-help
 
