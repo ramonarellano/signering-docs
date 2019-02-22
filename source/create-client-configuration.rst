@@ -3,8 +3,6 @@ Create client configuration
 
 A client configuration includes all organization specific configuration and all settings needed to connect to the correct environment for Posten signering.
 
-Heisann
-
 ..  tabs::
 
     ..  group-tab:: Java
@@ -46,9 +44,43 @@ Heisann
                     .globalSender(new Sender("123456789"))
                     .build();
 
-    ..  group-tab:: Hoi
+    ..  group-tab:: C#
 
-        Heisann
+        ..  code-block:: c#
+
+            const string organizationNumber = "123456789";
+
+            var clientConfiguration = new ClientConfiguration(
+                Environment.DifiTest,
+                CertificateReader.ReadCertificate(),
+                new Sender(organizationNumber)
+            );
+
+        Where :code:`ReadCertificate` is:
+
+        ..  code-block:: c#
+
+            var pathToSecrets = $"{System.Environment.GetEnvironmentVariable("HOME")}/.microsoft/usersecrets/enterprise-certificate/secrets.json";
+            _logger.LogDebug($"Reading certificate details from secrets file: {pathToSecrets}");
+
+            var fileExists = File.Exists(pathToSecrets);
+            if (!fileExists)
+            {
+                _logger.LogDebug($"Did not find file at {pathToSecrets}");
+            }
+
+            var certificateConfig = File.ReadAllText(pathToSecrets);
+            var deserializeObject = JsonConvert.DeserializeObject<Dictionary<string, string>>(certificateConfig);
+
+            deserializeObject.TryGetValue("Certificate:Path:Absolute", out var certificatePath);
+            deserializeObject.TryGetValue("Certificate:Password", out var certificatePassword);
+
+            _logger.LogDebug("Reading certificate from path found in secrets file: " + certificatePath);
+
+            return new X509Certificate2(certificatePath, certificatePassword, X509KeyStorageFlags.Exportable);
+
+
+
 
 
 ..  NOTE::

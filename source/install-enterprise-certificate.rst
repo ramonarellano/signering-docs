@@ -16,25 +16,25 @@ ________________________
 
 The path and password to the certificate must be put somewhere safe. The path is:
 
-.. tabs::
+..  tabs::
 
-   .. group-tab:: Windows
+   ..   group-tab:: Windows
 
-      .. code-block: bash
+        ..  code-block:: java
 
-         %APPDATA%\Microsoft\UserSecrets\<user_secrets_id>\secrets.json
+            %APPDATA%\Microsoft\UserSecrets\<user_secrets_id>\secrets.json
 
-   .. group-tab:: macOS
+   ..   group-tab:: macOS
 
-      .. code-block: bash
+        ..  code-block:: bash
 
-         ~/.microsoft/usersecrets/<user_secrets_id>/secrets.json
+            ~/.microsoft/usersecrets/<user_secrets_id>/secrets.json
 
-   .. group-tab:: Linux
+   ..   group-tab:: Linux
 
-      .. code-block: bash
+        ..  code-block:: bash
 
-         ~/.microsoft/usersecrets/<user_secrets_id>/secrets.json
+            ~/.microsoft/usersecrets/<user_secrets_id>/secrets.json
 
 .. TIP::
    For more information, please see the `Microsoft documentation <https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-2.2&tabs=linux#how-the-secret-manager-tool-works>`_.
@@ -46,10 +46,10 @@ Add the following :code:`UserSecretsId` element to your :code:`.csproj` file:
 
    <PropertyGroup>
         <TargetFramework>netcoreapp2.1</TargetFramework>
-        <UserSecretsId>organization-certificate</UserSecretsId>
+        <UserSecretsId>enterprise-certificate</UserSecretsId>
    </PropertyGroup>
 
-This means that the element :code:`<user_secrets_id>` in the path will be :code:`organization-certificate`.
+This means that the element :code:`<user_secrets_id>` in the path will be :code:`enterprise-certificate`.
 
 From the command line, navigate to the directory where the current .csproj file is located and run the following commands with your own certificate values.
 
