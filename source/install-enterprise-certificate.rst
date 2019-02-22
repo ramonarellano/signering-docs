@@ -20,16 +20,21 @@ The path and password to the certificate must be put somewhere safe. The path is
 
    .. group-tab:: Windows
 
-      %APPDATA%\Microsoft\UserSecrets\<user_secrets_id>\secrets.json
+      .. code-block: bash
 
+         %APPDATA%\Microsoft\UserSecrets\<user_secrets_id>\secrets.json
 
    .. group-tab:: macOS
 
-      ~/.microsoft/usersecrets/<user_secrets_id>/secrets.json
+      .. code-block: bash
+
+         ~/.microsoft/usersecrets/<user_secrets_id>/secrets.json
 
    .. group-tab:: Linux
 
-      ~/.microsoft/usersecrets/<user_secrets_id>/secrets.json
+      .. code-block: bash
+
+         ~/.microsoft/usersecrets/<user_secrets_id>/secrets.json
 
 .. TIP::
    For more information, please see the `Microsoft documentation <https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-2.2&tabs=linux#how-the-secret-manager-tool-works>`_.
