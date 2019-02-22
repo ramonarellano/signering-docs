@@ -23,6 +23,7 @@ Welcome to the Posten signering documentation!
    :caption: Integration
 
    buy-enterprise-certificates
+   install-enterprise-certificate
 
 .. toctree::
    :maxdepth: 1
