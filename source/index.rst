@@ -8,6 +8,12 @@ Welcome to the Posten signering documentation!
 
 .. toctree::
    :maxdepth: 1
+   :caption: Introduksjon
+
+   introduksjon
+
+.. toctree::
+   :maxdepth: 1
    :caption: Signeringsoppdrag
 
    gdpr
