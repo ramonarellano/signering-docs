@@ -4,7 +4,6 @@ Direct flow
 Create job
 ###########
 
-
 ..  tabs::
 
     ..  code-tab:: c#
@@ -54,16 +53,45 @@ Create job
         DirectJobResponse directJobResponse = client.create(directJob);
 
 
-Get status by token
-####################
-
-The signing process is a synchrounous operation in the direct use case. There is no need to poll for changes to a signature job, as the status is well known to the sender of the job. As soon as the signer completes, rejects or an error occurs, the user is redirected to the respective URLs set in ExitUrls. A status_query_token parameter has been added to the url, use this when requesting a status change.
+You can specify a  signature type and required authentication level. If signature type or required authentication level is omitted, default values as specified by the `functional documentation <http://digipost.github.io/signature-api-specification/v1.0/#signaturtype>`_ will apply:
 
 ..  tabs::
 
     ..  code-tab:: c#
 
-        hei
+        Document documentToSign = null; //As initialized earlier
+        ExitUrls exitUrls = null; //As initialized earlier
+        var signers = new List<Signer>
+        {
+            new Signer(new PersonalIdentificationNumber("12345678910"))
+            {
+                SignatureType = SignatureType.AdvancedSignature
+            }
+        };
+
+        var job = new Job(documentToSign, signers, "SendersReferenceToSignatureJob", exitUrls)
+        {
+            AuthenticationLevel = AuthenticationLevel.Four
+        };
+
+Get status by token
+####################
+
+The signing process is a synchrounous operation in the direct use case. There is no need to poll for changes to a signature job, as the status is well known to the sender of the job. As soon as the signer completes, rejects or an error occurs, the user is redirected to the respective URLs set in ExitUrls. A :code:`status_query_token` parameter has been added to the url, use this when requesting a status change.
+
+..  tabs::
+
+    ..  code-tab:: c#
+        ClientConfiguration clientConfiguration = null; //As initialized earlier
+        var directClient = new DirectClient(clientConfiguration);
+        JobResponse jobResponse = null; //As initialized when creating signature job
+        var statusQueryToken = "0A3BQ54C...";
+
+        var jobStatusResponse =
+            await directClient.GetStatus(jobResponse.ResponseUrls.Status(statusQueryToken));
+
+        var jobStatus = jobStatusResponse.Status;
+
 
     ..  code-tab:: java
 
@@ -83,13 +111,41 @@ Get status by polling
 If you, for any reason, are unable to retrieve status by using the status query token specified above, you may poll the service for any changes done to your organization’s jobs. If the queue is empty, additional polling will give an exception.
 
 ..  NOTE::
-    For the job to be available in the polling queue, make sure to specify the job's StatusRetrievalMethod as illustrated below.
+    For the job to be available in the polling queue, make sure to specify the job's :code:`StatusRetrievalMethod` as illustrated below.
 
 ..  tabs::
 
     ..  code-tab:: c#
 
-        hei
+        ClientConfiguration clientConfiguration = null; // As initialized earlier
+        var directClient = new DirectClient(clientConfiguration);
+
+        Document documentToSign = null; // As initialized earlier
+        ExitUrls exitUrls = null; // As initialized earlier
+
+        var signer = new PersonalIdentificationNumber("00000000000");
+
+        var job = new Job(
+            documentToSign,
+            new List<Signer> {new Signer(signer)},
+            "SendersReferenceToSignatureJob",
+            exitUrls,
+            statusRetrievalMethod: StatusRetrievalMethod.Polling
+            );
+
+        await directClient.Create(job);
+
+        var changedJob = await directClient.GetStatusChange();
+
+        if (changedJob.Status == JobStatus.NoChanges)
+        {
+            //Queue is empty. The status change includes next earliest permitted poll time.
+        }
+
+        //TODO: Persist job status change in your system, to ensure you have the latest status if anything crashes beyond this point.
+
+        // Confirm that you have received and persisted the status change
+        await directClient.Confirm(changedJob.References.Confirmation);
 
     ..  code-tab:: java
 
@@ -124,7 +180,21 @@ Get signed documents
 
     ..  code-tab:: c#
 
-        hei
+        ClientConfiguration clientConfiguration = null; //As initialized earlier
+        var directClient = new DirectClient(clientConfiguration);
+        JobStatusResponse jobStatusResponse = null; // Result of requesting job status
+
+        if (jobStatusResponse.Status == JobStatus.CompletedSuccessfully)
+        {
+            var padesByteStream = await directClient.GetPades(jobStatusResponse.References.Pades);
+        }
+
+        var signature = jobStatusResponse.GetSignatureFor(new PersonalIdentificationNumber("00000000000"));
+
+        if (signature.Equals(SignatureStatus.Signed))
+        {
+            var xadesByteStream = await directClient.GetXades(signature.XadesReference);
+        }
 
     ..  code-tab:: java
 
@@ -141,34 +211,40 @@ Get signed documents
             }
         }
 
-Confirm processed job
-######################
-
-..  tabs::
-
-    ..  code-tab:: c#
-
-        hei
-
-    ..  code-tab:: java
-
-        DirectClient client = null; // As initialized earlier
-        DirectJobStatusResponse directJobStatusResponse = null; // As returned when getting job status
-
-        client.confirm(directJobStatusResponse);
-
 Specifying queues
 ##################
 
 Specifies the queue that jobs and status changes for a signature job will occur in for signature jobs where :code:`StatusRetrievalMethod == POLLING`. This is a feature aimed at organizations where it makes sense to retrieve status changes from several queues. This may be if the organization has more than one division, and each division has an application that create signature jobs through the API and want to retrieve status changes independent of the other division’s actions.
 
-To specify a queue, set :code:`Sender.pollingQueue` through the constructor :code:`Sender(String, PollingQueue)`. Please note that the same sender must be specified when polling to retrieve status changes. The :code:`Sender` can be set globally in :code:`ClientConfiguration` or on every job.
+To specify a queue, set :code:`Sender` :code:`pollingQueue` through when constructing a sender. Please note that the same sender must be specified when polling to retrieve status changes. The :code:`Sender` can be set globally in :code:`ClientConfiguration` or on every job.
 
 ..  tabs::
 
     ..  code-tab:: c#
 
-        hei
+        ClientConfiguration clientConfiguration = null; // As initialized earlier
+        var directClient = new DirectClient(clientConfiguration);
+
+        String organizationNumber = "123456789";
+        var sender = new Sender(organizationNumber, new PollingQueue("CustomPollingQueue"));
+
+        Document documentToSign = null; // As initialized earlier
+        ExitUrls exitUrls = null; // As initialized earlier
+
+        var signer = new PersonalIdentificationNumber("00000000000");
+
+        var job = new Job(
+            documentToSign,
+            new List<Signer> { new Signer(signer) },
+            "SendersReferenceToSignatureJob",
+            exitUrls,
+            sender,
+            StatusRetrievalMethod.Polling
+        );
+
+        await directClient.Create(job);
+
+        var changedJob = await directClient.GetStatusChange(sender);
 
     ..  code-tab:: java
 
@@ -198,10 +274,6 @@ Delete documents
 After receiving a status change, the documents can be deleted as follows:
 
 ..  tabs::
-
-    ..  code-tab:: c#
-
-        hei
 
     ..  code-tab:: java
 
