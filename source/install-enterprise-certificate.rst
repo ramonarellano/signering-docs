@@ -117,4 +117,9 @@ In order to use the certificate you have just installed, the thumbprint of the c
 #. Scroll down to *Thumbprint*
 #. Copy the thumbprint
 
+Java
+=====
+
+If you are using the Java client library, there is no need to install the enterprise certificate. It can be loaded directly from file.
+
 
