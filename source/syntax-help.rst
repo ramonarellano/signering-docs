@@ -1,7 +1,7 @@
 Links
 ******
 
-.. code-block:: xml
+.. code-block:: bash
 
    `link text <http://google.com>`_
 
@@ -99,9 +99,9 @@ Code snippets
 *****************
 
 
-.. code-block::
+.. code-block:: bash
 
-    .. code-block::language
+    .. code-block:: language
 
        Some code here ...
 
