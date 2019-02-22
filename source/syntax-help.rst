@@ -21,6 +21,21 @@ Tabs are used via an extension and how to use can be found `here <https://github
 
 The different tabs are `tab`, `group-tab` and `code-tab`.
 
+.. code-block:: rtf
+
+   .. tabs::
+
+      .. tab:: Apples
+
+         Apples are green, or sometimes red.
+
+      .. tab:: Pears
+
+         Pears are green.
+
+.. TIP::
+   The different tabs are `tab`, `group-tab` and `code-tab`. With `group-tab`, all examples changes tab at the  same time. `code-tab` is self explanatory, but not that it behaves like `group-tab`.
+
 Example tab
 #############
 
@@ -37,3 +52,15 @@ Example tab
    .. tab:: Oranges
 
       Oranges are orange.
+
+
+Code snippets
+*****************
+
+
+.. code-block:: rtf
+
+    .. code-block::language
+
+       Some code here ...
+
