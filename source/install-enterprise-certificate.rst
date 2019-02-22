@@ -5,7 +5,7 @@ In order to use the client, the enterprise certificate must be set up according 
 support .NET Core, .NET Framework and Java.
 
 .. NOTE::
-   The .NET Framework version of the client only exists for versions 1 to 4. The documentation can be found `here <http://digipost.github.io/signature-api-client-dotnet/v4.x/>`_.
+   The .NET Framework version of the client only exists for versions 1 to 4. The documentation can be found `here <http://digipost.github.io/signature-api-client-dotnet/v4.x/>`_. The documentation for installing the certificate is the same, though.
 
 
 .NET Core
@@ -50,9 +50,35 @@ From the command line, navigate to the directory where the current .csproj file 
    dotnet user-secrets set "Certificate:Path:Absolute" "<your-certificate.p12>"
    dotnet user-secrets set "Certificate:Password" "<your-certificate-password>"
 
+.NET Framework
+###############
 
+The following steps will install the certificate in the your certificate store. This should be done on the server where your application will run.
 
+#. Double-click on the actual certificate file (CertificateName.p12)
+#. Save the certificate in :code:`Current User` or :code:`Local Machine` and click *Next*
+#. Use the suggested filename. *Click Next*
+#. Enter password for private key and select *Mark this key as exportable* … *Click Next*
+#. Select Automatically select the certificate store based on the type of certificate
+#. Click *Next* and *Finish*
+#. Accept the certificate if prompted
+#. When prompted that the import was successful, click *OK*
 
+.. NOTE::
+   If you for some reason are not allowed to store the business certificate with the exportable flag, it can be added to the store using the following script:
 
+   *certutil -p <password> -csp "Microsoft Enhanced RSA and AES Cryptographic Provider" -importpfx <filename> NoExport,AT_SIGNATURE*.
+
+In order to use the certificate you have just installed, the thumbprint of the certificate must be retrieved. It can be done in the following way:
+
+#. Start :code:`mmc.exe` (Press the windows button and type mmc.exe)
+#. *Choose File -> Add/Remove Snap-in…* (Ctrl + M)
+#. Mark certificate and click *Add >*
+#. If the certificate was installed in :code:`Current User` choose :code:`My User Account` and if installed on :code:`Local Machine` choose :code:`Computer Account`, click *Finish* and then *OK*
+#. Expand :code:`Certificates` node, select :code:`Personal` and open :code:`Certificates`
+#. Double-click on the installed certificate
+#. Go to the *Details* tab
+#. Scroll down to *Thumbprint*
+#. Copy the thumbprint
 
 
