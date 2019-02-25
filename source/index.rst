@@ -28,6 +28,7 @@ Welcome to the Posten signering documentation!
    direct-flow
    portal-flow
    error-handling
+   debugging
 
 .. toctree::
    :maxdepth: 1
