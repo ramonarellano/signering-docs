@@ -28,6 +28,14 @@ version = u''
 # The full version, including alpha/beta/rc tags
 release = u'1'
 
+html_context = {
+    "display_github": True, # Integrate GitHub
+    "github_user": "digipost", # Username
+    "github_repo": "signering-doc", # Repo name
+    "github_version": "master", # Version
+    "conf_py_path": "/source/", # Path in the checkout to the docs root
+}
+
 
 # -- General configuration ---------------------------------------------------
 
