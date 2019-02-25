@@ -27,6 +27,7 @@ Welcome to the Posten signering documentation!
    create-client-configuration
    direct-flow
    portal-flow
+   error-handling
 
 .. toctree::
    :maxdepth: 1
