@@ -1,6 +1,22 @@
 Portal flow
 ****************************
 
+Having problems integrating?
+#############################
+
+..  TIP::
+    Remember that if you are having problems creating a job in a portal signature flow, you can always get in touch with a human on Github:
+
+    ..  tabs::
+
+        ..  group-tab:: C#
+
+            Get help for your `C# integration here <https://github.com/digipost/signature-api-client-dotnet/issues>`_.
+
+        ..  group-tab:: Java
+
+            Get help for your `Java integration here <https://github.com/digipost/signature-api-client-java/issues>`_.
+
 Create job
 ###########
 
