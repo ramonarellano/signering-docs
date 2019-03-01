@@ -13,11 +13,11 @@ Signering i direkteflyt skjer når undertegner allerede er pålogget i avsenders
 
 Flyten ser typisk slik ut:
 
-1. Undertegner er innlogget i avsenders tjeneste, og utfører en prosess der, f.eks. utfylling av et skjema.
-1. Avsender oppretter et signeringsoppdrag i signeringstjenesten maskinelt
-1. Undertegner blir sendt til signeringstjenesten og gjennomfører signeringssermonien
-1. Undertegner blir sendt tilbake til avsenders tjeneste
-1. Avsender laster ned [signatur](#signerte_dokumenter) og tilbyr en kopi av det signerte dokumentet til undertegner
+#. Undertegner er innlogget i avsenders tjeneste, og utfører en prosess der, f.eks. utfylling av et skjema.
+#. Avsender oppretter et signeringsoppdrag i signeringstjenesten maskinelt
+#. Undertegner blir sendt til signeringstjenesten og gjennomfører signeringssermonien
+#. Undertegner blir sendt tilbake til avsenders tjeneste
+#. Avsender laster ned [signatur](#signerte_dokumenter) og tilbyr en kopi av det signerte dokumentet til undertegner
 
 Signering i portalflyt
 ========================
@@ -26,12 +26,12 @@ Signering i portalflyt skjer når undertegner logger inn i signeringsportalen ti
 
 Flyten ser typisk slik ut:
 
-1. Avsender oppretter et oppdrag gjennom API eller fra web i avsenderportalen.
-1. Posten signering varsler undertegner på e-post (og ev. SMS om spesifiert ved [opprettelse](#opprette-signeringsoppdrag)
-1. Undertegner logger inn på signeringsportalen og gjennomfører signeringssermonien
-1. Undertegner laster ned [signert kopi](#signerte_dokumenter) av dokumentet
-1. Undertegner logger ut av signeringsportalen
-1. Avsender laster ned [signatur](#signerte_dokumenter)
+#. Avsender oppretter et oppdrag gjennom API eller fra web i avsenderportalen.
+#. Posten signering varsler undertegner på e-post (og ev. SMS om spesifiert ved [opprettelse](#opprette-signeringsoppdrag)
+#. Undertegner logger inn på signeringsportalen og gjennomfører signeringssermonien
+#. Undertegner laster ned [signert kopi](#signerte_dokumenter) av dokumentet
+#. Undertegner logger ut av signeringsportalen
+#. Avsender laster ned [signatur](#signerte_dokumenter)
 
 Opprette signeringsoppdrag
 ===========================
