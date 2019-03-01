@@ -33,4 +33,44 @@ Flyten ser typisk slik ut:
 1. Undertegner logger ut av signeringsportalen
 1. Avsender laster ned [signatur](#signerte_dokumenter)
 
+Opprette signeringsoppdrag
+===========================
+Ved opprettelse av signeringsoppdrag kan følgende felter angis:
+
+..  DANGER::
+    Lenker under *Ekstra informasjon* er alle lenker som ikke er koblet opp.
+
+
++---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
+| Felt                      | synkrone oppdrag        | asynkrone oppdrag | Ekstra informasjon                                            |
++===========================+=========================+===================+===============================================================+
+| Dokument                  | **Obligatorisk**        | **Obligatorisk**  |                                                               |
++---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
+| Undertegner(e)            | **Obligatorisk**        | **Obligatorisk**  | se undertegners kontaktinfo                                   |
++---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
+| Tittel                    | **Obligatorisk**        | **Obligatorisk**  |                                                               |
++---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
+| Signaturtype              | Valgfritt               | Valgfritt         | se signaturtype                                               |
++---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
+| Sikkerhetsnivå            | Valgfritt               | Valgfritt         | se sikkerhetsnivå                                             |
++---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
+| Melding til mottaker(e)   | Valgfritt               | Valgfritt         |                                                               |
++---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
+| Undertegners identifikator| Valgfritt               | Valgfritt         | se undertegners identifikator                                 |
++---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
+| Aktiveringstidspunkt      | Ikke overstyrbar [#f1]_ | Valgfritt         |                                                               |
++---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
+| Levetid                   | Ikke overstyrbar [#f2]_ | Valgfritt         |                                                               |
++---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
+| E-postadresse             | Ikke relevant           | **Obligatorisk**  | se varsling                                                   |
++---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
+| Mobilnummer               | Ikke relevant           | Valgfritt         | se varsling                                                   |
++---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
+| Rekkefølge                | Ikke relevant           | Valgfritt         | se kjedet signatur                                            |
++---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
+
+.. rubric:: Footnotes
+
+.. [#f1] Synkrone signeringsoppdrag blir alltid aktivert øyeblikkelig etter opprettelse. *Standardverdi* er *øyeblikkelig etter opprettelse*.
+.. [#f2] Synkrone signeringsoppdrag har alltid 30 dagers levetid for å unngå at et dokument blir signert uhensiktsmessig lenge etter opprettelsen av oppdraget. Eventuell frist fra avsenders perspektiv må kommuniseres og håndteres i avsenders tjenester.
 
