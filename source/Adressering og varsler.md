@@ -34,18 +34,36 @@ Hvis undertegner adresseres på kun e-postadresse eller kun mobilbummer, eller d
    
 ## Varseltekster
 
-Innholdet i varslene som blir sendt ut er predefinert og ikke mulig å endre på for deg som avsender.
+Innholdet i varslene som blir sendt ut er predefinert og ikke mulig å endre på for deg som avsender. Tekstene vil variere litt mtp. innholdet i oppdraget. 
 
 
-### Tekst i 1. varsel:
+### Tekst i 1. e-postvarsel:
 
-.. code-block:: xml
+```
+Epost-emne: Dokument til signering fra *Avsender*
 
+Hei!
 
-Emne: Dokument til signering fra **Avsender**
+Du har fått en forespørsel om å signere et dokument fra *Avsender*: *Tittel på dokumentet*. Dokumentet må signeres innen *Signeringsfrist*. Du kan signere med *disse elektroniske e-IDene*.
 
-Du har fått en forespørsel om å signere et dokument fra **Avsender**: Tittel på dokumentet.
+Logg deg inn på *signering.posten.no/logginn* for å signere dokumentet.
 
-   
-   
-   
+Hilsen Posten
+```
+
+### Tekst i 2. e-postvarsel:
+```
+Epost-emne: Påminnelse: Dokument til signering fra *Avsender*
+
+Hei!
+
+Vi vil minne om at du fortsatt har et dokument til signering fra fra *Avsender*: *Tittel på dokumentet*. Dokumentet må signeres innen *Signeringsfrist*. Du kan signere med *disse elektroniske e-IDene*.
+
+Logg deg inn på *signering.posten.no/logginn* for å signere dokumentet.
+
+Rekker du ikke å signere innen fristen?
+Usignerte dokumenter slettes når fristen går ut. Kontakt *avsender* for å få dokumentet tilsendt på  nytt. 
+
+Hilsen Posten
+```
+
