@@ -36,7 +36,11 @@ Hvis undertegner adresseres på kun e-postadresse eller kun mobilbummer, eller d
 
 Innholdet i varslene som blir sendt ut er predefinert og ikke mulig å endre på for deg som avsender.
 
-Tekst i 1. varsel:
+
+### Tekst i 1. varsel:
+
+.. code-block:: xml
+
 
 Emne: Dokument til signering fra **Avsender**
 
