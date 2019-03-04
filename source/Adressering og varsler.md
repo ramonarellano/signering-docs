@@ -1,3 +1,5 @@
+# Varsler
+
 ## Regler for når varsler til undertegner sendes ut
 
 For å sørge for at undertegner mottar varsler og påminnelser i passende tidsrom, er tidspunktene for når varsler blir sendt ut avhengig av signeringsfristen for et oppdrag. Vi tilbyr å sende ut varsel på e-post og/eller SMS. 
@@ -29,6 +31,17 @@ Hvis undertegner adresseres på kun e-postadresse eller kun mobilbummer, eller d
 
 .. NOTE::
    SMS sendes ikke ut mellom klokken 22:00 og 08:00, med mindre oppdraget opprettes på natten og fristen er så kort at det er nødvendig med umiddelbar utsending.
+   
+## Varseltekster
+
+Innholdet i varslene som blir sendt ut er predefinert og ikke mulig å endre på for deg som avsender.
+
+Tekst i 1. varsel:
+
+Emne: Dokument til signering fra **Avsender**
+
+Du har fått en forespørsel om å signere et dokument fra **Avsender**: Tittel på dokumentet.
+
    
    
    
