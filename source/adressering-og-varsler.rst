@@ -7,7 +7,7 @@ Regler for når varsler til undertegner sendes ut
 For å sørge for at undertegner mottar varsler og påminnelser i passende
 tidsrom, er tidspunktene for når varsler blir sendt ut avhengig av
 signeringsfristen for et oppdrag. Vi tilbyr å sende ut varsel på e-post
-og/eller SMS.
+og/eller SMS. Det koster 40 øre per SMS som sendes ut. 
 
 Hvis undertegner adresseres på både e-postadresse og mobilnummer, sendes
 det ut inntil 3 varsler:
@@ -47,7 +47,7 @@ Signeringsfrist 1. varsel: e-post/SMS 2. varsel: e-post/SMS
 oppdraget opprettes på natten og fristen er så kort at det er nødvendig
 med umiddelbar utsending.
 
-.. NOTE:: Hvis avsender utvider signeringsfristen "kanselleres" alle planlagte varsler for oppdraget. Det blir da generert nye varsler som da blir sendt ut på tidspunkt knyttet til den nye fristen.
+.. NOTE:: Hvis avsender *utvider signeringsfristen* "kanselleres" alle planlagte varsler for oppdraget. Det blir da generert nye varsler som da blir sendt ut på tidspunkt knyttet til den nye fristen.
 
 
 Varseltekster
@@ -55,7 +55,9 @@ Varseltekster
 
 Innholdet i varslene som blir sendt ut er predefinert og ikke mulig å
 endre på for deg som avsender. Tekstene vil variere litt mtp. innholdet
-i oppdraget.
+i oppdraget og om det addresseres med eller uten fødselsnummer.
+
+ADRESSERING MED FØDSELSNUMMER
 
 
 .. code-block:: xml
@@ -90,6 +92,18 @@ i oppdraget.
          fristen går ut. Kontakt *avsender* for å få dokumentet tilsendt på nytt.
 
          Hilsen Posten
+         
+         
+      .. tab:: SMS 1. varsel
+         Epost-emne: Påminnelse: Dokument til signering fra *Avsender*
+
+         Du har dokument til signering fra *Avsender*. Logg inn og signer på *signering.posten.no/logginn* innen                        *signeringsfristen*.
+         
+      .. tab:: SMS 2./3. varsel
+         Epost-emne: Påminnelse: Dokument til signering fra *Avsender*
+
+         Du har et usignert dokument fra *Avsender*. Logg inn og signer på *signering.posten.no/logginn* innen                          *signeringsfristen*.
+         
          
 
 Etter signering: Varsel om oppsalg til digital postkasse
@@ -182,4 +196,6 @@ Offentlige avsendere:
          Hei, du har tidligere signert et dokument fra *Avsender* gjennom den nasjonale fellesløsningen e-Signering.
          Nå har alle undertegnerne signert. Hvis du også ønsker å motta dokumentet med alle signaturer, må du opprette en              digital postkasse innen 7 dager. Da sendes dokumentet automatisk dit, så har du det lett tilgjengelig når du trenger          det: https://www.norge.no/velg-digital-postkasse
 
-         
+  ADRESSERING UTEN FØDSELSNUMMER
+  
+  
