@@ -4,12 +4,7 @@ Med en digital signatur kan man signere dokumenter papirløst ved å bruke auten
 
 Etter at signering av et dokument er fullført så har vi en *teknisk signatur* og en *signert PDF*. En teknisk signatur kalles *XML Advanced Electronic Signature (XAdES)*, og er beviset på at du har signert digitalt. En signert PDF kalles *PDF Advanced Electronic Signature (PAdES)*, og består av originaldokumentet og den tekniske signaturen. 
 
-En teknisk signatur er en XML-fil som inneholder data som gjør at vi kan verifisere hvem som signerte, og sjekke om dokumentet er endret fra signeringstidspunktet. En signert PDF, PAdES, inneholder tekniske signaturer, XAdES, for alle undertegnere. XAdES inneholder de bevis som gjør at det er en gydlig signatur, som hvilke steg som ble utført under signering, hvem som signerte når og på hvilken IP-adresse.
-
-Vi lagrer XAdES hos oss og når en undertegner ønsker å laste ned PAdES så sender vi XAdES til Signicat og så genererer de og returnerer en PAdES. Tjenesten tilgjengeliggjør signaturer i to formater når et dokument har blitt signert – `PAdES`_ og `XAdES`_. Det vil maksimalt finnes én PAdES for et signeringsoppdrag, mens det vil finnes én XAdES *per undertegner*.
-
-.. _PAdES: #pades
-.. _XAdES: #xades
+En teknisk signatur er en XML-fil som inneholder data som gjør at vi kan verifisere hvem som signerte, og sjekke om dokumentet er endret fra signeringstidspunktet. En signert PDF, PAdES, inneholder tekniske signaturer, XAdES, for alle undertegnere. XAdES inneholder de bevis som gjør at det er en gydlig signatur. Dette inkluderer blant annet hvilken signeringsmetode som ble brukt, hvem som signerte når og hvilken IP-adresse undertegner hadde.
 
 Alle dokumenter kan lastes ned i en periode etter at signeringsoppdraget er fullført. Levetiden er avhengig av om `langtidslagring`_ er aktivert for avsenderen.
 
@@ -27,35 +22,9 @@ Når avsender er en offentlig virksomhet:
 - Navn + fødselsnummer
 - Navn
 
-Merk: Dersom du vil at undertegners fødselsnummer skal fremkomme på det signerte dokumentet er du av personvermessige hensyn nødt til å adressere undertegner på fødselsnummer i signeringsoppdraget. 
+..  NOTE::
+    Dersom du vil at undertegners fødselsnummer skal fremkomme på det signerte dokumentet er du av personvermessige hensyn nødt til å adressere undertegner på fødselsnummer i signeringsoppdraget. 
 
-Følgende tabell viser hvilke valg som er gyldige for hhv. offentlige og private avsendervirksomheter når det innhentes `avanserte eller autentiserte signaturer`_:
+Hvis du utelater fødselsnummer i de signerte dokumentene kan vi ikke påvise identiteten med 100 % sikkerhet.\ `1`_\  Vi kan likevel i de aller fleste tilfeller oppnå tilstrekkelig beviskraft, på bakgrunn av konteksten signeringen skjer i.
 
-=========== ====== =========
-\           Privat Offentlig
-=========== ====== =========
-Avansert    1, 2   1
-Autentisert N/A    1, 3
-=========== ====== =========
-
-*Merk*: Alternativ 1 kan kun benyttes om fødselsnummer er brukt for å identifiseres undertegner ved opprettelse av oppdraget. Se for øvrig avsnittet om `undertegners identifikator og kontaktinfo`_
-
-Hvis du utelater fødselsnummer i de signerte dokumentene kan vi ikke påvise identiteten med 100 % sikkerhet.\ `1`_\  Vi kan likevel i de
-aller fleste tilfeller oppnå tilstrekkelig beviskraft, på bakgrunn av
-konteksten signeringen skjer i.
-
-Sannsynligheten er for eksempel svært liten for at 2 personer med navn
-Kari Olsen signerer en lærekontrakt med Lærlingebedrift AS på eksakt
-samme tidspunkt. I tillegg vil tekniske spor (audit trail), og andre
-eksterne forhold som kunderelasjon eller opplysninger i dokumentet også
-støtte opp under identiteten til den som har signert.
-
-1 Det signerte dokumentet inneholder en anonymisert identifikator som
-identifiserer undertegneren med 100 % sikkerhet hos leverandøren av
-e-ID, for eksempel hos BankID. Dette krever oppslag hos leverandøren av
-e-ID og støttes kun ved avansert e-signatur.
-
-.. _langtidslagring: #langtidslagring
-.. _avanserte eller autentiserte signaturer: #autentisert-og-avansert-e-signatur
-.. _undertegners identifikator og kontaktinfo: #identifikator-kontaktinfo
-.. _1: #fotnote-e-id-identifikator
+Sannsynligheten er for eksempel svært liten for at 2 personer med navn Kari Olsen signerer en lærekontrakt med Lærlingebedrift AS på eksakt samme tidspunkt. I tillegg vil tekniske spor (audit trail), og andre eksterne forhold som kunderelasjon eller opplysninger i dokumentet også støtte opp under identiteten til den som har signert.
