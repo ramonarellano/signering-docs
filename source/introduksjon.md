@@ -1,7 +1,7 @@
-## Hvorfor bruke Posten signering
+# Hvorfor bruke Posten signering
 Vi tror på det å gjøre livet til folk enklere. Ved å ta i bruk digital signering fra Posten, slipper du den tidkrevende og manuelle håndteringen av dokumenter som skal signeres. 
 
-# Hva er Posten signering
+## Hva er Posten signering
 Posten signering er en tjeneste som tilbyr digital signering til offentlige og private virksomheter. Med digital signering gjennomføres selve signeringen med en elektronisk ID. Det signerte dokumentet kan ikke endres i etterkant uten at signaturen brytes, og dokumentet kan lagres i et arkiv eller lastes ned til virksomhetens arkiv. Tjenesten støtter både at enkeltpersoner og flere personer kan signere samme dokument. Vi utvikler stadig ny funksjonalitet i tjenesten, og tar gjerne imot innspill fra både virksomheter og privatpersoner. 
 
 ## Hvordan bruke Posten signering
