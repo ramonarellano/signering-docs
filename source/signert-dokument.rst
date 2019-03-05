@@ -1,25 +1,23 @@
 Signerte dokumenter
-====================´
+====================
+Med en digital signatur kan man signere dokumenter papirløst ved å bruke autentisering av en person og koble det sammen med et dokument. For signerte PDF-dokumenter er signaturdata i selve filen, og mange PDF-lesere har mulighet til å vise den digitale signaturen.
 
-Tjenesten tilgjengeliggjør signaturer i to formater når et dokument har
-blitt signert – `PAdES`_ og `XAdES`_. Det vil maksimalt finnes én PAdES
-for et signeringsoppdrag, mens det vil finnes én XAdES *per
-undertegner*.
+Etter at signering av et dokument er fullført så har vi en *teknisk signatur* og en *signert PDF*. En teknisk signatur kalles *XML Advanced Electronic Signature (XAdES)*, og er beviset på at du har signert digitalt. En signert PDF kalles *PDF Advanced Electronic Signature (PAdES)*, og består av originaldokumentet og den tekniske signaturen. 
+
+En teknisk signatur er en XML-fil som inneholder data som gjør at vi kan verifisere hvem som signerte, og sjekke om dokumentet er endret fra signeringstidspunktet. En signert PDF, PAdES, inneholder tekniske signaturer, XAdES, for alle undertegnere. XAdES inneholder de bevis som gjør at det er en gydlig signatur, som hvilke steg som ble utført under signering, hvem som signerte når og på hvilken IP-adresse.
+
+Vi lagrer XAdES hos oss og når en undertegner ønsker å laste ned PAdES så sender vi XAdES til Signicat og så genererer de og returnerer en PAdES. Tjenesten tilgjengeliggjør signaturer i to formater når et dokument har blitt signert – `PAdES`_ og `XAdES`_. Det vil maksimalt finnes én PAdES for et signeringsoppdrag, mens det vil finnes én XAdES *per undertegner*.
 
 .. _PAdES: #pades
 .. _XAdES: #xades
 
-Alle dokumenter kan lastes ned i en periode etter at signeringsoppdraget
-er fullført. Levetiden er avhengig av om `langtidslagring`_ er aktivert
-for avsenderen.
+Alle dokumenter kan lastes ned i en periode etter at signeringsoppdraget er fullført. Levetiden er avhengig av om `langtidslagring`_ er aktivert for avsenderen.
 
 Hvordan identifiseres undertegnere i et ferdig signert dokument?
 ------------------------------------------------------------------
 
-Under opprettelse av signeringsoppdrag kan avsender velge hvordan
-undertegnerne skal identifiseres i de signerte dokumentene. 
-Avsender velger å inkludere én av følgende identifikatorer i signerte
-dokumenter:
+Under opprettelse av signeringsoppdrag kan avsender velge hvordan undertegnerne skal identifiseres i de signerte dokumentene. 
+Avsender velger å inkludere én av følgende identifikatorer i signerte dokumenter:
 
 Når avsender er en bedrift: 
 - Navn + fødselsnummer
@@ -31,9 +29,7 @@ Når avsender er en offentlig virksomhet:
 
 Merk: Dersom du vil at undertegners fødselsnummer skal fremkomme på det signerte dokumentet er du av personvermessige hensyn nødt til å adressere undertegner på fødselsnummer i signeringsoppdraget. 
 
-Følgende tabell viser hvilke valg som er gyldige for hhv. offentlige og
-private avsendervirksomheter når det innhentes `avanserte eller
-autentiserte signaturer`_:
+Følgende tabell viser hvilke valg som er gyldige for hhv. offentlige og private avsendervirksomheter når det innhentes `avanserte eller autentiserte signaturer`_:
 
 =========== ====== =========
 \           Privat Offentlig
@@ -42,12 +38,9 @@ Avansert    1, 2   1
 Autentisert N/A    1, 3
 =========== ====== =========
 
-*Merk*: Alternativ 1 kan kun benyttes om fødselsnummer er brukt for å
-identifiseres undertegner ved opprettelse av oppdraget. Se for øvrig
-avsnittet om `undertegners identifikator og kontaktinfo`_
+*Merk*: Alternativ 1 kan kun benyttes om fødselsnummer er brukt for å identifiseres undertegner ved opprettelse av oppdraget. Se for øvrig avsnittet om `undertegners identifikator og kontaktinfo`_
 
-Hvis du utelater fødselsnummer i de signerte dokumentene kan vi ikke
-påvise identiteten med 100 % sikkerhet.\ `1`_\  Vi kan likevel i de
+Hvis du utelater fødselsnummer i de signerte dokumentene kan vi ikke påvise identiteten med 100 % sikkerhet.\ `1`_\  Vi kan likevel i de
 aller fleste tilfeller oppnå tilstrekkelig beviskraft, på bakgrunn av
 konteksten signeringen skjer i.
 
