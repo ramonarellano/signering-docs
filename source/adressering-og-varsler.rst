@@ -47,6 +47,9 @@ Signeringsfrist 1. varsel: e-post/SMS 2. varsel: e-post/SMS
 oppdraget opprettes på natten og fristen er så kort at det er nødvendig
 med umiddelbar utsending.
 
+.. NOTE:: Hvis avsender utvider signeringsfristen "kanselleres" alle planlagte varsler for oppdraget. Det blir da generert nye varsler som da blir sendt ut på tidspunkt knyttet til den nye fristen.
+
+
 Varseltekster
 -------------
 
@@ -54,33 +57,129 @@ Innholdet i varslene som blir sendt ut er predefinert og ikke mulig å
 endre på for deg som avsender. Tekstene vil variere litt mtp. innholdet
 i oppdraget.
 
-Tekst i 1. e-postvarsel:
-~~~~~~~~~~~~~~~~~~~~~~~~
 
-::
+.. code-block:: xml
 
-   Epost-emne: Dokument til signering fra *Avsender*
+   .. tabs::
 
-   Hei!
+      .. tab:: Epost-tekst 1. varsel
 
-   Du har fått en forespørsel om å signere et dokument fra *Avsender*: *Tittel på dokumentet*. Dokumentet må signeres innen *Signeringsfrist*. Du kan signere med *disse elektroniske e-IDene*.
+         Epost-emne: Dokument til signering fra *Avsender*
 
-   Logg deg inn på *signering.posten.no/logginn* for å signere dokumentet.
+         Hei!
 
-   Hilsen Posten
+         Du har fått en forespørsel om å signere et dokument fra *Avsender*: *Tittel på dokumentet*. Dokumentet må signeres            innen *Signeringsfrist*. Du kan signere med *disse elektroniske e-IDene*.
 
-Tekst i 2. e-postvarsel:
-~~~~~~~~~~~~~~~~~~~~~~~~
+         Logg deg inn på *signering.posten.no/logginn* for å signere dokumentet.
 
-\``\` Epost-emne: Påminnelse: Dokument til signering fra *Avsender*
+         Hilsen Posten
+    
+      
+      .. tab:: Epost-tekst 2. varsel
+         Epost-emne: Påminnelse: Dokument til signering fra *Avsender*
 
-Hei!
+         Hei!
 
-Vi vil minne om at du fortsatt har et dokument til signering fra fra
-*Avsender*: *Tittel på dokumentet*. Dokumentet må signeres innen
-*Signeringsfrist*. Du kan signere med *disse elektroniske e-IDene*.
+         Vi vil minne om at du fortsatt har et dokument til signering fra fra
+         *Avsender*: *Tittel på dokumentet*. Dokumentet må signeres innen
+         *Signeringsfrist*. Du kan signere med *disse elektroniske e-IDene*.
 
-Logg deg inn på *signering.posten.no/logginn* for å signere dokumentet.
+         Logg deg inn på *signering.posten.no/logginn* for å signere dokumentet.
 
-Rekker du ikke å signere innen fristen? Usignerte dokumenter slettes når
-fristen går ut. Kontakt *avsender* for å få dokumentet tilsendt på
+         Rekker du ikke å signere innen fristen? Usignerte dokumenter slettes når
+         fristen går ut. Kontakt *avsender* for å få dokumentet tilsendt på nytt.
+
+         Hilsen Posten
+         
+
+Etter signering: Varsel om oppsalg til digital postkasse
+--------------------------------------------------------
+
+Etter at en undertegner har signert et dokument, vil den i *disse tilfeller* få mulighet til å opprette en digital postkasse. Hvis avsender er privat, vil undertegner få mulighet til å opprette konto hos Digipost, og hvis avsender er offentlig vil undertegner kunne velge digital postkasse på Norge.no.
+
+Innholdet i dette varselet er litt ulikt avhengig av hvor mange undertegnere som skal signere dokumentet, og om avsender er privat eller offentlig.
+
+Private avsendere:
+
+.. code-block:: xml
+
+   .. tabs::
+
+      .. tab:: E-post, én undertegner
+
+         Epost-emne: Motta det signerte dokumentet i Digipost
+
+         Hei!
+
+         Du har nettopp signert et dokument fra *Avsender* gjennom Posten signering.
+
+         Hvis du oppretter en konto i Digipost innen 7 dager, sendes dokumentet du signerte automatisk dit. Da har du det              lett tilgjengelig når du trenger det!
+         
+         Registrer deg i Digipost: "https://www.digipost.no/app/registrering,
+
+         Hilsen Posten
+    
+      .. tab:: E-post, flere undertegnere
+
+         Epost-emne: Motta det signerte dokumentet i Digipost
+
+         Hei!
+
+         Du har tidligere signert et dokument fra *Avsender* gjennom Posten signering. Nå har alle undertegnerne signert, og            avsender har mottatt det ferdigsignerte dokumentet.
+
+         Hvis du også ønsker å motta dokumentet med alle signaturer, må du opprette en konto i Digipost innen 7 dager. Da              sendes dokumentet automatisk dit, så har du det lett tilgjengelig når du trenger det.
+
+         Registrer deg i Digipost: https://www.digipost.no/app/registrering,
+         
+         Hilsen Posten
+
+      .. tab:: SMS, én undertegner
+       
+         Hei, du har nettopp signert et dokument fra *Avsender* gjennom Posten signering.
+         Hvis du oppretter en konto i Digipost innen 7 dager, sendes dokumentet du signerte automatisk dit:                            https://www.digipost.no/app/registrering
+
+      .. tab:: SMS, flere undertegnere
+       
+         Hei! Du har tidligere signert et dokument fra *Avsender* gjennom Posten signering.
+         Nå har alle undertegnerne signert. Hvis du også ønsker å motta dokumentet med alle signaturer, må du opprette en              konto i Digipost innen 7 dager. Da sendes dokumentet automatisk dit, så har du det lett tilgjengelig når du trenger            det: https://www.digipost.no/app/registrering         
+
+Offentlige avsendere:   
+      
+.. code-block:: xml
+
+   .. tabs::
+      
+      .. tab:: E-post, én undertegner
+       
+         Epost-emne: Motta det signerte dokumentet i din digitale postkasse
+
+         Hei!
+
+         Du har nettopp signert et dokument fra *Avsender* gjennom den nasjonale fellesløsningen e-Signering.
+         Hvis du oppretter en konto i Digipost innen 7 dager, sendes dokumentet du signerte automatisk dit. Da har du det              lett tilgjengelig når du trenger det!
+
+         Opprett digital postkasse:
+         https://www.norge.no/velg-digital-postkasse
+ 
+      .. tab:: E-post, flere undertegnere
+       
+         Epost-emne: Motta det signerte dokumentet i din digitale postkasse
+
+         Hei!
+
+         Du har tidligere signert et dokument fra *Avsender* gjennom den nasjonale fellesløsningen e-Signering. Nå har alle            undertegnerne signert, og avsender har mottatt det ferdigsignerte dokumentet. Hvis du også ønsker å motta dokumentet          med alle signaturer, må du opprette en digital postkasse innen 7 dager. Da sendes dokumentet automatisk dit, så har            du det tilgjengelig når du trenger det!
+         
+         Opprett digital postkasse:
+         https://www.norge.no/velg-digital-postkasse
+      
+      .. tab:: SMS, én undertegner
+       
+         Hei, du har nettopp signert et dokument fra *Avsender* gjennom den nasjonale fellesløsningen e-Signering.
+         Hvis du oppretter en digital postkasse innen 7 dager, sendes dokumentet du signerte automatisk dit:                            https://www.norge.no/velg-digital-postkasse
+
+      .. tab:: SMS, flere undertegnere
+       
+         Hei, du har tidligere signert et dokument fra *Avsender* gjennom den nasjonale fellesløsningen e-Signering.
+         Nå har alle undertegnerne signert. Hvis du også ønsker å motta dokumentet med alle signaturer, må du opprette en              digital postkasse innen 7 dager. Da sendes dokumentet automatisk dit, så har du det lett tilgjengelig når du trenger          det: https://www.norge.no/velg-digital-postkasse
+
+         
