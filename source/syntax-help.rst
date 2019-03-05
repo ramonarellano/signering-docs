@@ -40,26 +40,46 @@ Admonitions
 Example admonitions
 #######################
 
-.. code-block:: xml
+..  code-block:: xml
 
-    .. CAUTION::
-       Caution message
-    .. DANGER::
-       Danger zone!
-    .. NOTE::
-       Important note!
-    .. TIP::
-       Just a tip!
+    ..  CAUTION::
+        Caution message
+    ..  DANGER::
+        Danger zone!
+    ..  NOTE::
+        Important note!
+    ..  TIP::
+        Just a tip!
 
 
-.. CAUTION::
-   Caution message
-.. DANGER::
-   Danger zone!
-.. NOTE::
-   Important note!
-.. TIP::
-   Just a tip!
+..  CAUTION::
+    Caution message
+..  DANGER::
+    Danger zone!
+..  NOTE::
+    Important note!
+..  TIP::
+    Just a tip!
+
+References
+***********
+
+To reference a chapter *anywhere* in the documentation, add a label over the heading:
+
+..  code-block:: xml
+
+    .. _my-reference-label:
+
+    Section to cross-reference
+    --------------------------
+
+    This is the text of the section.
+
+    It refers to the section itself, see :ref:`my-reference-label`.
+
+..  TIP::
+    Always use underscore, _, first in the reference, but never when you use the reference.
+
 
 Tabs
 **********************
