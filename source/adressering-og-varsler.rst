@@ -44,16 +44,17 @@ Signeringsfrist 1. varsel: e-post/SMS 2. varsel: e-post/SMS
 .. NOTE:: Hvis avsender *utvider signeringsfristen* "kanselleres" alle planlagte varsler for oppdraget. Det blir da generert nye varsler som da blir sendt ut på tidspunkt knyttet til den nye fristen.
 
 
-Varseltekster
-===============
+Varseltekster for undertegner
+=============================
 
-Innholdet i varslene som blir sendt ut er predefinert og ikke mulig å
-endre på for deg som avsender. Tekstene vil variere litt mtp. innholdet
-i oppdraget og om det addresseres med eller uten fødselsnummer.
+Innholdet i varslene som blir sendt ut er predefinert og ikke mulig å endre på for deg som avsender. Varseltekstene er hovedsakelig forskjellig ut fra om adresseringen til undertegner er med eller uten fødselsnummer. I tillegg er det et par ulikheter som kommer fra variablene
+- hvilken kanal de sendes i (e-post/SMS)
+- sektor som avsender sender fra (privat eller offentlig)
+- antall undertegnere på oppdraget
 
-Adressering med fødselsnummer
-_______________________________
 
+Varsel om dokument til signering, ved adressering med fødselsnummer
+____________________________________________________________________
 
 ..  tabs::
 
@@ -86,25 +87,73 @@ _______________________________
 .. tabs::
          
     ..  tab:: SMS 1. varsel
-        Epost-emne: Påminnelse: Dokument til signering fra *Avsender*
-
         Du har dokument til signering fra *Avsender*. Logg inn og signer på *signering.posten.no/logginn* innen *signeringsfristen*.
          
     ..  tab:: SMS 2./3. varsel
-        Epost-emne: Påminnelse: Dokument til signering fra *Avsender*
-
         Du har et usignert dokument fra *Avsender*. Logg inn og signer på *signering.posten.no/logginn* innen *signeringsfristen*.
          
+
+Varsel om dokument til signering, ved adressering uten fødselsnummer
+____________________________________________________________________
+
+.. tabs::
          
+    ..  tab:: E-post 1. varsel
+        Hei!
+        Du har fått en forespørsel om å signere et dokument fra *Avsender*: *Dokumenttittel*.
+        
+        [Dokumentet er nå signert av #antall og må signeres innen / Dokumentet må signeres innen] *signeringsfrist*.
+        
+        Du kan signere med *disse elektroniske ID-ene*.
+        
+        Slik signerer du:
+        1) Klikk på lenken under
+        2) Skriv inn sikkerhetskode XXXX
+        3) Les og signer dokumentet
+        
+        https://signering.posten.no/uniklenke
+        
+        Hilsen Posten
+         
+    ..  tab:: E-post 2. varsel
+        Hei!
+        Vi vil minne om at du fortsatt har et dokument til signering fra *Avsender*: *Dokumenttittel*.
+        
+        [Dokumentet er nå signert av #antall og må signeres innen / Dokumentet må signeres innen] *signeringsfrist*.
+               
+        Du kan signere med *disse elektroniske ID-ene*.
+        
+        Slik signerer du:
+        1) Klikk på lenken under
+        2) Skriv inn sikkerhetskode XXXX
+        3) Les og signer dokumentet
+        
+        https://signering.posten.no/uniklenke
+        
+        Rekker du ikke å signere innen fristen?
+        Usignerte dokumenter slettes når fristen går ut. Kontakt *Avsender* fpr å få dokumentet tilsendt på nytt.
+               
+        Hilsen Posten
+
+.. tabs::
+         
+    ..  tab:: SMS 1. varsel
+        Hei! *Avsender* ber deg signere et dokument. Bruk kode XXXX på https://signering.posten.no/uniklenke før *signeringsfristen*.
+         
+    ..  tab:: SMS 2./3. varsel
+        Hei! Husk signering for *Avsender*. Bruk kode XXXX på https://signering.posten.no/uniklenke før *signeringsfristen*.
+
+
 
 Etter signering: Varsel om oppsalg til digital postkasse
---------------------------------------------------------
+________________________________________________________
 
 Etter at en undertegner har signert et dokument, vil den i *disse tilfeller* få mulighet til å opprette en digital postkasse. Hvis avsender er privat, vil undertegner få mulighet til å opprette konto hos Digipost, og hvis avsender er offentlig vil undertegner kunne velge digital postkasse på Norge.no.
 
-Innholdet i dette varselet er litt ulikt avhengig av hvor mange undertegnere som skal signere dokumentet, og om avsender er privat eller offentlig.
+Innholdet i dette varselet er ulikt avhengig av hvor mange undertegnere som skal signere dokumentet, og om avsender er privat eller offentlig.
 
-Private avsendere:
+Private avsendere
+^^^^^^^^^^^^^^^^^^^
 
 ..  tabs::
 
@@ -135,6 +184,9 @@ Private avsendere:
         Registrer deg i Digipost: https://www.digipost.no/app/registrering,
          
         Hilsen Posten
+        
+        
+..  tabs::
 
     ..  tab:: SMS, én undertegner
        
@@ -147,7 +199,9 @@ Private avsendere:
 
         Nå har alle undertegnerne signert. Hvis du også ønsker å motta dokumentet med alle signaturer, må du opprette en konto i Digipost innen 7 dager. Da sendes dokumentet automatisk dit, så har du det lett tilgjengelig når du trenger            det: https://www.digipost.no/app/registrering
 
-Offentlige avsendere:   
+
+Offentlige avsendere
+^^^^^^^^^^^^^^^^^^^^^
       
 ..  tabs::
       
@@ -174,6 +228,8 @@ Offentlige avsendere:
          
         Opprett digital postkasse:
         https://www.norge.no/velg-digital-postkasse
+        
+..  tabs::
       
     ..  tab:: SMS, én undertegner
        
@@ -185,7 +241,5 @@ Offentlige avsendere:
         Hei, du har tidligere signert et dokument fra *Avsender* gjennom den nasjonale fellesløsningen e-Signering. Nå har alle undertegnerne signert. Hvis du også ønsker å motta dokumentet med alle signaturer, må du opprette en digital postkasse innen 7 dager. Da sendes dokumentet automatisk dit, så har du det lett tilgjengelig når du trenger det: https://www.norge.no/velg-digital-postkasse
 
 
-Adressering uten fødselsnummer
-_______________________________
-  
+
   
