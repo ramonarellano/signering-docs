@@ -14,11 +14,13 @@ Hvordan identifiseres undertegnere i et ferdig signert dokument?
 Under opprettelse av signeringsoppdrag kan avsender velge hvordan undertegnerne skal identifiseres i de signerte dokumentene. 
 Avsender velger å inkludere én av følgende identifikatorer i signerte dokumenter:
 
-Når avsender er en bedrift: 
+Når avsender er en bedrift:
+
 - Navn + fødselsnummer
 - Navn + fødselsdato 
 
 Når avsender er en offentlig virksomhet: 
+
 - Navn + fødselsnummer
 - Navn
 
