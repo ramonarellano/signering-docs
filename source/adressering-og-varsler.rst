@@ -60,7 +60,7 @@ ____________________________________________________________________
 
     ..  tab:: Epost-tekst 1. varsel
 
-        Epost-emne: Dokument til signering fra *Avsender*
+        **Epost-emne**: Dokument til signering fra *Avsender*
 
         Hei!
 
@@ -72,11 +72,12 @@ ____________________________________________________________________
     
       
     ..  tab:: Epost-tekst 2. varsel
-        Epost-emne: Påminnelse: Dokument til signering fra *Avsender*
+
+        **Epost-emne**: Påminnelse: Dokument til signering fra *Avsender*
 
         Hei!
 
-        Vi vil minne om at du fortsatt har et dokument til signering fra fra         *Avsender*: *Tittel på dokumentet*. Dokumentet må signeres innen         *Signeringsfrist*. Du kan signere med *disse elektroniske e-IDene*.
+        Vi vil minne om at du fortsatt har et dokument til signering fra fra         *Avsender*: *Tittel på dokumentet*. Dokumentet må signeres innen *Signeringsfrist*. Du kan signere med *disse elektroniske e-IDene*.
 
         Logg deg inn på *signering.posten.no/logginn* for å signere dokumentet.
 
@@ -84,21 +85,25 @@ ____________________________________________________________________
 
         Hilsen Posten
 
-.. tabs::
-         
+
+..  tabs::
+
     ..  tab:: SMS 1. varsel
+
         Du har dokument til signering fra *Avsender*. Logg inn og signer på *signering.posten.no/logginn* innen *signeringsfristen*.
          
     ..  tab:: SMS 2./3. varsel
+
         Du har et usignert dokument fra *Avsender*. Logg inn og signer på *signering.posten.no/logginn* innen *signeringsfristen*.
          
 
 Varsel om dokument til signering, ved adressering uten fødselsnummer
 ____________________________________________________________________
 
-.. tabs::
+..  tabs::
          
     ..  tab:: E-post 1. varsel
+
         Hei!
         Du har fått en forespørsel om å signere et dokument fra *Avsender*: *Dokumenttittel*.
         
@@ -116,6 +121,7 @@ ____________________________________________________________________
         Hilsen Posten
          
     ..  tab:: E-post 2. varsel
+
         Hei!
         Vi vil minne om at du fortsatt har et dokument til signering fra *Avsender*: *Dokumenttittel*.
         
@@ -138,9 +144,11 @@ ____________________________________________________________________
 .. tabs::
          
     ..  tab:: SMS 1. varsel
+
         Hei! *Avsender* ber deg signere et dokument. Bruk kode XXXX på https://signering.posten.no/uniklenke før *signeringsfristen*.
          
     ..  tab:: SMS 2./3. varsel
+
         Hei! Husk signering for *Avsender*. Bruk kode XXXX på https://signering.posten.no/uniklenke før *signeringsfristen*.
 
 
@@ -159,7 +167,7 @@ Private avsendere
 
     ..  tab:: E-post, én undertegner
 
-        Epost-emne: Motta det signerte dokumentet i Digipost
+        **Epost-emne**: Motta det signerte dokumentet i Digipost
 
         Hei!
 
@@ -173,7 +181,7 @@ Private avsendere
     
     ..  tab:: E-post, flere undertegnere
 
-        Epost-emne: Motta det signerte dokumentet i Digipost
+        **Epost-emne**: Motta det signerte dokumentet i Digipost
 
         Hei!
 
@@ -207,20 +215,20 @@ Offentlige avsendere
       
     ..  tab:: E-post, én undertegner
        
-    Epost-emne: Motta det signerte dokumentet i din digitale postkasse
+        **Epost-emne**: Motta det signerte dokumentet i din digitale postkasse
 
-    Hei!
+        Hei!
 
-    Du har nettopp signert et dokument fra *Avsender* gjennom den nasjonale fellesløsningen e-Signering.
+        Du har nettopp signert et dokument fra *Avsender* gjennom den nasjonale fellesløsningen e-Signering.
 
-    Hvis du oppretter en konto i Digipost innen 7 dager, sendes dokumentet du signerte automatisk dit. Da har du det lett tilgjengelig når du trenger det!
+        Hvis du oppretter en konto i Digipost innen 7 dager, sendes dokumentet du signerte automatisk dit. Da har du det lett tilgjengelig når du trenger det!
 
-    Opprett digital postkasse:
-    https://www.norge.no/velg-digital-postkasse
+        Opprett digital postkasse:
+        https://www.norge.no/velg-digital-postkasse
  
     ..  tab:: E-post, flere undertegnere
        
-        Epost-emne: Motta det signerte dokumentet i din digitale postkasse
+        **Epost-emne**: Motta det signerte dokumentet i din digitale postkasse
 
         Hei!
 
