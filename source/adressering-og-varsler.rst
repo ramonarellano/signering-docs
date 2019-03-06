@@ -12,7 +12,7 @@ det ut inntil 3 varsler:
 =============== ================= ================= =================
 Signeringsfrist 1. varsel: e-post 2. varsel: e-post 3. varsel: SMS
 =============== ================= ================= =================
-0-24 timer      Ved aktivering    -                 Ved aktivering
+0-24 timer      Ved aktivering                      Ved aktivering
 2-3 dager       Ved aktivering    1 dag før frist   1 dag før frist
 4-5 dager       Ved aktivering    2 dager før frist 1 dag før frist
 6-9 dager       Ved aktivering    3 dager før frist 2 dager før frist
@@ -28,7 +28,7 @@ Hvis undertegner adresseres på kun e-postadresse eller kun mobilbummer, eller d
 =============== ===================== =====================
 Signeringsfrist 1. varsel: e-post/SMS 2. varsel: e-post/SMS
 =============== ===================== =====================
-0-24 timer      Ved aktivering        -
+0-24 timer      Ved aktivering
 2-3 dager       Ved aktivering        1 dag før frist
 4-5 dager       Ved aktivering        2 dager før frist
 6-9 dager       Ved aktivering        3 dager før frist
