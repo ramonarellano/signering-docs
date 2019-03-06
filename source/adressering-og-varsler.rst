@@ -47,7 +47,8 @@ Signeringsfrist 1. varsel: e-post/SMS 2. varsel: e-post/SMS
 Varseltekster for undertegner
 =============================
 
-Innholdet i varslene som blir sendt ut er predefinert og ikke mulig å endre på for deg som avsender. Varseltekstene er hovedsakelig forskjellig ut fra om adresseringen til undertegner er med eller uten fødselsnummer. I tillegg er det et par ulikheter som kommer fra variablene
+Innholdet i varslene som blir sendt ut er predefinert og ikke mulig å endre på for deg som avsender. Varseltekstene er hovedsakelig forskjellig ut fra om adresseringen til undertegner er med eller uten fødselsnummer. I tillegg er det et par ulikheter som kommer fra variablene:
+
 - hvilken kanal de sendes i (e-post/SMS)
 - sektor som avsender sender fra (privat eller offentlig)
 - antall undertegnere på oppdraget
