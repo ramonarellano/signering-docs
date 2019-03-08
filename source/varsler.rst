@@ -42,6 +42,8 @@ Signeringsfrist 1. varsel: e-post/SMS 2. varsel: e-post/SMS
 
 .. NOTE:: Hvis avsender *utvider signeringsfristen* slettes alle planlagte varsler for oppdraget. Det blir da generert nye varsler som sendes ut på relative tidspunkt knyttet til den nye fristen.
 
+.. CAUTION:: Får å unngå at vi kommer i skade for å sende varsler til reelle mottakere i testmiljøer, er det lagt inn noen sikkerhetsmekanisme i difitest og difiqa: e-postvarsler inkluderer en setning som indikerer at varselet kommer fra et testmiljø: "Dette er en test-e-post sendt for Difi fra Postens signeringstjeneste" og SMS-varslene erstattes i sin helhet med setningen: "Dette er en test-SMS sendt for Difi fra Postens signeringstjeneste".
+
 
 Varseltekster for undertegnere
 ===============================
@@ -57,7 +59,8 @@ Innholdet i varselet vil variere ut fra om
 
 **For offentlige avsendere** hentes kontaktinformasjonen til undertegner fra KRR (Kontakt- og reservasjonsregisteret). Unntaket er hvis undertegneren skal signere "på vegne av andre", f.eks. hvis hun er ansatt i en bedrift hun signerer på vegne av. Da legges kontaktinformasjonen inn av avsender.
 
-**For private avsendere** er det alltid avsender selv som legger inn kontaktinformasjon til undertegner. 
+**For private avsendere** er det alltid avsender selv som legger inn kontaktinformasjon til undertegner.
+
 
 Nedenfor vises de ulike variantene av varslene som sendes på e-post og SMS.
 
