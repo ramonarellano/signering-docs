@@ -57,7 +57,7 @@ Innholdet i varselet vil variere ut fra om
 - sektor som avsender sender fra (privat eller offentlig)
 - antall undertegnere på oppdraget
 
-**For offentlige avsendere** hentes kontaktinformasjonen til undertegner fra KRR (Kontakt- og reservasjonsregisteret). Unntaket er hvis undertegneren skal signere "på vegne av andre", f.eks. hvis hun er ansatt i en bedrift hun signerer på vegne av. Da legges kontaktinformasjonen inn av avsender.
+**For offentlige avsendere** hentes kontaktinformasjonen til undertegner fra Kontakt- og reservasjonsregisteret (KRR). Unntaket er hvis undertegneren skal signere på vegne av andre, f.eks. hvis han er ansatt i en bedrift han signerer på vegne av. Da legges kontaktinformasjonen inn av avsender.
 
 **For private avsendere** er det alltid avsender selv som legger inn kontaktinformasjon til undertegner.
 
@@ -72,36 +72,36 @@ ____________________________________________________________________
 
     ..  tab:: E-post 1. varsel
 
-        **Emne**: Dokument til signering fra [Avsender]
+        **Emne**: Dokument til signering fra [*Avsender*]
 
         Hei!
 
-        Du har fått en forespørsel om å signere et dokument fra [Avsender]: [Tittel på dokumentet].
+        Du har fått en forespørsel om å signere et dokument fra [*Avsender*]: [*Tittel på dokumentet*].
         
-        Dokumentet er nå signert av [antall] og må signeres innen [signeringsfrist] / Dokumentet må signeres innen [signeringsfrist].
+        Dokumentet er nå signert av [*antall*] og må signeres innen [*signeringsfrist*] / Dokumentet må signeres innen [*signeringsfrist*].
         
-        Du kan signere med [disse elektroniske e-IDene].
+        Du kan signere med [*disse elektroniske e-IDene*].
 
-        Logg deg inn på [signering.posten.no/logginn] for å signere dokumentet.
+        Logg deg inn på [*signering.posten.no/logginn*] for å signere dokumentet.
 
         Hilsen Posten
     
       
     ..  tab:: E-post 2. varsel
 
-        **Emne**: Påminnelse: Dokument til signering fra [Avsender]
+        **Emne**: Påminnelse: Dokument til signering fra [*Avsender*]
 
         Hei!
 
-        Vi vil minne om at du fortsatt har et dokument til signering fra [Avsender]: [Tittel på dokumentet].
+        Vi vil minne om at du fortsatt har et dokument til signering fra [*Avsender*]: [*Tittel på dokumentet*].
         
-        Dokumentet er nå signert av [antall] og må signeres innen [signeringsfrist] / Dokumentet må signeres innen [signeringsfrist].
+        Dokumentet er nå signert av [*antall*] og må signeres innen [*signeringsfrist*] / Dokumentet må signeres innen [*signeringsfrist*].
         
-        Du kan signere med [disse elektroniske e-IDene].
+        Du kan signere med [*disse elektroniske e-IDene*].
 
-        Logg deg inn på [signering.posten.no/logginn] for å signere dokumentet.
+        Logg deg inn på [*signering.posten.no/logginn*] for å signere dokumentet.
 
-        Rekker du ikke å signere innen fristen? Usignerte dokumenter slettes når fristen går ut. Kontakt [Avsender] for å få dokumentet tilsendt på nytt.
+        Rekker du ikke å signere innen fristen? Usignerte dokumenter slettes når fristen går ut. Kontakt [*Avsender*] for å få dokumentet tilsendt på nytt.
 
         Hilsen Posten
 
@@ -110,11 +110,11 @@ ____________________________________________________________________
 
     ..  tab:: SMS 1. varsel
 
-        Du har et dokument til signering fra [Avsender]. Logg inn og signer på [signering.posten.no/logginn] innen [signeringsfrist].
+        Du har et dokument til signering fra [*Avsender*]. Logg inn og signer på [*signering.posten.no/logginn*] innen [*signeringsfrist*].
          
     ..  tab:: SMS 2./3. varsel
 
-        Du har et usignert dokument fra [Avsender]. Logg inn og signer på [signering.posten.no/logginn] innen [signeringsfrist].
+        Du har et usignert dokument fra [*Avsender*]. Logg inn og signer på [*signering.posten.no/logginn*] innen [*signeringsfrist*].
          
 
 Varsel om dokument til signering, ved adressering uten fødselsnummer
@@ -124,12 +124,12 @@ ____________________________________________________________________
          
     ..  tab:: E-post 1. varsel
 
-        **Emne**: Dokument til signering fra [Avsender]
+        **Emne**: Dokument til signering fra [*Avsender*]
 
         Hei!
-        Du har fått en forespørsel om å signere et dokument fra [Avsender]: [Dokumenttittel].
+        Du har fått en forespørsel om å signere et dokument fra [*Avsender*]: [*Dokumenttittel*].
         
-        Dokumentet er nå signert av [antall] og må signeres innen [signeringsfrist] / Dokumentet må signeres innen [signeringsfrist].
+        Dokumentet er nå signert av [*antall*] og må signeres innen [*signeringsfrist*] / Dokumentet må signeres innen [*signeringsfrist*].
         
         Du kan signere med *disse elektroniske ID-ene*.
         
@@ -138,30 +138,30 @@ ____________________________________________________________________
         2) Skriv inn sikkerhetskode XXXX
         3) Les og signer dokumentet
         
-        https://signering.posten.no/uniklenke
+        [*https://signering.posten.no/uniklenke*]
         
         Hilsen Posten
          
     ..  tab:: E-post 2. varsel
 
-        **Emne**: Dokument til signering fra [Avsender]
+        **Emne**: Dokument til signering fra [*Avsender*]
         
         Hei!
-        Vi vil minne om at du fortsatt har et dokument til signering fra [Avsender]: [Dokumenttittel].
+        Vi vil minne om at du fortsatt har et dokument til signering fra [*Avsender*]: [*Dokumenttittel*].
         
-        [Dokumentet er nå signert av [antall] og må signeres innen [signeringsfrist] / Dokumentet må signeres innen [signeringsfrist].
+        [*Dokumentet er nå signert av [*antall*] og må signeres innen [*signeringsfrist*] / Dokumentet må signeres innen [*signeringsfrist*].
                
-        Du kan signere med [disse elektroniske ID-ene].
+        Du kan signere med [*disse elektroniske ID-ene*].
         
         Slik signerer du:
         1) Klikk på lenken under
-        2) Skriv inn sikkerhetskode [XXX]
+        2) Skriv inn sikkerhetskode [*XXX*]
         3) Les og signer dokumentet
         
-        [https://signering.posten.no/uniklenke]
+        [*https://signering.posten.no/uniklenke*]
         
         Rekker du ikke å signere innen fristen?
-        Usignerte dokumenter slettes når fristen går ut. Kontakt [Avsender] for å få dokumentet tilsendt på nytt.
+        Usignerte dokumenter slettes når fristen går ut. Kontakt [*Avsender*] for å få dokumentet tilsendt på nytt.
                
         Hilsen Posten
 
@@ -169,11 +169,11 @@ ____________________________________________________________________
          
     ..  tab:: SMS 1. varsel
 
-        Hei! [Avsender] ber deg signere et dokument. Bruk kode [XXXX] på [https://signering.posten.no/uniklenke] før [signeringsfrist].
+        Hei! [*Avsender*] ber deg signere et dokument. Bruk kode [*XXXX*] på [*https://signering.posten.no/uniklenke*] før [*signeringsfrist*].
          
     ..  tab:: SMS 2./3. varsel
 
-        Hei! Husk signering for [Avsender]. Bruk kode [XXXX] på [https://signering.posten.no/uniklenke] før [signeringsfrist].
+        Hei! Husk signering for [*Avsender*]. Bruk kode [*XXXX*] på [*https://signering.posten.no/uniklenke*] før [*signeringsfrist*].
 
 
 
@@ -195,7 +195,7 @@ Private avsendere
 
         Hei!
 
-        Du har nettopp signert et dokument fra [Avsender] gjennom Posten signering.
+        Du har nettopp signert et dokument fra [*Avsender*] gjennom Posten signering.
 
         Hvis du oppretter en konto i Digipost innen 7 dager, sendes dokumentet du signerte automatisk dit. Da har du det              lett tilgjengelig når du trenger det!
          
@@ -209,7 +209,7 @@ Private avsendere
 
         Hei!
 
-        Du har tidligere signert et dokument fra [Avsender] gjennom Posten signering. Nå har alle undertegnerne signert, og avsender har mottatt det ferdigsignerte dokumentet.
+        Du har tidligere signert et dokument fra [*Avsender*] gjennom Posten signering. Nå har alle undertegnerne signert, og avsender har mottatt det ferdigsignerte dokumentet.
 
         Hvis du også ønsker å motta dokumentet med alle signaturer, må du opprette en konto i Digipost innen 7 dager. Da sendes dokumentet automatisk dit, så har du det lett tilgjengelig når du trenger det.
 
@@ -222,12 +222,12 @@ Private avsendere
 
     ..  tab:: SMS, én undertegner
        
-        Hei, du har nettopp signert et dokument fra [Avsender] gjennom Posten signering.
+        Hei, du har nettopp signert et dokument fra [*Avsender*] gjennom Posten signering.
         Hvis du oppretter en konto i Digipost innen 7 dager, sendes dokumentet du signerte automatisk dit: https://www.digipost.no/app/registrering
 
     ..  tab:: SMS, flere undertegnere
        
-        Hei! Du har tidligere signert et dokument fra [Avsender] gjennom Posten signering.
+        Hei! Du har tidligere signert et dokument fra [*Avsender*] gjennom Posten signering.
 
         Nå har alle undertegnerne signert. Hvis du også ønsker å motta dokumentet med alle signaturer, må du opprette en konto i Digipost innen 7 dager. Da sendes dokumentet automatisk dit, så har du det lett tilgjengelig når du trenger            det: https://www.digipost.no/app/registrering
 
@@ -243,7 +243,7 @@ Offentlige avsendere
 
         Hei!
 
-        Du har nettopp signert et dokument fra [Avsender] gjennom den nasjonale fellesløsningen e-Signering.
+        Du har nettopp signert et dokument fra [*Avsender*] gjennom den nasjonale fellesløsningen e-Signering.
 
         Hvis du oppretter en konto i Digipost innen 7 dager, sendes dokumentet du signerte automatisk dit. Da har du det lett tilgjengelig når du trenger det!
 
@@ -256,7 +256,7 @@ Offentlige avsendere
 
         Hei!
 
-        Du har tidligere signert et dokument fra [Avsender] gjennom den nasjonale fellesløsningen e-Signering. Nå har alle undertegnerne signert, og avsender har mottatt det ferdigsignerte dokumentet. Hvis du også ønsker å motta dokumentet          med alle signaturer, må du opprette en digital postkasse innen 7 dager. Da sendes dokumentet automatisk dit, så har du det tilgjengelig når du trenger det!
+        Du har tidligere signert et dokument fra [*Avsender*] gjennom den nasjonale fellesløsningen e-Signering. Nå har alle undertegnerne signert, og avsender har mottatt det ferdigsignerte dokumentet. Hvis du også ønsker å motta dokumentet          med alle signaturer, må du opprette en digital postkasse innen 7 dager. Da sendes dokumentet automatisk dit, så har du det tilgjengelig når du trenger det!
          
         Opprett digital postkasse:
         https://www.norge.no/velg-digital-postkasse
@@ -265,12 +265,12 @@ Offentlige avsendere
       
     ..  tab:: SMS, én undertegner
        
-        Hei, du har nettopp signert et dokument fra [Avsender] gjennom den nasjonale fellesløsningen e-Signering.
+        Hei, du har nettopp signert et dokument fra [*Avsender*] gjennom den nasjonale fellesløsningen e-Signering.
         Hvis du oppretter en digital postkasse innen 7 dager, sendes dokumentet du signerte automatisk dit:                            https://www.norge.no/velg-digital-postkasse
 
     ..  tab:: SMS, flere undertegnere
        
-        Hei, du har tidligere signert et dokument fra [Avsender] gjennom den nasjonale fellesløsningen e-Signering. Nå har alle undertegnerne signert. Hvis du også ønsker å motta dokumentet med alle signaturer, må du opprette en digital postkasse innen 7 dager. Da sendes dokumentet automatisk dit, så har du det lett tilgjengelig når du trenger det: https://www.norge.no/velg-digital-postkasse
+        Hei, du har tidligere signert et dokument fra [*Avsender*] gjennom den nasjonale fellesløsningen e-Signering. Nå har alle undertegnerne signert. Hvis du også ønsker å motta dokumentet med alle signaturer, må du opprette en digital postkasse innen 7 dager. Da sendes dokumentet automatisk dit, så har du det lett tilgjengelig når du trenger det: https://www.norge.no/velg-digital-postkasse
 
 
 Varsel om kansellert oppdrag
@@ -282,32 +282,28 @@ Hvis avsender *kansellerer* et signeringsoppdrag, blir det sendt ut et varsel ti
       
     ..  tab:: E-post
        
-        **Emne**: Kansellert: Dokument til signering fra [Avsender]
+        **Emne**: Kansellert: Dokument til signering fra [*Avsender*]
         
         Hei!
-        [Avsender] har trukket tilbake forespørselen om signering av [Dokumenttittel].
-        Kontakt [Avsender] om du lurer på hvorfor de kansellerte, eller om du ønsker dokumentet tilsendt på nytt.
+        [*Avsender*] har trukket tilbake forespørselen om signering av [*Dokumenttittel*].
+        Kontakt [*Avsender*] om du lurer på hvorfor de kansellerte, eller om du ønsker dokumentet tilsendt på nytt.
         
         Hilsen Posten
-
-    ..  tab:: SMS
-       
-        Finnes ikke per i dag (08.03.2019)
 
   
 Varseltekster for avsendere
 ============================
 
-Alle avsendere er registrert i tjenesten med e-postadresse, og varsler sendes derfor på e-post. En avsenders e-postadresse er knyttet til brukeren i tjenesten, og sendes aldri inn ifm. opprettelse av oppdrag. Det er kun brukeren som har opprettet signeringsoppdraget som vil få e-poster knyttet til et oppdrag.
+Alle avsendere er registrert i tjenesten med e-postadresse, og varsler sendes derfor på e-post. En avsenders e-postadresse er knyttet til brukeren i tjenesten, og sendes aldri inn ifm. opprettelse av oppdrag.
+
+..  NOTE::
+    Det er kun brukeren som har opprettet signeringsoppdraget som vil få e-poster knyttet til et oppdrag.
 
 Det sendes ut varsler til avsender i to tilfeller:
 
-**Når signeringsoppdrag endrer status**
-Varselet inneholder en oversikt over samtlige undertegneres signeringsstatus. Det blir sendt én e-post for hver undertegner som "gjør noe", dvs. signerer eller avviser, eller når signeringsfristen er gått ut.
+1. **Når signeringsoppdrag endrer status**: Varselet inneholder en oversikt over samtlige undertegneres signeringsstatus. Det blir sendt én e-post for hver undertegner som "gjør noe", dvs. signerer eller avviser, eller når signeringsfristen er gått ut.
 
-**24 timer før signeringsfristen for ett oppdrag går ut**
-Varselet sendes ut som en påminnelse til avsender om at noen fortsatt ikke har signert. Avsender kan da velge å utsette signeringsfristen, eller purre på undertegnerne ved å sende ekstra varsel.
-N.B: Varselet sendes kun hvis oppdragets opprinnelige signeringsfrist var mer enn 48 timer.
+2. **24 timer før signeringsfristen for ett oppdrag går ut**: Varselet sendes ut som en påminnelse til avsender om at noen fortsatt ikke har signert. Avsender kan da velge å utsette signeringsfristen, eller purre på undertegnerne ved å sende ekstra varsel. **N.B:** Varselet sendes kun hvis oppdragets opprinnelige signeringsfrist var mer enn 48 timer.
 
 
 Varsel når signeringsoppdrag endrer status
@@ -317,14 +313,14 @@ __________________________________________
       
     ..  tab:: Statusendring
        
-        **Emne**: Oppdatert signeringsstatus: Dokumentet er [delvis signert]/[ferdig signert]/[ferdig, men ufullstendig]
+        **Emne**: Oppdatert signeringsstatus: Dokumentet er [*delvis signert*]/[*ferdig signert*]/[*ferdig, men ufullstendig*]
         
         Hei!
-        Vi vil informere deg om at dokumentet med referanse [XXXX] har endret status til [delvis signert]/[ferdig signert]/[ferdig, men ufullstendig].
+        Vi vil informere deg om at dokumentet med referanse [*XXXX*] har endret status til [*delvis signert*]/[*ferdig signert*]/[*ferdig, men ufullstendig*].
         
-        Undertegner ********: [Venter]/[Avvist]/[Signert]/[Sperret]
+        Undertegner ********: [*Venter*]/[*Avvist*]/[*Signert*]/[*Sperret*]
         
-        Logg deg inn på [https://signering.posten.no/virksomhet/#/] for å (utsette fristen eller for å) se detaljer om dokumentet.
+        Logg deg inn på [*https://signering.posten.no/virksomhet/#/*] for å (utsette fristen eller for å) se detaljer om dokumentet.
         
         Hilsen Posten
 
@@ -333,9 +329,9 @@ __________________________________________
         **Emne**: Signeringsfristen går ut om 24 timer
         
         Hei!
-        Dkoumentet med referanse [XXXX] er fortsatt ikke signert av [undertegnere]. Det er nå kun 24 timer til signeringsfristen utløper. Du kan utsette fristen for signeringen ved å logge inn og klikke på "Utsett signeringsfrist". Om dokumentet ikek signeres innen fristen, stoppes prosessen, og du må eventuelt sende dokumentet på nytt for å hente inn signaturer.
+        Dkoumentet med referanse [*XXXX*] er fortsatt ikke signert av [*undertegnere*]. Det er nå kun 24 timer til signeringsfristen utløper. Du kan utsette fristen for signeringen ved å logge inn og klikke på "Utsett signeringsfrist". Om dokumentet ikek signeres innen fristen, stoppes prosessen, og du må eventuelt sende dokumentet på nytt for å hente inn signaturer.
         
-        Logg deg inn på [https://signering.posten.no/virksomhet/#/] for å utsette fristen eller for å se detaljer om dokumentet.
+        Logg deg inn på [*https://signering.posten.no/virksomhet/#/*] for å utsette fristen eller for å se detaljer om dokumentet.
         
         Hilsen Posten
         
