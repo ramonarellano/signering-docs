@@ -6,7 +6,7 @@ Regler for når varsler til undertegner sendes ut
 
 For å sørge for at undertegner mottar varsler og påminnelser i passende tidsrom, er tidspunktene for når varsler blir sendt ut avhengig av signeringsfristen for et oppdrag. Vi tilbyr å sende ut varsel på e-post og/eller SMS. Det koster 40 øre per SMS som sendes ut.
 
-Hvis undertegner adresseres på både e-postadresse og mobilnummer, sendes det ut inntil 3 varsler om signeringen: Et førstegangsvarsel umiddelbart etter aktivering, påminnelse på e-post, og til slutt en siste påminnelse på SMS.
+Hvis undertegner adresseres på både e-postadresse og mobilnummer, sendes det ut inntil 3 varsler om signeringen: Et førstegangsvarsel umiddelbart etter aktivering, påminnelse på e-post, og til slutt en siste påminnelse på SMS. Bakgrunnen for dette oppsettet, er at e-post da benyttes som primær varslingskanal og at SMSen skal fungere som et siste, eskalerende varsel.
 
 =============== ================= ================= =================
 Signeringsfrist 1. varsel: e-post 2. varsel: e-post 3. varsel: SMS
@@ -22,7 +22,7 @@ Signeringsfrist 1. varsel: e-post 2. varsel: e-post 3. varsel: SMS
 
    <!-- Tabellen er generert vha. http://www.tablesgenerator.com/markdown_tables -->
 
-Hvis undertegner adresseres på kun e-postadresse eller kun mobilbummer, sendes det ut inntil 2 varsler om signeringen: Et førstegangsvarsel umiddelbart etter aktivering, og én påminnelse på e-post eller SMS. 
+Hvis undertegner adresseres på kun e-postadresse eller kun mobilbummer, sendes det ut inntil 2 varsler om signeringen: Et førstegangsvarsel umiddelbart etter aktivering, og én påminnelse på henholdsvis e-post eller SMS. 
 
 =============== ===================== =====================
 Signeringsfrist 1. varsel: e-post/SMS 2. varsel: e-post/SMS
@@ -50,10 +50,14 @@ Oppsettet på varslene som blir sendt ut er predefinert og ikke mulig å endre p
 
 Innholdet i varselet vil variere ut fra om
 
-- adresseringen til undertegner  fer med eller uten fødselsnummer
+- adresseringen til undertegner er med eller uten fødselsnummer
 - hvilken kanal de sendes i (e-post/SMS)
 - sektor som avsender sender fra (privat eller offentlig)
 - antall undertegnere på oppdraget
+
+**For offentlige avsendere** hentes kontaktinformasjonen til undertegner fra KRR (Kontakt- og reservasjonsregisteret). Unntaket er hvis undertegneren skal signere "på vegne av andre", f.eks. hvis hun er ansatt i en bedrift hun signerer på vegne av. Da legges kontaktinformasjonen inn av avsender.
+
+**For private avsendere** er det alltid avsender selv som legger inn kontaktinformasjon til undertegner. 
 
 Nedenfor vises de ulike variantene av varslene som sendes på e-post og SMS.
 
