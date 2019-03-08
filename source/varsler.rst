@@ -22,7 +22,7 @@ Signeringsfrist 1. varsel: e-post 2. varsel: e-post 3. varsel: SMS
 
    <!-- Tabellen er generert vha. http://www.tablesgenerator.com/markdown_tables -->
 
-Hvis undertegner adresseres på kun e-postadresse eller kun mobilbummer, sendes det ut inntil 2 varsler:
+Hvis undertegner adresseres på kun e-postadresse eller kun mobilbummer, sendes det ut inntil 2 varsler om signeringen: Et førstegangsvarsel umiddelbart etter aktivering, og én påminnelse på e-post eller SMS. 
 
 =============== ===================== =====================
 Signeringsfrist 1. varsel: e-post/SMS 2. varsel: e-post/SMS
