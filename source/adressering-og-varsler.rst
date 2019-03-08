@@ -6,8 +6,7 @@ Regler for når varsler til undertegner sendes ut
 
 For å sørge for at undertegner mottar varsler og påminnelser i passende tidsrom, er tidspunktene for når varsler blir sendt ut avhengig av signeringsfristen for et oppdrag. Vi tilbyr å sende ut varsel på e-post og/eller SMS. Det koster 40 øre per SMS som sendes ut.
 
-Hvis undertegner adresseres på både e-postadresse og mobilnummer, sendes
-det ut inntil 3 varsler:
+Hvis undertegner adresseres på både e-postadresse og mobilnummer, sendes det ut inntil 3 varsler om signeringen: Et førstegangsvarsel umiddelbart etter aktivering, påminnelse på e-post, og til slutt en siste påminnelse på SMS.
 
 =============== ================= ================= =================
 Signeringsfrist 1. varsel: e-post 2. varsel: e-post 3. varsel: SMS
@@ -41,14 +40,17 @@ Signeringsfrist 1. varsel: e-post/SMS 2. varsel: e-post/SMS
 
 .. NOTE:: SMS sendes ikke ut mellom klokken 22:00 og 08:00, med mindre oppdraget opprettes på natten og fristen er så kort at det er nødvendig med umiddelbar utsending.
 
-.. NOTE:: Hvis avsender *utvider signeringsfristen* "kanselleres" alle planlagte varsler for oppdraget. Det blir da generert nye varsler som da blir sendt ut på tidspunkt knyttet til den nye fristen.
+.. NOTE:: Hvis avsender *utvider signeringsfristen* slettes alle planlagte varsler for oppdraget. Det blir da generert nye varsler som sendes ut på relative tidspunkt knyttet til den nye fristen.
 
 
 Varseltekster for undertegnere
 ===============================
 
-Oppsettet på varslene som blir sendt ut er predefinert og ikke mulig å endre på for deg som avsender, men du kan legge til en tittel eller beskrivels av hva som skal signeres. Innholdet i varselet vil variere ut fra om adresseringen til undertegner er med eller uten fødselsnummer. I tillegg er det et par ulikheter som kommer fra variablene:
+Oppsettet på varslene som blir sendt ut er predefinert og ikke mulig å endre på for deg som avsender, men du kan legge til en tittel/beskrivelse av dokumentet som skal signeres. 
 
+Innholdet i varselet vil variere ut fra om
+
+- adresseringen til undertegner  fer med eller uten fødselsnummer
 - hvilken kanal de sendes i (e-post/SMS)
 - sektor som avsender sender fra (privat eller offentlig)
 - antall undertegnere på oppdraget
@@ -264,8 +266,10 @@ Offentlige avsendere
         Hei, du har tidligere signert et dokument fra [Avsender] gjennom den nasjonale fellesløsningen e-Signering. Nå har alle undertegnerne signert. Hvis du også ønsker å motta dokumentet med alle signaturer, må du opprette en digital postkasse innen 7 dager. Da sendes dokumentet automatisk dit, så har du det lett tilgjengelig når du trenger det: https://www.norge.no/velg-digital-postkasse
 
 
-Varsel om kansellert signering
+Varsel om kansellert oppdrag
 _______________________________
+
+Hvis avsender *kansellerer* et signeringsoppdrag, blir det sendt ut et varsel til undertegner om dette:
 
 ..  tabs::
       
@@ -281,7 +285,7 @@ _______________________________
 
     ..  tab:: SMS
        
-        Hei, du har tidligere signert et dokument fra [Avsender] gjennom den nasjonale fellesløsningen e-Signering. Nå har alle undertegnerne signert. Hvis du også ønsker å motta dokumentet med alle signaturer, må du opprette en digital postkasse innen 7 dager. Da sendes dokumentet automatisk dit, så har du det lett tilgjengelig når du trenger det: https://www.norge.no/velg-digital-postkasse
+        Finnes ikke per i dag (08.03.2019)
 
   
 Varseltekster for avsendere
