@@ -23,7 +23,7 @@ Signeringsfrist 1. varsel: e-post 2. varsel: e-post 3. varsel: SMS
 
    <!-- Tabellen er generert vha. http://www.tablesgenerator.com/markdown_tables -->
 
-Hvis undertegner adresseres på kun e-postadresse eller kun mobilbummer, eller det kun finnes en av delene, sendes det ut inntil 2 varsler:
+Hvis undertegner adresseres på kun e-postadresse eller kun mobilbummer, sendes det ut inntil 2 varsler:
 
 =============== ===================== =====================
 Signeringsfrist 1. varsel: e-post/SMS 2. varsel: e-post/SMS
@@ -47,11 +47,13 @@ Signeringsfrist 1. varsel: e-post/SMS 2. varsel: e-post/SMS
 Varseltekster for undertegner
 =============================
 
-Innholdet i varslene som blir sendt ut er predefinert og ikke mulig å endre på for deg som avsender. Varseltekstene er hovedsakelig forskjellig ut fra om adresseringen til undertegner er med eller uten fødselsnummer. I tillegg er det et par ulikheter som kommer fra variablene:
+Oppsettet på varslene som blir sendt ut er predefinert og ikke mulig å endre på for deg som avsender, men du kan legge til en tittel eller beskrivels av hva som skal signeres. Innholdet i varselet vil variere ut fra om adresseringen til undertegner er med eller uten fødselsnummer. I tillegg er det et par ulikheter som kommer fra variablene:
 
 - hvilken kanal de sendes i (e-post/SMS)
 - sektor som avsender sender fra (privat eller offentlig)
 - antall undertegnere på oppdraget
+
+Nedenfor vises de ulike variantene av varslene som sendes på e-post og SMS.
 
 
 Varsel om dokument til signering, ved adressering med fødselsnummer
@@ -169,7 +171,7 @@ ____________________________________________________________________
 Etter signering: Varsel om oppsalg til digital postkasse
 ________________________________________________________
 
-Etter at en undertegner har signert et dokument, vil den i *disse tilfeller* få mulighet til å opprette en digital postkasse. Hvis avsender er privat, vil undertegner få mulighet til å opprette konto hos Digipost, og hvis avsender er offentlig vil undertegner kunne velge digital postkasse på Norge.no.
+Etter at en undertegner har signert et dokument, vil hun i *disse tilfeller* få mulighet til å opprette en digital postkasse. Hvis avsender er privat, vil undertegner få mulighet til å opprette konto hos Digipost, og hvis avsender er offentlig vil undertegner kunne velge digital postkasse på Norge.no.
 
 Innholdet i dette varselet er ulikt avhengig av hvor mange undertegnere som skal signere dokumentet, og om avsender er privat eller offentlig.
 
