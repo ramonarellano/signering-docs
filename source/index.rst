@@ -26,7 +26,7 @@ Welcome to the Posten signering documentation!
    :maxdepth: 1
    :caption: Avanserte innstillinger
 
-   avansert-flyt
+   kjedet-signatur
 
 .. toctree::
    :maxdepth: 1

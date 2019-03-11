@@ -31,7 +31,7 @@ Ved opprettelse av signeringsoppdrag kan følgende felter angis:
 +---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
 | Mobilnummer               | Ikke relevant           | Valgfritt         | se :ref:`varsler`                                             |
 +---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
-| Rekkefølge                | Ikke relevant           | Valgfritt         | se :ref:`kjedet-signatur`                                     |
+| Rekkefølge                | Ikke relevant           | Valgfritt         | se :ref:`kjedet-signering`                                    |
 +---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
 
 .. rubric:: Footnotes
