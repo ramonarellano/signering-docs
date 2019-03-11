@@ -1,9 +1,6 @@
 Opprette signeringsoppdrag
 ===========================
 
-..  DANGER::
-    Lenker under *Ekstra informasjon* er ikke alle koblet opp og vil bli fikset på sikt etterhvert som dokumentasjonen her bygges opp.
-
 Ved opprettelse av signeringsoppdrag kan følgende felter angis:
 
 +---------------------------+-------------------------+-------------------+---------------------------------------------------------------+

@@ -6,7 +6,7 @@ Vi sletter på generell basis data som vi ikke lenger har bruk for etter 3 år. 
 Vi sletter epost- og SMS-varsler 3 år etter siste gang de ble forsøkt sendt.
 
 ## Signeringsoppdrag
-Vi sletter signeringsoppdrag 3 år etter at arkivbehov opphører. Det betyr at hvis en avsender oppretter et oppdrag i dag, så vil det ta 40 dager (eller 50 år hvis den bruker langtidsarkiv) før selve dokumentet blir slettet. 3 år etter dette sletter vi oppdraget med tilhørende data (*Legg inn link til beskrivelse av et oppdrag og fjern neste setning*). Tilhørende data er jobb-events, kø for jobbendringer, informasjon om videresending til postkassen, varsler, undertegnere og selve oppdraget.
+Vi sletter signeringsoppdrag 3 år etter at arkivbehov opphører. Det betyr at hvis en avsender oppretter et oppdrag i dag, så vil det ta 40 dager (eller 50 år hvis den bruker langtidsarkiv) før selve dokumentet blir slettet. 3 år etter dette sletter vi oppdraget med tilhørende data. Tilhørende data er jobb-events, kø for jobbendringer, informasjon om videresending til postkassen, varsler, undertegnere og selve oppdraget.
 
 ## Brukere
 Brukere kan deaktiveres i avsenderportalen av kontoforvaltere i den aktuelle virksomheten, eller av Posten og Difi gjennom administrasjonsportalen. En deaktivert bruker vil anonymiseres og slettes etter følgende regler:
