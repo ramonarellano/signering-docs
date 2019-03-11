@@ -3,8 +3,8 @@ Ordbok
 
 Bedrift/Virksomhet
 ===================
-*Bedrift*: En organisasjon som ikke er tilknyttet det offentlige. Bruk *Privat virksomhet* i tilfeller der det kan misforstås.
-*Offentlig virksomhet*: En organisasjon tilknyttet det offentlige.
+- *Bedrift*: En organisasjon som ikke er tilknyttet det offentlige. Bruk *Privat virksomhet* i tilfeller der det kan misforstås.
+- *Offentlig virksomhet*: En organisasjon tilknyttet det offentlige.
 
 Disse begrepene er de vi ønsker å bruke, *men* om det blir forvirring så skal vi bruke
 
