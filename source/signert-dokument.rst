@@ -51,22 +51,17 @@ Signeringstjenesten gjør pakketering av signaturer gjennom et format for langti
 Pakketering gjøres i to steg:
 
 #. Pakketering av SDO til LTV-SDO. Her utvides og styrkes signaturen for å legge til rette for langtidsvalidering og å styrke bevisverdien.
-
 #. Pakketering av LTV-SDO til PDF/PAdES. Her legges det til støtte for multisignatur, brukervennlighet og lettere manuell og maskinell prosessering hos mottaker.
 
 Denne pakketeringen gir en rekke fordeler:
 
 1. **Brukervennlighet**: Pakketering til PDF/PAdES lar brukeren se det signerte dokumentet med påført signatur. Det er en viktig del av signaturseremonien at menneskelige brukere får en slik gjenpart.
-
 2. **Multisignatur - flere signatarer**: Pakketering til PDF/PAdES gir mulighet for et samlet dataobjekt for flere signaturer på samme dokument. Den vil også vise frem signaturene på en brukervennlig måte, slik at man kan se flere signaturer på samme dokument.
-
 3. **Multisignatur - flere signerte dokumenter**: Pakketering til PDF/PAdES gjør det mulig å samle flere signerte dokumenter som hører sammen i ett felles dataobjekt.
-
 4. **Felles format for alle e-ID-leverandører**: Pakketering til LTV-SDO eller til PAdES gir et konsistent signaturformat uavhengig av e-ID- leverandørens format.
-
 5. **Dokumentbehandling i saks- og arkivsystemer**: Pakketering til PDF/PAdES tillater viderebehandling i standard dokumentsystemer, fordi en PAdES også er en PDF.
 6. **Validering av signatur for sluttbruker**: Pakketering til PAdES vil tillate validering av dokumentet med standard hyllevare (f.eks. Adobe Reader) dersom den signeres (forsegles) med et sertifikat som gjenkjennes av leseren.
-7: **Langtidslagring (LTV)**: Pakketering til LTV-SDO eller PAdES gir den beste støtten for langtidsvalidering. Langtidslagring, uavhengig av om det er i sentral arkivtjeneste eller hos kunde, krever et format som tillater preservering og oppbevaring av valideringsdata. Den underliggende SDO-en fra e-ID-leverandøren ligger tilgjengelig i LTV-SDO-formatet, og kan enkelt hentes ut av ved behov. Tjenesten kan derfor både tilby kunder den berikede LTV-SDO-en og tilgang til den underliggende SDO-en fra e-ID-leverandøren. Det er derfor ikke en forutsetning at kunden kan forholde seg til LTV-SDO, men snarere en anbefaling som vil gi standardisert tilgang til beriket og integritetsbeskyttet informasjon om signeringsoppdraget.
+7. **Langtidslagring (LTV)**: Pakketering til LTV-SDO eller PAdES gir den beste støtten for langtidsvalidering. Langtidslagring, uavhengig av om det er i sentral arkivtjeneste eller hos kunde, krever et format som tillater preservering og oppbevaring av valideringsdata. Den underliggende SDO-en fra e-ID-leverandøren ligger tilgjengelig i LTV-SDO-formatet, og kan enkelt hentes ut av ved behov. Tjenesten kan derfor både tilby kunder den berikede LTV-SDO-en og tilgang til den underliggende SDO-en fra e-ID-leverandøren. Det er derfor ikke en forutsetning at kunden kan forholde seg til LTV-SDO, men snarere en anbefaling som vil gi standardisert tilgang til beriket og integritetsbeskyttet informasjon om signeringsoppdraget.
 
 Pakketering med XAdES og/eller PAdES gir full nytte av standardiseringsarbeidet for preservering som gjøres i regi av EU (XAdES Baseline som er utviklet av EU-initiativet DSS, og som vil bli de foretrukne standardene i XAdES).
 
