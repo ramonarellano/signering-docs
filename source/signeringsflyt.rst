@@ -1,10 +1,12 @@
-Signeringsoppdrag
+Signeringsflyt
 *******************
 
 ..  DANGER::
     Lenker i denne filen er under oppbygging og fungerer ikke nå.
 
-Et signeringsoppdrag inneholder et dokument som skal signeres, og kan adresseres til en eller flere undertegnere som skal signere. Tjenesten tilbyr to ulike typer signeringsoppdrag hvor flyten for å signere er det vesentlige.
+Et signeringsoppdrag inneholder et dokument som skal signeres, og kan adresseres til en eller flere undertegnere som skal signere. Tjenesten tilbyr i hovedsak to ulike typer signeringsflyter.
+
+.. _signering-i-direkteflyt:
 
 Signering i direkteflyt
 ========================
@@ -13,33 +15,57 @@ Signering i direkteflyt skjer når undertegner allerede er pålogget i avsenders
 
 Flyten ser typisk slik ut:
 
-#. Undertegner er innlogget i avsenders tjeneste, og utfører en prosess der, f.eks. utfylling av et skjema.
-#. Avsender oppretter et signeringsoppdrag i signeringstjenesten maskinelt
-#. Undertegner blir sendt til signeringstjenesten og gjennomfører signeringssermonien
+#. Undertegner er innlogget i avsenders tjeneste, og utfører en prosess der, f.eks. utfylling av et skjema er sluttresultatet
+#. Avsender oppretter et signeringsoppdrag i signeringstjenesten gjennom API
+#. Undertegner blir sendt til signeringstjenesten og gjennomfører signeringen
 #. Undertegner blir sendt tilbake til avsenders tjeneste
-#. Avsender laster ned [signatur](#signerte_dokumenter) og tilbyr en kopi av det signerte dokumentet til undertegner
+#. Avsender laster ned signatur og tilbyr en kopi av det signerte dokumentet til undertegner
+
+Se gjerne `denne bildeguiden i Google Presentation for signering i direkteflyt <https://docs.google.com/presentation/d/14Q_-YzaxcGsZOgUR6rJl7rWSwLZwujnuqgkKCrxksoA/edit#slide=id.g3922592cb8_0_0>`_.
+
+.. _signering-i-portalflyt:
 
 Signering i portalflyt
 ========================
 
-Signering i portalflyt skjer når undertegner logger inn i signeringsportalen til Posten signering.
+Adressering med fødselsnummer
+______________________________
+
+Hvis man adresserer med fødselsnummer så vil undertegner måtte logge inn i signeringsportalen for å kunne se signeringsoppdraget.
 
 Flyten ser typisk slik ut:
 
-#. Avsender oppretter et oppdrag gjennom API eller fra web i avsenderportalen.
-#. Posten signering varsler undertegner på e-post (og ev. SMS om spesifiert ved [opprettelse](#opprette-signeringsoppdrag)
+#. Avsender oppretter et oppdrag gjennom API eller fra web i avsenderportalen
+#. Posten signering varsler undertegner på e-post (og ev. SMS om spesifiert ved opprettelse)
 #. Undertegner logger inn på signeringsportalen og gjennomfører signeringssermonien
-#. Undertegner laster ned [signert kopi](#signerte_dokumenter) av dokumentet
+#. Undertegner laster ned signert dokument
 #. Undertegner logger ut av signeringsportalen
-#. Avsender laster ned [signatur](#signerte_dokumenter)
+#. Avsender laster ned det signerte dokumentet
+
+Se gjerne `denne bildeguiden i Google Presentation for signering i portalflyt, adressering med fødselsnummer <https://docs.google.com/presentation/d/14Q_-YzaxcGsZOgUR6rJl7rWSwLZwujnuqgkKCrxksoA/edit#slide=id.g36b93b9965_0_57>`_.
+
+Adressering uten fødselsnummer
+_______________________________
+
+ En signeringsflyt hvor man får tilgang til portalen vha en lenke og et engangspassord. Se bildeguide her.
+
+#. Avsender oppretter et oppdrag gjennom API eller fra web i avsenderportalen
+#. Undertegner mottar en unik lenke og engangskode til oppdrag på e-post eller SMS
+#. Undertegner trykker på lenken, og fyller inn engangskode til oppdrag
+#. Undertegner gjennomfører signeringsseremonien
+#. Sluttside som gir mulighet til å laste ned signert dokument
+
+Når man adresserer undertegner uten fødselsnummer, er det avsenders ansvar å sjekke at det er rett eller ønsket person som har signert.
+
+Se gjerne `denne bildeguiden i Google Presentation for signering i portalflyt, adressering uten fødselsnummer <https://docs.google.com/presentation/d/14Q_-YzaxcGsZOgUR6rJl7rWSwLZwujnuqgkKCrxksoA/edit#slide=id.g2e3b4edaeb_0_1>`_.
 
 Opprette signeringsoppdrag
 ===========================
-Ved opprettelse av signeringsoppdrag kan følgende felter angis:
 
 ..  DANGER::
-    Lenker under *Ekstra informasjon* er alle lenker som ikke er koblet opp.
+    Lenker under *Ekstra informasjon* er ikke alle koblet opp og vil bli fikset på sikt etterhvert som dokumentasjonen her bygges opp.
 
+Ved opprettelse av signeringsoppdrag kan følgende felter angis:
 
 +---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
 | Felt                      | Direkteflyt             | Portalflyt        | Ekstra informasjon                                            |
@@ -62,9 +88,9 @@ Ved opprettelse av signeringsoppdrag kan følgende felter angis:
 +---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
 | Levetid                   | Ikke overstyrbar [#f2]_ | Valgfritt         |                                                               |
 +---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
-| E-postadresse             | Ikke relevant           | **Obligatorisk**  | se varsling                                                   |
+| E-postadresse             | Ikke relevant           | **Obligatorisk**  | se :ref:`varsler`                                             |
 +---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
-| Mobilnummer               | Ikke relevant           | Valgfritt         | se varsling                                                   |
+| Mobilnummer               | Ikke relevant           | Valgfritt         | se :ref:`varsler`                                             |
 +---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
 | Rekkefølge                | Ikke relevant           | Valgfritt         | se kjedet signatur                                            |
 +---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
@@ -101,7 +127,7 @@ For arkivering av signerte dokumenter anbefaler vi å bruke originaldokumenter a
 ..  NOTE::
     Filen kan maksimalt være 3 MB (:code:`3 145 728 bytes`) stor. PDF-versjoner som støttes er PDF 1.1-1.7.
 
-I [PAdES](#signerte_dokumenter) vil dokumentet alltid presenteres i A4- og portrett-format. For best resultat anbefales det at det innsendte dokumentet også har dette formatet.
+I PAdES vil dokumentet alltid presenteres i A4- og portrett-format. For best resultat anbefales det at det innsendte dokumentet også har dette formatet.
 
 ..  DANGER::
     Passordbeskyttede dokumenter (begrenset lese- og/eller skrive-tilgang) er ikke støttet av tjenesten og vil gi feilmelding først ved nedlasting av dokumentet.
@@ -111,14 +137,14 @@ Aktiveringstidspunkt
 
 Angir tidspunkt for når signeringsoppdraget skal tilgjengeliggjøres for undertegner(e). Dersom aktiveringstidspunktet er i fortiden, blir oppdraget tilgjengelig øyeblikkelig etter opprettelse.
 
-For [kjedete signeringsoppdrag](#kjedet-signatur) gjelder aktiveringstidspunktet for *første gruppe*.
+Signeringsoppdrag i direkteflyt blir alltid aktivert øyeblikkelig etter opprettelse.
 
 Oppdragets levetid
 ^^^^^^^^^^^^^^^^^^^^
 
 Angir hvor lenge *etter aktivering* et signeringsoppdrag er tilgjengelig for undertegner før det utløper. Kan maksimalt være 90 dager etter aktivering.
 
-For [kjedete signeringsoppdrag](#kjedet-signatur) gjelder levetiden for *hver gruppe*, slik at alle undertegnere får like mye tid på seg til å signere.
+Signeringsoppdrag i direkteflyt har alltid 30 dagers levetid for å unngå at et dokument blir signert uhensiktsmessig lenge etter opprettelsen av oppdraget. Eventuell frist fra avsenders perspektiv må kommuniseres og håndteres i avsenders tjenester.
 
 Kansellere signeringsoppdrag
 ==============================
