@@ -16,10 +16,11 @@ Welcome to the Posten signering documentation!
 
 .. toctree::
    :maxdepth: 1
-   :caption: Signeringsflyten
+   :caption: Signeringsoppdrag
 
-   gdpr
+   opprette-oppdrag
    varsler
+   gdpr
 
 .. toctree::
    :maxdepth: 1
