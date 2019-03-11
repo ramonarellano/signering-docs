@@ -42,6 +42,13 @@ Welcome to the Posten signering documentation!
 
 .. toctree::
    :maxdepth: 1
+   :caption: Ordbok
+
+   ordbok
+
+
+.. toctree::
+   :maxdepth: 1
    :caption: Docs help
 
    syntax-help
