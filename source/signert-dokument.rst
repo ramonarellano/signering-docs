@@ -1,10 +1,12 @@
 Signerte dokumenter
 ====================
-Med en digital signatur kan man signere dokumenter papirløst ved å bruke autentisering av en person og koble det sammen med et dokument. For signerte PDF-dokumenter er signaturdata i selve filen, og mange PDF-lesere har mulighet til å vise den digitale signaturen.
+Med en digital signatur kan man signere dokumenter papirløst ved å bruke autentisering av en person og koble det sammen med et dokument. For signerte PDF-dokumenter ligger signaturdata i selve filen, og mange PDF-lesere har mulighet til å vise den digitale signaturen.
 
-Etter at signering av et dokument er fullført så har vi en *teknisk signatur* og en *signert PDF*. En teknisk signatur kalles *XML Advanced Electronic Signature (XAdES)*, og er beviset på at du har signert digitalt. En signert PDF kalles *PDF Advanced Electronic Signature (PAdES)*, og består av originaldokumentet og den tekniske signaturen. 
+Etter at signering av et dokument er fullført får vi en *teknisk signatur* og en *signert PDF*.
 
-En teknisk signatur er en XML-fil som inneholder data som gjør at vi kan verifisere hvem som signerte, og sjekke om dokumentet er endret fra signeringstidspunktet. En signert PDF, PAdES, inneholder tekniske signaturer, XAdES, for alle undertegnere. XAdES inneholder de bevis som gjør at det er en gydlig signatur. Dette inkluderer blant annet hvilken signeringsmetode som ble brukt, hvem som signerte når og hvilken IP-adresse undertegner hadde.
+En teknisk signatur er en XML-fil som kalles *XML Advanced Electronic Signature (XAdES)*, og er beviset på at du har signert digitalt. XAdES inneholder data som kan verifisere hvem som signerte, tidspunktet for signeringen, hvilken signeringsmetode som ble brukt, hvilken IP-adresse undertegner hadde, og om dokumentet er blitt endret etter signeringstidspunktet.
+
+En signert PDF kalles *PDF Advanced Electronic Signature (PAdES)*. Denne består av originaldokumentet, en forside med informasjon om signeringen, **og** de tekniske signaturene (XAdESene) for alle undertegnerne. XAdESene er digitalt integrerte i PAdES-en og ikke synlige, men man kan åpne filene i signaturpanelet i PDF-leseren. En signert PDF med tre undertegnere, vil altså inneholde originaldokumentet, en forside med informasjon om signeringene, og tre XAdESer som er digitalt integrert i dokumentet.
 
 Alle dokumenter kan lastes ned i en periode etter at signeringsoppdraget er fullført. Levetiden er avhengig av om langtidslagring er aktivert for avsenderen.
 
@@ -15,7 +17,7 @@ Hvordan identifiseres undertegnere i et ferdig signert dokument?
 Under opprettelse av signeringsoppdrag kan avsender velge hvordan undertegnerne skal identifiseres i de signerte dokumentene. 
 Avsender velger å inkludere én av følgende identifikatorer i signerte dokumenter:
 
-Når avsender er en bedrift:
+Når avsender er en privat virksomhet:
 
 - Navn + fødselsnummer
 - Navn + fødselsdato 
@@ -26,7 +28,7 @@ Når avsender er en offentlig virksomhet:
 - Navn
 
 ..  NOTE::
-    Dersom du vil at undertegners fødselsnummer skal fremkomme på det signerte dokumentet er du av personvermessige hensyn nødt til å adressere undertegner på fødselsnummer i signeringsoppdraget. 
+    Dersom du vil at undertegners fødselsnummer skal fremkomme på det signerte dokumentet er du av personvernmessige hensyn nødt til å adressere undertegner på fødselsnummer i signeringsoppdraget. 
 
 Hvis du utelater fødselsnummer i de signerte dokumentene kan vi ikke påvise identiteten med 100 % sikkerhet. Vi kan likevel i de aller fleste tilfeller oppnå tilstrekkelig beviskraft, på bakgrunn av konteksten signeringen skjer i.
 
