@@ -3,6 +3,8 @@ Avansert flyt
 
 I tillegg til å kunne tilby :ref:`signering-i-direkteflyt` og :ref:`signering-i-portalflyt`, så har Posten signering lagt opp til å støtte mer avanserte flyter.
 
+.. _kjedet-signatur:
+
 Kjedet signatur
 =================
 
