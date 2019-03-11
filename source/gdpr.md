@@ -1,4 +1,4 @@
-# Sletting av data, GDPR
+# GDPR
 
 Vi sletter på generell basis data som vi ikke lenger har bruk for etter 3 år. Sletting blir gjort på ulik måte avhengig av hvilken type data det er snakk om. Under følger en oppsummering av når vi sletter hvilken type data.
 
