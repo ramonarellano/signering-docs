@@ -126,16 +126,16 @@ Code snippets
 *****************
 
 
-.. code-block:: bash
+..  code-block:: bash
 
-    .. code-block:: language
+    ..  code-block:: language
 
        Some code here ...
 
 Numbered lists
-###############
+***************
 
-.. code-block:: xml
+..  code-block:: xml
 
     3. First numbered item starts with three.
     4. The next numbered item, four.
@@ -146,3 +146,31 @@ Will generate the following list:
 3. First numbered item starts with three.
 4. The next numbered item, four.
 5. Auto numbering. Will be 5.
+
+Footnotes
+**********
+
+A footnote can be created:
+
+..  code-block:: xml
+
+    I have something to say [#footnoteWithUniqueName]_.
+
+and used like so:
+
+..  code-block:: xml
+
+    ..  rubric:: Footnotes
+
+    ..  [#footnoteWithUniqueName] Some extra important information!
+
+Example footnote
+#################
+
+I have something to say [#footnoteWithUniqueName]_.
+
+..  rubric:: Footnotes
+
+..  [#footnoteWithUniqueName] Some extra important information!
+
+
