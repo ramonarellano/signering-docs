@@ -3,8 +3,36 @@
 Varsler
 ********
 
-Regler for når varsler til undertegner sendes ut
-==================================================
+Kontaktinformasjon
+======================
+
+ - Alle undertegnere må ha minst én av e-postadresse og mobilnummer.
+ - Sending av SMS er frivillig og kan bestilles av tjenesteeieren, dette koster 40 øre per SMS.
+ - Dersom en undertegner har mobilnummer og ikke e-postadresse vil det alltid bli sendt SMS.
+ - Tjenesten støtter kun norske mobilnumre.
+
+Som privat virksomhet må du selv vite og legge til e-postadressen og/eller mobilnummeret til undertegner. Det er ikke mulig å bruke Kontakt- og reservasjonsregisteret.
+
+For offentlige virksomheter gjor vi oppslag i Kontakt- og reservasjonsregisteret hvis ikke kontaktinformasjon overstyres. Hvis undertegnere er reservert mot digital kommunikasjon vil oppdraget bli avvist og påfølgende uthenting av status for oppdraget vil gi en feil med informasjon om hvilke undertegnere som er reservert. Undertegnere med overstyrt kontaktinformasjon blir ikke sjekket for reservasjon.
+
+..  NOTE::
+    Det er kun tillatt å overstyre kontaktinformasjon som en offentlig virksomhet hvis undertegner ikke signerer som privatperson, det vil si signerer i kraft av en rolle for en virksomhet.
+
+
+Bruk av Kontakt- og reservasjonsregisteret
+____________________________________________
+
+Ytterligere informasjon rundt bruk av Kontakt- og reservarsjonregisteret
+
+ - Ved utsending av senere varsler (enten utsatt aktivering på grunn av kjedet signatur eller påminnelser) blir det gjort et nytt oppslag mot registeret for å hente ut den sist oppdaterte kontaktinformasjonen.
+ - Dersom Oppslagstjenesten for Kontakt- og reservasjonsregisteret er utilgjengelig ved utsending av påminnelser vil resultatet fra oppslaget ved opprettelse av oppdraget bli brukt.
+ - Reservasjon ved utsatte førstegangsvarsler: I scenariet der tjenesteeier har satt en kjedet rekkefølge på undertegnerne, og førstegangsvarsel skal sendes til en undertegner som i perioden mellom oppdraget ble opprettet og førstegangsvarsel skal sendes har reservert seg mot elektronisk kommunikasjon, så vil hele oppdraget feile.
+ - Reservasjon ved påminnelser: Hvis sluttbrukeren har reservert seg etter at oppdraget ble opprettet, men oppdraget allerede er aktivert, vil det ikke bli sendt påminnelser (e-post/SMS), men oppdraget vil heller ikke feile før signeringsfristen eventuelt løper ut.
+ - Oppdrag med overstyrt kontaktinformasjon med utenlandsk mobilnummer vil bli avvist, mens utenlandske mobilnumre fra Kontakt- og reservasjonsregisteret vil bli ignorert.
+
+
+Regler for utsending av varsler
+=================================
 
 For å sørge for at undertegner mottar varsler og påminnelser i passende tidsrom, er tidspunktene for når varsler blir sendt ut avhengig av signeringsfristen for et oppdrag.
 
@@ -118,6 +146,7 @@ ____________________________________________________________________
 
         Du har et usignert dokument fra [*Avsender*]. Logg inn og signer på [*signering.posten.no/logginn*] innen [*signeringsfrist*].
          
+.. _varslerUtenFødselsnummer:
 
 Varsel om dokument til signering, ved adressering uten fødselsnummer
 ____________________________________________________________________

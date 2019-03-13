@@ -23,6 +23,7 @@ Welcome to the Posten signering documentation!
    gdpr
    varsler
    lagring
+   adressering-av-undertegner
 
 .. toctree::
    :maxdepth: 1

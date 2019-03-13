@@ -1,3 +1,6 @@
+
+.. _signeringsflyt:
+
 Signeringsflyt
 *******************
 
@@ -25,6 +28,8 @@ Se gjerne `denne bildeguiden i Google Presentation for signering i direkteflyt <
 Signering i portalflyt
 ========================
 
+.. _signering-i-portalflyt-med-fødselsnummer:
+
 Adressering med fødselsnummer
 ______________________________
 
@@ -40,6 +45,9 @@ Flyten ser typisk slik ut:
 #. Avsender laster ned det signerte dokumentet
 
 Se gjerne `denne bildeguiden i Google Presentation for signering i portalflyt, adressering med fødselsnummer <https://docs.google.com/presentation/d/14Q_-YzaxcGsZOgUR6rJl7rWSwLZwujnuqgkKCrxksoA/edit#slide=id.g36b93b9965_0_57>`_.
+
+.. _signering-i-portalflyt-uten-fødselsnummer:
+
 
 Adressering uten fødselsnummer
 _______________________________
