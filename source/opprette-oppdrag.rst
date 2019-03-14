@@ -44,7 +44,7 @@ ______________
 Antall undertegnere
 ^^^^^^^^^^^^^^^^^^^^^
 
-Tjenesten tillater maksimalt 10 undertegnere pr. oppdrag.
+Et signeringsoppdrag kan ha flere undertegnere. Tjenesten tillater maksimalt 10 undertegnere pr. oppdrag.
 
 Hastighet
 ^^^^^^^^^^^
@@ -81,11 +81,4 @@ Oppdragets levetid
 Angir hvor lenge *etter aktivering* et signeringsoppdrag er tilgjengelig for undertegner før det utløper. Kan maksimalt være 90 dager etter aktivering.
 
 Signeringsoppdrag i direkteflyt har alltid 30 dagers levetid for å unngå at et dokument blir signert uhensiktsmessig lenge etter opprettelsen av oppdraget. Eventuell frist fra avsenders perspektiv må kommuniseres og håndteres i avsenders tjenester.
-
-Kansellere signeringsoppdrag
-==============================
-
-Kansellering av signeringsoppdrag er bare relevant for signeringsoppdrag som signeres i signeringsportalen, dvs. signering i portalflyt.
-
-Et signeringsoppdrag kan på et hvilket som helst tidspunkt kanselleres av avsender, så lenge ikke oppdraget allerede er fullført. Kansellerte oppdrag blir utilgjengeliggjort for undertegnere som enda ikke har signert.
 
