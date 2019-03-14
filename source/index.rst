@@ -19,6 +19,7 @@ Welcome to the Posten signering documentation!
    :caption: Signeringsoppdrag
 
    opprette-oppdrag
+   endring-av-signeringsoppdrag
    signert-dokument
    gdpr
    varsler
@@ -39,6 +40,7 @@ Welcome to the Posten signering documentation!
 
    buy-enterprise-certificates
    install-enterprise-certificate
+   install-client
    create-client-configuration
    direct-flow
    portal-flow

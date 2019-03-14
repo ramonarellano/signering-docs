@@ -11,9 +11,12 @@ Kontaktinformasjon
  - Dersom en undertegner har mobilnummer og ikke e-postadresse vil det alltid bli sendt SMS.
  - Tjenesten støtter kun norske mobilnumre.
 
-Som privat virksomhet må du selv vite og legge til e-postadressen og/eller mobilnummeret til undertegner. Det er ikke mulig å bruke Kontakt- og reservasjonsregisteret.
+Som **bedrift** må du selv vite og legge til e-postadressen og/eller mobilnummeret til undertegner. Det er ikke mulig å bruke Kontakt- og reservasjonsregisteret.
 
-For offentlige virksomheter gjor vi oppslag i Kontakt- og reservasjonsregisteret hvis ikke kontaktinformasjon overstyres. Hvis undertegnere er reservert mot digital kommunikasjon vil oppdraget bli avvist og påfølgende uthenting av status for oppdraget vil gi en feil med informasjon om hvilke undertegnere som er reservert. Undertegnere med overstyrt kontaktinformasjon blir ikke sjekket for reservasjon.
+For **offentlige virksomheter** gjør vi oppslag i `Kontakt- og reservasjonsregisteret <https://samarbeid.difi.no/kontakt-og-reservasjonsregisteret>`_ hvis ikke kontaktinformasjon overstyres.
+
+..  CAUTION::
+    Hvis undertegnere er reservert mot digital kommunikasjon vil oppdraget bli avvist og påfølgende uthenting av status for oppdraget vil gi en feil med informasjon om hvilke undertegnere som er reservert. Undertegnere med overstyrt kontaktinformasjon blir ikke sjekket for reservasjon.
 
 ..  NOTE::
     Det er kun tillatt å overstyre kontaktinformasjon som en offentlig virksomhet hvis undertegner ikke signerer som privatperson, det vil si signerer i kraft av en rolle for en virksomhet.
@@ -86,11 +89,6 @@ Innholdet i varselet vil variere ut fra om
 - hvilken kanal de sendes i (e-post/SMS)
 - sektor som avsender sender fra (privat eller offentlig)
 - antall undertegnere på oppdraget
-
-**For offentlige avsendere** hentes kontaktinformasjonen til undertegner fra Kontakt- og reservasjonsregisteret (KRR). Unntaket er hvis undertegneren skal signere på vegne av andre, f.eks. hvis han er ansatt i en bedrift han signerer på vegne av. Da legges kontaktinformasjonen inn av avsender.
-
-**For private avsendere** er det alltid avsender selv som legger inn kontaktinformasjon til undertegner.
-
 
 Nedenfor vises de ulike variantene av varslene som sendes på e-post og SMS.
 
@@ -321,7 +319,9 @@ Hvis avsender *kansellerer* et signeringsoppdrag, blir det sendt ut et varsel ti
         
         Hilsen Posten
 
-  
+
+.. _varseltekster-for-avsendere:
+
 Varseltekster for avsendere
 ============================
 
