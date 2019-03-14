@@ -173,4 +173,30 @@ I have something to say [#footnoteWithUniqueName]_.
 
 ..  [#footnoteWithUniqueName] Some extra important information!
 
+Images
+*******
 
+Images can be added by putting an image in the images-folder and using the following code for an image:
+
+.. code-block:: xml
+
+    ..  image:: images/exampledocimage.png
+        :alt: alternate text
+        :align: right
+
+Giving an image like this:
+
+
+..  image:: images/exampledocimage.png
+    :alt: alternate text
+    :align: center
+
+You can also specify more image tags:
+
+.. code-block:: xml
+
+    :height: 100px
+    :width: 200 px
+    :scale: 50 %
+    :alt: alternate text
+    :align: right
