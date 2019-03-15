@@ -13,6 +13,7 @@ Welcome to the Posten signering documentation!
    introduksjon
    signeringsflyt
    signaturtype
+   avsenderportalen
 
 .. toctree::
    :maxdepth: 1
