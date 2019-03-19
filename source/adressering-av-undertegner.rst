@@ -1,3 +1,5 @@
+.. _adressering-av-undertegner:
+
 Adressering av undertegner
 ***************************
 Måten undertegner adresseres og identifiseres på, er litt forskjellig avhengig av om han signerer i direkteflyt eller portalflyt, og om avsender bruker API eller avsenderportalen.

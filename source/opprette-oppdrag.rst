@@ -8,17 +8,17 @@ Ved opprettelse av signeringsoppdrag kan følgende felter angis:
 +===========================+=========================+===================+===============================================================+
 | Dokument                  | **Obligatorisk**        | **Obligatorisk**  |                                                               |
 +---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
-| Undertegner(e)            | **Obligatorisk**        | **Obligatorisk**  | se undertegners kontaktinfo                                   |
+| Undertegner(e)            | **Obligatorisk**        | **Obligatorisk**  | se :ref:`adressering-av-undertegner`                          |
 +---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
 | Tittel                    | **Obligatorisk**        | **Obligatorisk**  |                                                               |
 +---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
-| Signaturtype              | Valgfritt               | Valgfritt         | se signaturtype                                               |
+| Signaturtype              | Valgfritt               | Valgfritt         | se :ref:`signaturtype`                                        |
 +---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
-| Sikkerhetsnivå            | Valgfritt               | Valgfritt         | se sikkerhetsnivå                                             |
+| Sikkerhetsnivå            | Valgfritt               | Valgfritt         | se :ref:`sikkerhetsnivå`                                      |
 +---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
 | Melding til mottaker(e)   | Valgfritt               | Valgfritt         |                                                               |
 +---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
-| Undertegners identifikator| Valgfritt               | Valgfritt         | se undertegners identifikator                                 |
+| Undertegners identifikator| Valgfritt               | Valgfritt         | se :ref:`adressering-av-undertegner`                          |
 +---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
 | Aktiveringstidspunkt      | Ikke overstyrbar [#f1]_ | Valgfritt         |                                                               |
 +---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
