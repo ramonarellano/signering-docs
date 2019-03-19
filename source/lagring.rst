@@ -1,6 +1,8 @@
 Lagring
 *********
 
+.. _langtidslagring:
+
 Langtidslagring
 ================
 
