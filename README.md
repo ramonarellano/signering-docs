@@ -9,6 +9,8 @@ Link inn python3 (legg den inn i pathen som beskrevet på [Stackoverflow](https:
 
 ```
 pip install sphinx_rtd_theme
+pip install recommonmark
+pip install sphinx-tabs
 make html
 ```
 
