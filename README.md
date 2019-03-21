@@ -2,6 +2,13 @@
 
 ## To build:
 ```
+brew install python #python 3
+```
+
+Link inn python3 (legg den inn i pathen som beskrevet på [Stackoverflow](https://stackoverflow.com/a/49711594/1765749)
+
+```
+pip install sphinx_rtd_theme
 make html
 ```
 
