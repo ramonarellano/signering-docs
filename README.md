@@ -13,7 +13,9 @@ sphinx-autobuild source build/html
 ## To convert markdown to reStructuredText
 ```
 brew install pandoc
-pandoc manuell-portal-integrasjon.md --from gfm --to rst -s -o manuell-portal-integrasjon.rst
+pandoc manuell-portal-integrasjon.md --from gfm --to rst -s -o manuell-portal-integrasjon.rst --wrap=preserve
 ```
+
+It is important to use `wrap=preserve` to .
 
 A bunch of links may be wrong, but it is a good start!
