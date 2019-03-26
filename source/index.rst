@@ -50,6 +50,12 @@ Welcome to the Posten signering documentation!
 
 .. toctree::
    :maxdepth: 1
+   :caption: Egen integrasjon
+
+   egen-integrasjon/sikkerhet
+
+.. toctree::
+   :maxdepth: 1
    :caption: Ordbok
 
    ordbok

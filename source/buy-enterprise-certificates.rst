@@ -1,3 +1,4 @@
+.. _buyEnterpriseCertificate:
 
 Buy enterprise certificates
 ***************************
