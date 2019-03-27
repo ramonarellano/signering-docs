@@ -1,3 +1,5 @@
+..  _signerte-dokumenter:
+
 Signerte dokumenter
 ====================
 Med en digital signatur kan man signere dokumenter papirløst ved å bruke autentisering av en person og koble det sammen med et dokument. For signerte PDF-dokumenter ligger signaturdata i selve filen, og mange PDF-lesere har mulighet til å vise den digitale signaturen.
@@ -10,7 +12,7 @@ En signert PDF kalles *PDF Advanced Electronic Signature (PAdES)*. Denne består
 
 Alle dokumenter kan lastes ned i en periode etter at signeringsoppdraget er fullført. Levetiden er avhengig av om :ref:`langtidslagring` er aktivert for avsenderen.
 
-.. _identifisereUndertegnere:
+..  _identifisereUndertegnere:
 
 Hvordan identifiseres undertegnere i et ferdig signert dokument?
 ------------------------------------------------------------------

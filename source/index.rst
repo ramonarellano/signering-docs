@@ -13,19 +13,27 @@ Welcome to the Posten signering documentation!
    introduksjon
    signeringsflyt
    signaturtype
+   signert-dokument
+   
+.. toctree::
+   :maxdepth: 1
+   :caption: Avsenderportalen
+
    avsenderportalen
+   send-dokument-avsenderportalen
 
 .. toctree::
    :maxdepth: 1
    :caption: Signeringsoppdrag
 
    opprette-oppdrag
-   endring-av-signeringsoppdrag
-   signert-dokument
-   gdpr
-   varsler
-   lagring
    adressering-av-undertegner
+   varsler-til-undertegner
+   endring-av-signeringsoppdrag
+   varsler-til-avsender
+   lagring
+   gdpr
+   
 
 .. toctree::
    :maxdepth: 1
@@ -34,10 +42,9 @@ Welcome to the Posten signering documentation!
    sikkerhetsnivå
    kjedet-signatur
 
-
 .. toctree::
    :maxdepth: 1
-   :caption: Integration
+   :caption: Client integration
 
    buy-enterprise-certificates
    install-enterprise-certificate
@@ -50,10 +57,16 @@ Welcome to the Posten signering documentation!
 
 .. toctree::
    :maxdepth: 1
+   :caption: Egen integrasjon
+
+   egen-integrasjon/egen-portal-integrasjon
+   egen-integrasjon/egen-direkte-integrasjon
+
+.. toctree::
+   :maxdepth: 1
    :caption: Ordbok
 
    ordbok
-
 
 .. toctree::
    :maxdepth: 1
