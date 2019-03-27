@@ -61,6 +61,7 @@ Welcome to the Posten signering documentation!
 
    egen-integrasjon/egen-portal-integrasjon
    egen-integrasjon/egen-direkte-integrasjon
+   egen-integrasjon/dokumentpakke-oppsett
 
 .. toctree::
    :maxdepth: 1
