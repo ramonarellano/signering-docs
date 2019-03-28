@@ -180,12 +180,15 @@ Images can be added by putting an image in the images-folder and using the follo
 
 .. code-block:: xml
 
-    ..  image:: images/exampledocimage.png
+    ..  |example-image| image:: images/exampledocimage.png
         :alt: alternate text
         :align: right
 
-Giving an image like this:
 
+..  TIP::
+    Please add the image reference to the bottom of the file. It makes the file so much easier to read.
+
+Then, just use ``|example-image|`` where you want the image to be inserted.
 
 ..  image:: images/exampledocimage.png
     :alt: alternate text
