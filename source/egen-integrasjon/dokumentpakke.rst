@@ -144,7 +144,7 @@ ETSI, ETSI TS 103 171 Electronic Signatures and Infrastructures (ESI); XAdES Bas
 ===================== ======================================================================================================= ==============
 
 ASiC-profil for dokumentpakken
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------
 
 Dokumentet pakkes i en dokumentpakke sammen med noe metadata i henhold til ASiC (ETSI TS 102 918) [#etsi1]_, og videre begrenset i henhold til profilen definert i Baseline Profile (ETSI TS 103 174) [#etsi2]_. Ytterlige begrensninger følger nedenfor:
 
@@ -159,7 +159,7 @@ krav 8.3.2 [#etsi212]_     Requirements for the contents of Container” referer
 ========================= ================================================================================================================================ =========================================================================================================================================================================================================
 
 Signatur i dokumentpakken
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+--------------------------
 
 Dokumentpakken bør være signert av “Behandlingsansvarlig”, men kan signeres av “Databehandler”.
 
