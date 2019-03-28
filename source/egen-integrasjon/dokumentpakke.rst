@@ -5,31 +5,39 @@ Dokumentpakken
 
 Dokumentpakken i Posten signering er basert på ASiC-E standarden (`Associated Signature Containers, Extended form <http://www.etsi.org/deliver/etsi_ts/102900_102999/102918/01.03.01_60/ts_102918v010301p.pdf>`_). Profilen er lagd for å ligne på den som er brukt for `Digital postkasse til innbyggere <http://begrep.difi.no/SikkerDigitalPost>`_. Les mer om :ref:`profilen som er benyttet for ASiC <asicEStandards>` i slutten av dette dokumentet.
 
-Pakken skal inneholde dokumentet som skal signeres (en PDF eller ren tekstfil), en fil kalt ``manifest.xml`` som beskriver metadata for dokumentet (emner, hvem som skal signere osv.), samt en fil kalt ``signatures.xml`` som er signaturen over hele dokumentpakken.
+
+Innhold
+========
+
+Pakken er i ZIP-format, og inneholder:
+
+- dokumentet som skal signeres (en PDF eller ren tekstfil)
+- filen ``manifest.xml`` som beskriver metadata for dokumentet (emner, hvem som skal signere osv.)
+- filen ``signatures.xml`` som er signaturen over hele dokumentpakken.
 
 Dokument
-=========
+--------
 
 For informasjon om dokumentbegrensninger, se :ref:`dokumentformat`. Denne filen refereres til med det påkrevde ``href``-attributtet i ``document``-elementet i ``manifest.xml``. Se eksempler for `signeringsoppdrag i direkteflyt <https://github.com/digipost/signature-api-specification/blob/master/schema/examples/direct/manifest.xml#L10>`_ og `signeringsoppdrag i portalflyt <https://github.com/digipost/signature-api-specification/blob/master/schema/examples/portal/manifest.xml#L34>`_.
 
 .. _manifestxml:
 
-``manifest.xml``
+Manifest
 ----------------
 
-Filen følger skjemaet `direct-and-portal.xsd <https://github.com/digipost/signature-api-specification/blob/master/schema/xsd/direct-and-portal.xsd>`_, som igjen importerer `direct.xsd <https://github.com/digipost/signature-api-specification/blob/master/schema/xsd/direct.xsd>`_ og `portal.xsd <https://github.com/digipost/signature-api-specification/blob/master/schema/xsd/portal.xsd>`_.
+Filen ``manifest.xml`` følger skjemaet `direct-and-portal.xsd <https://github.com/digipost/signature-api-specification/blob/master/schema/xsd/direct-and-portal.xsd>`_, som igjen importerer `direct.xsd <https://github.com/digipost/signature-api-specification/blob/master/schema/xsd/direct.xsd>`_ og `portal.xsd <https://github.com/digipost/signature-api-specification/blob/master/schema/xsd/portal.xsd>`_.
 
-Se eksempler for å :ref:`egenDirekteIntegrasjon` og :ref:`egenPortalIntegrasjon` for eksempler på forskjellige måter elementene kan bygges opp.
+Se :ref:`egenDirekteIntegrasjon` og :ref:`egenPortalIntegrasjon` for eksempler på forskjellige måter elementene kan bygges opp.
 
 .. _signaturesxml:
 
-``signatures.xml``
+Signaturer
 ------------------
 
-Filen følger skjemaet ``http://uri.etsi.org/2918/v1.2.1#``. Se `Thirdparty (katalog) <https://github.com/digipost/signature-api-specification/tree/master/schema/xsd/thirdparty>`_ for kopier av de relevante standardskjemaene.
+Filen ``signatures.xml`` følger skjemaet ``http://uri.etsi.org/2918/v1.2.1#``. Se `Thirdparty (katalog) <https://github.com/digipost/signature-api-specification/tree/master/schema/xsd/thirdparty>`_ for kopier av de relevante standardskjemaene.
 
-Eksempel på komplett fil
-------------------------
+Eksempel på komplett ``signatures.xml``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: xml
 
