@@ -51,6 +51,9 @@ Hastighet
 
 Tjenesten tillater maksimalt 10 API-kall i sekundet per organisasjonsnummer. Hvis en avsender overskrider denne grensen vil API-et returnere :code:`HTTP 429 Too Many Requests`, og avsenderen vil bli blokkert i 30 sekunder.
 
+
+..  _dokumentformat:
+
 Dokumentformat
 ^^^^^^^^^^^^^^^^^
 
