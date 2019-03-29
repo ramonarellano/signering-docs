@@ -1,3 +1,5 @@
+..  _signerte-dokumenter:
+
 Signerte dokumenter
 ====================
 Med en digital signatur kan man signere dokumenter papirløst ved å bruke autentisering av en person og koble det sammen med et dokument. For signerte PDF-dokumenter ligger signaturdata i selve filen, og mange PDF-lesere har mulighet til å vise den digitale signaturen.
@@ -10,7 +12,7 @@ En signert PDF kalles *PDF Advanced Electronic Signature (PAdES)*. Denne består
 
 Alle dokumenter kan lastes ned i en periode etter at signeringsoppdraget er fullført. Levetiden er avhengig av om :ref:`langtidslagring` er aktivert for avsenderen.
 
-.. _identifisereUndertegnere:
+..  _identifisereUndertegnere:
 
 Hvordan identifiseres undertegnere i et ferdig signert dokument?
 ------------------------------------------------------------------
@@ -34,6 +36,27 @@ Når avsender er en offentlig virksomhet:
 Hvis du utelater fødselsnummer i de signerte dokumentene kan vi ikke påvise identiteten med 100% sikkerhet [#fotnotePåviseIdentitet]_. Vi kan likevel i de aller fleste tilfeller oppnå tilstrekkelig beviskraft, på bakgrunn av konteksten signeringen skjer i.
 
 Sannsynligheten er for eksempel svært liten for at 2 personer med navn Kari Olsen signerer en lærekontrakt med Lærlingebedrift AS på eksakt samme tidspunkt. I tillegg vil tekniske spor, og andre eksterne forhold som kunderelasjon eller opplysninger i dokumentet også støtte opp under identiteten til den som har signert.
+
+
+Det signerte dokumentet
+========================
+
+Som vist under vil dokumentet få en forside som viser hvem som har signert og hva dokumentet inneholder. Hver side inneholder også en bunntekst som viser hvem som har signert.
+
+|pades-visning-adobe-innhold|
+
+I produksjonsmiljø
+^^^^^^^^^^^^^^^^^^^
+Hvis dokumentet er signert i et produksjonsmiljø så kan man verifisere signaturen i f.eks. Adobe Acrobat Reader ved å klikke på *Signaturpanel* i den blå infoboksen.
+
+|pades-visning-adobe-prod|
+
+I et testmiljø
+^^^^^^^^^^^^^^^
+Hvis dokumentet er signert i et testmiljø så er det teknisk sett ikke en gyldig signatur siden det er sertifikater fra en test-utsteder som brukes. Dette ser du i den blå infoboksen. Det er likevel mulig å se på signaturene slik som i produksjonsmiljøet.
+
+|pades-visning-adobe-test|
+
 
 Format på signaturen
 ---------------------
@@ -67,6 +90,18 @@ Denne pakketeringen gir en rekke fordeler:
 7. **Langtidslagring (LTV)**: Pakketering til LTV-SDO eller PAdES gir den beste støtten for langtidsvalidering. :ref:`langtidslagring`, uavhengig av om det er i sentral arkivtjeneste eller hos kunde, krever et format som tillater preservering og oppbevaring av valideringsdata. Den underliggende SDO-en fra e-ID-leverandøren ligger tilgjengelig i LTV-SDO-formatet, og kan enkelt hentes ut av ved behov. Tjenesten kan derfor både tilby kunder den berikede LTV-SDO-en og tilgang til den underliggende SDO-en fra e-ID-leverandøren. Det er derfor ikke en forutsetning at kunden kan forholde seg til LTV-SDO, men snarere en anbefaling som vil gi standardisert tilgang til beriket og integritetsbeskyttet informasjon om signeringsoppdraget.
 
 Pakketering med XAdES og/eller PAdES gir full nytte av standardiseringsarbeidet for preservering som gjøres i regi av EU (XAdES Baseline som er utviklet av EU-initiativet DSS, og som vil bli de foretrukne standardene i XAdES).
+
+..  |pades-visning-adobe-prod| image:: images/pades_visning_adobe_prod.png
+    :alt: Visning av Pades i Adobe med dokument i produksjonsmiljø
+    :scale: 20%
+
+..  |pades-visning-adobe-test| image:: images/pades_visning_adobe_test.png
+    :alt: Visning av Pades i Adobe med dokument i testmiljø
+    :scale: 20%
+
+..  |pades-visning-adobe-innhold| image:: images/pades_visning_innhold.png
+    :alt: Visning av Pades i Adobe med dokument i testmiljø
+    :scale: 20%
 
 ..  rubric:: Footnotes
 

@@ -1,41 +1,7 @@
-.. _varsler:
+.. _varsler-regler-for-utsending:
 
-Varsler
-********
-
-Kontaktinformasjon
-======================
-
- - Alle undertegnere må ha minst én av e-postadresse og mobilnummer.
- - Sending av SMS er frivillig og kan bestilles av tjenesteeieren, dette koster 40 øre per SMS.
- - Dersom en undertegner har mobilnummer og ikke e-postadresse vil det alltid bli sendt SMS.
- - Tjenesten støtter kun norske mobilnumre.
-
-Som **bedrift** må du selv vite og legge til e-postadressen og/eller mobilnummeret til undertegner. Det er ikke mulig å bruke Kontakt- og reservasjonsregisteret.
-
-For **offentlige virksomheter** gjør vi oppslag i `Kontakt- og reservasjonsregisteret <https://samarbeid.difi.no/kontakt-og-reservasjonsregisteret>`_ hvis ikke kontaktinformasjon overstyres.
-
-..  CAUTION::
-    Hvis undertegnere er reservert mot digital kommunikasjon vil oppdraget bli avvist og påfølgende uthenting av status for oppdraget vil gi en feil med informasjon om hvilke undertegnere som er reservert. Undertegnere med overstyrt kontaktinformasjon blir ikke sjekket for reservasjon.
-
-..  NOTE::
-    Det er kun tillatt å overstyre kontaktinformasjon som en offentlig virksomhet hvis undertegner ikke signerer som privatperson, det vil si signerer i kraft av en rolle for en virksomhet.
-
-
-Bruk av Kontakt- og reservasjonsregisteret
-____________________________________________
-
-Ytterligere informasjon rundt bruk av Kontakt- og reservarsjonregisteret
-
- - Ved utsending av senere varsler (enten utsatt aktivering på grunn av kjedet signatur eller påminnelser) blir det gjort et nytt oppslag mot registeret for å hente ut den sist oppdaterte kontaktinformasjonen.
- - Dersom Oppslagstjenesten for Kontakt- og reservasjonsregisteret er utilgjengelig ved utsending av påminnelser vil resultatet fra oppslaget ved opprettelse av oppdraget bli brukt.
- - Reservasjon ved utsatte førstegangsvarsler: I scenariet der tjenesteeier har satt en kjedet rekkefølge på undertegnerne, og førstegangsvarsel skal sendes til en undertegner som i perioden mellom oppdraget ble opprettet og førstegangsvarsel skal sendes har reservert seg mot elektronisk kommunikasjon, så vil hele oppdraget feile.
- - Reservasjon ved påminnelser: Hvis sluttbrukeren har reservert seg etter at oppdraget ble opprettet, men oppdraget allerede er aktivert, vil det ikke bli sendt påminnelser (e-post/SMS), men oppdraget vil heller ikke feile før signeringsfristen eventuelt løper ut.
- - Oppdrag med overstyrt kontaktinformasjon med utenlandsk mobilnummer vil bli avvist, mens utenlandske mobilnumre fra Kontakt- og reservasjonsregisteret vil bli ignorert.
-
-
-Regler for utsending av varsler
-=================================
+Varsler: Regler for utsending
+=============================
 
 For å sørge for at undertegner mottar varsler og påminnelser i passende tidsrom, er tidspunktene for når varsler blir sendt ut avhengig av signeringsfristen for et oppdrag.
 
@@ -321,49 +287,4 @@ Hvis avsender *kansellerer* et signeringsoppdrag, blir det sendt ut et varsel ti
 
 
 .. _varseltekster-for-avsendere:
-
-Varseltekster for avsendere
-============================
-
-Alle avsendere er registrert i tjenesten med e-postadresse, og varsler sendes derfor på e-post. En avsenders e-postadresse er knyttet til brukeren i tjenesten, og sendes aldri inn ifm. opprettelse av oppdrag.
-
-..  NOTE::
-    Det er kun brukeren som har opprettet signeringsoppdraget som vil få e-poster knyttet til et oppdrag.
-
-Det sendes ut varsler til avsender i to tilfeller:
-
-1. **Når signeringsoppdrag endrer status**: Varselet inneholder en oversikt over samtlige undertegneres signeringsstatus. Det blir sendt én e-post for hver undertegner som "gjør noe", dvs. signerer eller avviser, eller når signeringsfristen er gått ut.
-
-2. **24 timer før signeringsfristen for ett oppdrag går ut**: Varselet sendes ut som en påminnelse til avsender om at noen fortsatt ikke har signert. Avsender kan da velge å utsette signeringsfristen, eller purre på undertegnerne ved å sende ekstra varsel. **N.B:** Varselet sendes kun hvis oppdragets opprinnelige signeringsfrist var mer enn 48 timer.
-
-
-Varsel når signeringsoppdrag endrer status
-__________________________________________
-
-..  tabs::
-      
-    ..  tab:: Statusendring
-       
-        **Emne**: Oppdatert signeringsstatus: Dokumentet er [*delvis signert*]/[*ferdig signert*]/[*ferdig, men ufullstendig*]
-        
-        Hei!
-        Vi vil informere deg om at dokumentet med referanse [*XXXX*] har endret status til [*delvis signert*]/[*ferdig signert*]/[*ferdig, men ufullstendig*].
-        
-        Undertegner ********: [*Venter*]/[*Avvist*]/[*Signert*]/[*Sperret*]
-        
-        Logg deg inn på [*https://signering.posten.no/virksomhet/#/*] for å (utsette fristen eller for å) se detaljer om dokumentet.
-        
-        Hilsen Posten
-
-    ..  tab:: Fristen går snart ut
-        
-        **Emne**: Signeringsfristen går ut om 24 timer
-        
-        Hei!
-        Dkoumentet med referanse [*XXXX*] er fortsatt ikke signert av [*undertegnere*]. Det er nå kun 24 timer til signeringsfristen utløper. Du kan utsette fristen for signeringen ved å logge inn og klikke på "Utsett signeringsfrist". Om dokumentet ikek signeres innen fristen, stoppes prosessen, og du må eventuelt sende dokumentet på nytt for å hente inn signaturer.
-        
-        Logg deg inn på [*https://signering.posten.no/virksomhet/#/*] for å utsette fristen eller for å se detaljer om dokumentet.
-        
-        Hilsen Posten
-        
 

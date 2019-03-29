@@ -117,6 +117,8 @@ html_theme = 'sphinx_rtd_theme'
 # html_sidebars = {}
 
 
+suppress_warnings = ['image.nonlocal_uri']
+
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
@@ -198,3 +200,4 @@ epub_exclude_files = ['search.html']
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
+
