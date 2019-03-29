@@ -54,7 +54,7 @@ Flyten ser typisk slik ut:
 Adressering uten fødselsnummer
 _______________________________
 
- En signeringsflyt hvor man får tilgang til portalen ved en lenke og et engangspassord.
+En signeringsflyt hvor man får tilgang til portalen ved en lenke og et engangspassord.
 
 #. Avsender oppretter et oppdrag gjennom API eller fra web i avsenderportalen
 #. Undertegner mottar en unik lenke og engangskode til oppdrag på e-post eller SMS
