@@ -46,20 +46,20 @@ Som vist under vil dokumentet få en forside som viser hvem som har signert og h
 |pades-visning-adobe-innhold|
 
 I produksjonsmiljø
-^^^^^^^^^^^^^^^^^^^
+-------------------
 Hvis dokumentet er signert i et produksjonsmiljø så kan man verifisere signaturen i f.eks. Adobe Acrobat Reader ved å klikke på *Signaturpanel* i den blå infoboksen.
 
 |pades-visning-adobe-prod|
 
 I et testmiljø
-^^^^^^^^^^^^^^^
+---------------
 Hvis dokumentet er signert i et testmiljø så er det teknisk sett ikke en gyldig signatur siden det er sertifikater fra en test-utsteder som brukes. Dette ser du i den blå infoboksen. Det er likevel mulig å se på signaturene slik som i produksjonsmiljøet.
 
 |pades-visning-adobe-test|
 
 
 Format på signaturen
----------------------
+=====================
 
 Med signaturformat mener vi formatet på objektet som skapes gjennom signeringsprosessen. Det elektronisk signerte dokumentet lagres normalt på et annet dokumentformat enn originaldokumentet som ble signert. Signeringstjenesten støtter følgende signaturformater som er i utbredt bruk i Norge i dag. Dette inkluderer både formatene som støttes direkte av e-ID-leverandørene, i tillegg til formater som tilbys av signeringstjenesten gjennom pakketering.
 
@@ -70,7 +70,7 @@ Med signaturformat mener vi formatet på objektet som skapes gjennom signeringsp
 **PAdES**: PAdES er et signaturformat som inneholder originaldokumentet, alle signaturer og all informasjon som er nødvendig for å validere signaturen. Formatet er spesifisert av ETSI, og bygger på PDF. En PAdES kan åpnes i en vilkårlig PDF-leser. Adobe Reader (og eventuelle andre avanserte PDF lesere) vil også kunne vise frem deler av valideringsinformasjonen slik at sluttbrukeren selv kan se at dokumentet er gyldig signert.
 
 Pakketering av signaturer
--------------------------
+===========================
 
 Signeringstjenesten gjør pakketering av signaturer gjennom et format for langtidsvalidering kalt LTV-SDO. LTV-SDO er en XAdES som brukes til å styrke og standardisere signaturene som kommer fra e-ID-leverandørene. Selv om LTV-SDO er et format som er utviklet primært for langtidsvalidering, har det andre egenskaper som gjør at det er ønskelig å bruke det ved ordinær prosessering og oppbevaring av signerte dokumenter. Det gjør at signeringstjenesten og tjenesteyterne har ett format å forholde seg til, uavhengig av hvilken e-ID-leverandør som er brukt til signering og om dokumentet skal langtidsvalideres eller ikke.
 
@@ -91,15 +91,15 @@ Denne pakketeringen gir en rekke fordeler:
 
 Pakketering med XAdES og/eller PAdES gir full nytte av standardiseringsarbeidet for preservering som gjøres i regi av EU (XAdES Baseline som er utviklet av EU-initiativet DSS, og som vil bli de foretrukne standardene i XAdES).
 
-..  |pades-visning-adobe-prod| image:: images/pades_visning_adobe_prod.png
+..  |pades-visning-adobe-prod| image:: images/pades-visning-adobe-prod.png
     :alt: Visning av Pades i Adobe med dokument i produksjonsmiljø
     :scale: 20%
 
-..  |pades-visning-adobe-test| image:: images/pades_visning_adobe_test.png
+..  |pades-visning-adobe-test| image:: images/pades-visning-adobe-test.png
     :alt: Visning av Pades i Adobe med dokument i testmiljø
     :scale: 20%
 
-..  |pades-visning-adobe-innhold| image:: images/pades_visning_innhold.png
+..  |pades-visning-adobe-innhold| image:: images/pades-visning-innhold.png
     :alt: Visning av Pades i Adobe med dokument i testmiljø
     :scale: 20%
 

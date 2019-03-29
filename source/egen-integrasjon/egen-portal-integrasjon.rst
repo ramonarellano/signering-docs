@@ -248,7 +248,7 @@ Responsen på dette kallet vil være én av to ting:
 - **ingen oppdatering tilgjengelig:** Dersom det ikke er noen oppdateringer for dine signeringsoppdrag, vil du få en ``204 No Content``-respons.
 
 Hyppighet
-^^^^^^^^^^^
+----------
 
 Responsene vil alltid inneholde HTTP-headeren ``X-Next-permitted-poll-time`` som forteller deg når du kan gjøre neste forespørsel, og det er viktig at dette tidspunktet overholdes. Dersom man sender en forespørsel før dette tidspunktet har passert, vil man få en ``429 Too Many Requests``-respons tilbake. Denne vil også inneholde headeren ``X-Next-permitted-poll-time`` med et nytt tidspunkt.
 
@@ -259,7 +259,7 @@ I praksis vil tidspunktet for neste tillatte polling-forespørsel være umiddelb
 
 
 Integrasjon
-^^^^^^^^^^^^^^
+------------
 
 
 For å polle, så gjør du en ``HTTP GET`` mot ``<rot-URL>/portal/signature-jobs``. Oppdrag som ikke er lagt på en spesifikk kø vil havne på en standard-kø. Hvis signeringsoppdraget er lagt på en spesifikk kø, så må også query-parameteret ``polling_queue`` settes til navnet på køen, f.eks. ``<rot-URL>/portal/signature-jobs?polling_queue=custom-queue``. Du skal ikke ha med noen request-body på dette kallet.

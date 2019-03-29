@@ -8,13 +8,13 @@ To-veis TLS
 
 For å benytte APIene trenger du et virksomhetssertifikat. For innkjøp og mer informasjon om virksomhetssertifikat, se :ref:`innkjøp av virksomhetssertifikat <buyEnterpriseCertificate>`. Her vil du også finne informasjon om hvilke av sertifikatene du har som skal brukes mot vår tjeneste.
 
- Se også  `godkjent virksomhetssertifikat i offentlig sektor <https://www.regjeringen.no/no/dokumenter/kravspesifikasjon-for-pki-i-offentlig-se/id611085/>`__ og `sertifikathåndtering i offentlig sektor <http://begrep.difi.no/SikkerDigitalPost/1.2.0/sikkerhet/sertifikathandtering>`__ for mer informasjon om rot- og mellomliggende sertifikater.
+Se også  `godkjent virksomhetssertifikat i offentlig sektor <https://www.regjeringen.no/no/dokumenter/kravspesifikasjon-for-pki-i-offentlig-se/id611085/>`__ og `sertifikathåndtering i offentlig sektor <http://begrep.difi.no/SikkerDigitalPost/1.2.0/sikkerhet/sertifikathandtering>`__ for mer informasjon om rot- og mellomliggende sertifikater.
 
-De fleste HTTP-klienter har innebygget støtte for toveis TLS. Du kan se eksempler på implementasjonen i `klientbibloteket skrevet i C# <https://github.com/digipost/signature-api-client-dotnet/>` eller `klientbibloteket skrevet i Java <https://github.com/digipost/signature-api-client-java/>` . Signeringstjenesten støtter kun TLS 1.2 for to-veis TLS.
+De fleste HTTP-klienter har innebygget støtte for toveis TLS. Du kan se eksempler på implementasjonen i `klientbibloteket skrevet i C# <https://github.com/digipost/signature-api-client-dotnet/>`_ eller `klientbibloteket skrevet i Java <https://github.com/digipost/signature-api-client-java/>`_ . Signeringstjenesten støtter kun TLS 1.2 for to-veis TLS.
 
 Du benytter ditt eget sertifikat i ``keystore`` (det du skal identifisere deg med), og legger til `tillitsankrene (CA-sertifikater) <http://begrep.difi.no/SikkerDigitalPost/1.2.0/sikkerhet/sertifikathandtering>`__ i ``truststore`` (det serveren skal identifisere seg med). Sertifikatet ditt vil bli brukt for å verifisere deg mot serveren, og serveren vil bruke sertifikatet til Posten Norge AS for å identifisere seg. Ved å ha tillitsankrene i ``truststore`` får du mesteparten av valideringen derfra (gitt at ditt språk/rammeverk håndterer dette). Det du manuelt må gjøre er å validere at sertifikatet tilhører Posten Norge AS, ved å sjekke organisasjonsnummeret som står i ``Common Name``.
 
-Et godt tips er å benytte eller hente inspirasjon fra `Difi sin sertifikatvalidator <https://github.com/difi/certvalidator>`_.
+Et godt tips er å benytte eller hente inspirasjon fra `Difis sertifikatvalidator <https://github.com/difi/certvalidator>`_.
 
 Vanlige problemer med oppsett av to-veis TLS
 ----------------------------------------------
