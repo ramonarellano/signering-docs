@@ -1,12 +1,16 @@
 # signering-docs [![Documentation Status](https://readthedocs.org/projects/signering-docs/badge/?version=latest)](https://signering-docs.readthedocs.io/en/latest/?badge=latest)
 
 ## To build:
+
+### 1. Installer Python
 ```
 brew install python #python 3
 ```
+### 2. Link Python 3
 
-Link inn python3 (legg den inn i pathen som beskrevet på [Stackoverflow](https://stackoverflow.com/a/49711594/1765749)
+Link ``python3`` as described in [Stackoverflow](https://stackoverflow.com/a/49711594/1765749). By adding it first in path, it will be chosen before the really old one installed by default on macOS.
 
+### 3. Install all dependencies needed for the documentation
 ```
 pip install sphinx_rtd_theme
 pip install recommonmark
@@ -26,6 +30,4 @@ brew install pandoc
 pandoc manuell-portal-integrasjon.md --from gfm --to rst -s -o manuell-portal-integrasjon.rst --wrap=preserve
 ```
 
-It is important to use `wrap=preserve` to .
-
-A bunch of links may be wrong, but it is a good start!
+It is important to use `wrap=preserve` to avoid splitting one-liners into multiple lines.
