@@ -14,7 +14,7 @@ Welcome to the Posten signering documentation!
    signeringsflyt
    signaturtype
    signert-dokument
-   
+
 .. toctree::
    :maxdepth: 1
    :caption: Avsenderportalen
@@ -33,7 +33,7 @@ Welcome to the Posten signering documentation!
    varsler-til-avsender
    lagring
    gdpr
-   
+
 
 .. toctree::
    :maxdepth: 1
@@ -62,6 +62,7 @@ Welcome to the Posten signering documentation!
    egen-integrasjon/dokumentpakke
    egen-integrasjon/egen-portal-integrasjon
    egen-integrasjon/egen-direkte-integrasjon
+   egen-integrasjon/sikkerhet
 
 .. toctree::
    :maxdepth: 1
