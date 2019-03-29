@@ -1,3 +1,5 @@
+.. _egenPortalIntegrasjon:
+
 API-integrasjon for signering i portalflyt
 ********************************************
 
@@ -10,12 +12,14 @@ Meldingsformatet i APIet er XML, og reelevante typer finnes i filen `portal.xsd 
 |portalflytskjema|
  **Flytskjema signeringsoppdrag i portalflyt:** *skjemaet viser at avsender sender inn et oppdrag, starter polling, at undertegner(e) signerer oppdraget, og avsender får oppdatert status via polling, og laster ned signert dokument. Dersom du sender et oppdrag til kun én undertegner, kan du se bort i fra den første "steg 4"-seksjonen. Heltrukne linjer viser brukerflyt, mens stiplede linjer viser API-kall.*
 
+.. _egenPortalIntegrasjonSteg1:
+
 Steg 1: Opprette signeringsoppdraget
 ======================================
 Flyten begynner ved at tjenesteeier gjør et API-kall for å opprette signeringsoppdraget. Dette kallet gjøres som en multipart-request, der den ene delen er dokumentpakken og den andre delen er metadata.
 
 -  Kallet gjøres som en ``HTTP POST`` mot ressursen ``<rot-URL>/portal/signature-jobs``.
--  Dokumentpakken legges med multipart-kallet med mediatypen ``application/octet-stream``. Se tidligere kapittel for mer informasjon om dokumentpakken.
+-  Dokumentpakken legges med multipart-kallet med mediatypen ``application/octet-stream``. Se :ref:`informasjonOmDokumentpakken` for mer informasjon om dokumentpakken.
 -  Metadataene som skal sendes med i dette kallet er definert av elementet ``portal-signature-job-request``. Disse legges i multipart-kallet med mediatypen ``application/xml``.
 
 Følgende er et eksempel på metadata for et signeringsoppdrag i portalflyt:
