@@ -6,7 +6,7 @@ This is a cheat-sheet for writing the documentation. It is only for internal use
 All the following examples are for using *reStructuredText* instead of *Markdown*.
 
 Links
-******
+======
 
 .. code-block:: bash
 
@@ -17,7 +17,7 @@ Will generate the following url:
 `link text <http://google.com>`_
 
 Headers
-*******
+========
 
 .. code-block:: xml
 
@@ -35,11 +35,11 @@ Headers
 
 
 Admonitions
-***********************
+============
 `See more about admonitions here <https://learning-readthedocs.readthedocs.io/en/latest/Options/admonition.html>`_
 
 Example admonitions
-#######################
+---------------------
 
 ..  code-block:: xml
 
@@ -63,7 +63,7 @@ Example admonitions
     Just a tip!
 
 References
-***********
+============
 
 To reference a chapter *anywhere* in the documentation, add a label over the heading:
 
@@ -83,7 +83,7 @@ To reference a chapter *anywhere* in the documentation, add a label over the hea
 
 
 Tabs
-**********************
+=====
 
 Tabs are used via an extension and how to use can be found `here <https://github.com/djungelorm/sphinx-tabs>`_.
 
@@ -105,7 +105,7 @@ The different tabs are `tab`, `group-tab` and `code-tab`.
    The different tabs are `tab`, `group-tab` and `code-tab`. With `group-tab`, all examples changes tab at the  same time. `code-tab` is self explanatory, but not that it behaves like `group-tab`.
 
 Example tab
-#############
+-------------
 
 .. tabs::
 
@@ -123,7 +123,7 @@ Example tab
 
 
 Code snippets
-*****************
+===============
 
 
 ..  code-block:: bash
@@ -133,7 +133,7 @@ Code snippets
        Some code here ...
 
 Numbered lists
-***************
+================
 
 ..  code-block:: xml
 
@@ -148,7 +148,7 @@ Will generate the following list:
 5. Auto numbering. Will be 5.
 
 Footnotes
-**********
+===========
 
 A footnote can be created:
 
@@ -165,7 +165,7 @@ and used like so:
     ..  [#footnoteWithUniqueName] Some extra important information!
 
 Example footnote
-#################
+------------------
 
 I have something to say [#footnoteWithUniqueName]_.
 
@@ -174,7 +174,7 @@ I have something to say [#footnoteWithUniqueName]_.
 ..  [#footnoteWithUniqueName] Some extra important information!
 
 Images
-*******
+=======
 
 Images can be added by putting an image in the images-folder and using the following code for an image:
 
