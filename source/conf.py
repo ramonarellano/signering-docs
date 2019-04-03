@@ -102,6 +102,7 @@ html_theme = 'sphinx_rtd_theme'
 html_theme_options = {
     'sticky_navigation': False,
     'navigation_depth': 2,
+    'analytics_id': 'UA-20592293-5',
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
