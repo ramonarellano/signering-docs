@@ -27,6 +27,10 @@ A test certificate must be used against our test environment. The test certifica
 
     When buying an enterprise certificate from Commfides, you will receive an email containing three *.p12* files: *auth*, *enc* and *sign*. You shall use the one named *auth* with :code:`Key Usage = Digital Signature`.
 
+    ..  CAUTION::
+        Please ask Commfides to create a certificate with ``CN=Commfides CPN Enterprise-Norwegian SHA256 CA - TEST2``. A certificate with ``CN=Commfides CPN Enterprise-Norwegian SHA256 CA - TEST`` will *not* work.
+
+
 
 Production environment
 ###########################
