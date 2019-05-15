@@ -37,7 +37,7 @@ Signeringsoppdrag i portalflyt
 
 Signeringsoppdrag i direkteflyt
 
-En :ref:`undertegner` starter en signering.
+En :ref:`undertegner-ordbok` starter en signering.
 
 Vi skal **ikke** bruke ord som *signeringsseremoni*.
 
@@ -53,6 +53,3 @@ API
 Vi bruker API om det å bruke API-et vårt.
 
 Vi skal **ikke** bruke ord som *bak-kanal-kall*.
-
-
-
