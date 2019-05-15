@@ -10,7 +10,7 @@ Sources for building the documentation site at [signering-docs.readthedocs.io](h
 
    Building the documentation site with [Sphinx](http://www.sphinx-doc.org) requires Python v3:
 
-   ```
+   ```shell
    brew install python
    ```
 
@@ -20,7 +20,7 @@ Sources for building the documentation site at [signering-docs.readthedocs.io](h
 
 3. **Install dependencies for building the documentation**
 
-   ```
+   ```shell
    pip install sphinx_rtd_theme
    pip install recommonmark
    pip install sphinx-tabs
@@ -28,7 +28,7 @@ Sources for building the documentation site at [signering-docs.readthedocs.io](h
    ```
 
 4. **Do a build to verify everything works**
-   ```
+   ```shell
    make clean html
    ```
 
@@ -38,7 +38,7 @@ Sources for building the documentation site at [signering-docs.readthedocs.io](h
 ### Local development
 
 To run a self-updating webserver using `sphinx-autobuild`:
-```
+```shell
 make autobuild
 ```
 
@@ -49,7 +49,7 @@ The site is continuously built when changes are made to the sources.
 
 To build the site, run:
 
-```
+```shell
 make clean html
 ```
 
@@ -61,7 +61,7 @@ make clean html
 
 If not already installed, install [pandoc](https://pandoc.org/) with e.g. `brew install pandoc`.
 
-```bash
+```shell
 pandoc markdown-file.md --from gfm --to rst -s -o output-file.rst --wrap=preserve
 ```
 
