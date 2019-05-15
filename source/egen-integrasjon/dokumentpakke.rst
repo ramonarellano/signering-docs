@@ -3,7 +3,7 @@
 Dokumentpakken
 ***************
 
-Dokumentpakken i Posten signering er basert på ASiC-E standarden (`Associated Signature Containers, Extended form <http://www.etsi.org/deliver/etsi_ts/102900_102999/102918/01.03.01_60/ts_102918v010301p.pdf>`_). Profilen er lagd for å ligne på den som er brukt for `Digital postkasse til innbyggere <http://begrep.difi.no/SikkerDigitalPost>`_. Les mer om :ref:`profilen som er benyttet for ASiC <asicEStandards>` i slutten av dette dokumentet.
+Dokumentpakken i Posten signering er basert på ASiC‑E standarden (`Associated Signature Containers, Extended form <http://www.etsi.org/deliver/etsi_ts/102900_102999/102918/01.03.01_60/ts_102918v010301p.pdf>`_). Profilen er lagd for å ligne på den som er brukt for `Digital postkasse til innbyggere <http://begrep.difi.no/SikkerDigitalPost>`_. Les mer om :ref:`profilen som er benyttet for ASiC <asicEStandards>` i slutten av dette dokumentet.
 
 
 Innhold
@@ -151,10 +151,10 @@ Dokumentet pakkes i en dokumentpakke sammen med noe metadata i henhold til ASiC 
 ========================= ================================================================================================================================ =========================================================================================================================================================================================================
 Krav                      Felt                                                                                                                             Kommentar
 ========================= ================================================================================================================================ =========================================================================================================================================================================================================
-krav 6.1  [#etsi29]_       ASiC conformance                                                                                                                Skal være “ASiC-E XAdES”
-krav 8.1 [#etsi211]_       ASiC-E Media type identification                                                                                                Skal være “ASiC file extension is”.asice
-krav 8.2 [#etsi211]_       ASiC-E Signed data object                                                                                                       Alle filer utenfor META-INF katalogen skal være signert.
-krav 8.3.1 [#etsi212]_     ASiC-E XAdES signature                                                                                                          Det skal kun være en signatur i META-INF katalogen, med navn signatures.xml. Denne signaturen skal dekke alle andre filer i beholderen, og avsenderens virksomhetssertifikat skal benyttes for signering.
+krav 6.1  [#etsi29]_       ASiC conformance                                                                                                                Skal være “ASiC‑E XAdES”
+krav 8.1 [#etsi211]_       ASiC‑E Media type identification                                                                                                Skal være “ASiC file extension is”.asice
+krav 8.2 [#etsi211]_       ASiC‑E Signed data object                                                                                                       Alle filer utenfor META-INF katalogen skal være signert.
+krav 8.3.1 [#etsi212]_     ASiC‑E XAdES signature                                                                                                          Det skal kun være en signatur i META-INF katalogen, med navn signatures.xml. Denne signaturen skal dekke alle andre filer i beholderen, og avsenderens virksomhetssertifikat skal benyttes for signering.
 krav 8.3.2 [#etsi212]_     Requirements for the contents of Container” refererer til “6.2.2 punkt 4b) "META-INF/manifest.xml" if present […] i”ASiC":etsi1 Denne filen skal ikke være tilstede.
 ========================= ================================================================================================================================ =========================================================================================================================================================================================================
 
