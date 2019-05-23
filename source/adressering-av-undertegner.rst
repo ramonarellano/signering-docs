@@ -24,7 +24,7 @@ Posten signering sender ut varsel om signeringsoppdrag til undertegner på e-pos
 - adressere uten fødselsnummer (N.B: Kun hvis privat virksomhet)
 
 
-Det signerte dokumenter vil inneholde navn på undertegner og hvilken elektronisk ID som ble brukt. Man kan for øvrig velge hvilken :ref:`identifikator man ønsker i signerte dokumenter <identifisereUndertegnere>`. 
+Det signerte dokumenter vil inneholde navn på undertegner og hvilken elektronisk ID som ble brukt. Man kan for øvrig velge hvilken :ref:`identifikator man ønsker i signerte dokumenter <identifisereUndertegnere>`.
 
 
 Adressering med fødselsnummer
@@ -35,7 +35,7 @@ Ved :ref:`Signering i portalflyt med fødselsnummer <signering-i-portalflyt-med-
 
 Ved :ref:`signering-i-direkteflyt` er undertegner logget inn i avsenders system, og det er da avsender som er ansvarlig for å sende undertegner til riktig lenke i signeringstjenesten.
 
-Når du som avsender velger adressering med fødselsnummer, kan du velge å inkludere fødselsnummeret i det signerte dokumentet. 
+Når du som avsender velger adressering med fødselsnummer, kan du velge å inkludere fødselsnummeret i det signerte dokumentet.
 
 
 Adressering uten fødselsnummer
@@ -74,7 +74,7 @@ For **offentlige virksomheter** gjør vi oppslag i `Kontakt- og reservasjonsregi
 
 
 Bruk av Kontakt- og reservasjonsregisteret
-____________________________________________
+============================================
 
 Ytterligere informasjon rundt bruk av Kontakt- og reservarsjonregisteret
 
@@ -83,6 +83,3 @@ Ytterligere informasjon rundt bruk av Kontakt- og reservarsjonregisteret
  - Reservasjon ved utsatte førstegangsvarsler: I scenariet der tjenesteeier har satt en kjedet rekkefølge på undertegnerne, og førstegangsvarsel skal sendes til en undertegner som i perioden mellom oppdraget ble opprettet og førstegangsvarsel skal sendes har reservert seg mot elektronisk kommunikasjon, så vil hele oppdraget feile.
  - Reservasjon ved påminnelser: Hvis sluttbrukeren har reservert seg etter at oppdraget ble opprettet, men oppdraget allerede er aktivert, vil det ikke bli sendt påminnelser (e-post/SMS), men oppdraget vil heller ikke feile før signeringsfristen eventuelt løper ut.
  - Oppdrag med overstyrt kontaktinformasjon med utenlandsk mobilnummer vil bli avvist, mens utenlandske mobilnumre fra Kontakt- og reservasjonsregisteret vil bli ignorert.
-
-
-
