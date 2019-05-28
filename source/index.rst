@@ -46,14 +46,14 @@ Welcome to the Posten signering documentation!
    :maxdepth: 1
    :caption: Client integration
 
-   buy-enterprise-certificates
-   install-enterprise-certificate
-   install-client
-   create-client-configuration
-   direct-flow
-   portal-flow
-   error-handling
-   debugging
+   client-integration/buy-enterprise-certificates
+   client-integration/install-enterprise-certificate
+   client-integration/install-client
+   client-integration/create-client-configuration
+   client-integration/direct-flow
+   client-integration/portal-flow
+   client-integration/error-handling
+   client-integration/debugging
 
 .. toctree::
    :maxdepth: 1
