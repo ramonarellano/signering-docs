@@ -85,7 +85,7 @@ Step 1: Create signature job
 
             DirectJobResponse directJobResponse = client.create(directJob);
 
-    ..  tab:: API
+    ..  tab:: HTTP
 
         Flyten begynner ved at tjenesteeier gjør et API-kall for å opprette signeringsoppdraget. Dette kallet gjøres som en multipart-request, der den ene delen er dokumentpakken og den andre delen er metadata.
 
@@ -159,7 +159,7 @@ You can specify a  signature type and required authentication level. If signatur
             AuthenticationLevel = AuthenticationLevel.Four
         };
 
-Andre innstillinger for API
+Andre innstillinger for HTTP
 -----------------------------
 
 
@@ -178,9 +178,9 @@ Respons
 
 ..  tabs::
 
-    ..  tab:: API
+    ..  tab:: HTTP
 
-        På dette kallet vil man få en respons definert av elementet ``direct-signature-job-response``. Et eksempel på en slik respons for én undertegner kan du se i `API-spesifikasjonen <https://github.com/digipost/signature-api-specification/blob/master/schema/examples/direct/response.xml>`_. Denne responsen inneholder en URL (``redirect-url``) som man redirecter brukerens nettleser til for å starte signeringen. I tillegg inneholder den en URL du benytter for å spørre om status på oppdraget. Her skal man vente til brukeren returneres til en av URLene definert i requesten, for deretter å gjøre et kall for å sjekke status. For å kunne hente status kreves det et token som du får tilbake ved redirecten. Mer informasjon kommer i  :ref:`egenDirekteIntegrasjonSteg3`.
+        På dette kallet vil man få en respons definert av elementet ``direct-signature-job-response``. Et eksempel på en slik respons for én undertegner kan du se i `API-spesifikasjonen <https://github.com/digipost/signature-api-specification/blob/master/schema/examples/direct/response.xml>`_. Denne responsen inneholder en URL (``redirect-url``) som man redirecter brukerens nettleser til for å starte signeringen. I tillegg inneholder den en URL du benytter for å spørre om status på oppdraget. Her skal man vente til brukeren returneres til en av URLene definert i requesten, for deretter å gjøre et kall for å sjekke status. For å kunne hente status kreves det et token som du får tilbake ved redirecten. Mer informasjon kommer i  :ref:`directIntegrationStep3`.
 
         ..  code-block:: xml
 
@@ -199,8 +199,8 @@ Du bør se :ref:`varsler` og :ref:`adressering-av-undertegner` før du starter m
 
 Undertegnere kan adresseres og varsles på ulike måter.
 
-Adressering med API
-^^^^^^^^^^^^^^^^^^^^^
+Adressering av undertegner med HTTP
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ..  tabs::
 
@@ -241,7 +241,7 @@ Adressering med API
                <on-behalf-of>OTHER</on-behalf-of>
             </signer>
 
-.. _egenDirekteIntegrasjonSteg2:
+.. _directIntegrationStep2:
 
 Steg 2: Signering av oppdraget
 ================================
@@ -253,11 +253,7 @@ ser d
 
 Brukeren gjennomfører signeringen og blir deretter sendt tilbake til avsenders portal via URLen spesifisert av ``completion-url``. På slutten av denne URLen vil det legges på et query-parameter (``status_query_token``), som du senere skal benytte når du spør om status. Hvis undertegner avbryter signeringen, eller det skjer en feil, sendes undertegner til henholdsvis ``rejection-url`` eller ``error-url``.
 
-
-..  todo::
-    Endre lenke
-
-.. _egenDirekteIntegrasjonSteg3:
+.. _directIntegrationStep3:
 
 Step 3: Get status
 ===================
@@ -298,12 +294,12 @@ The signing process is a synchrounous operation in the direct use case. There is
                 .withStatusQueryToken(statusQueryToken)
             );
 
-    ..  tab:: API
+    ..  tab:: HTTP
 
 
-        Når undertegner blir sendt tilbake til avsenders portal, kan du gjøre et API-kall (``HTTP GET``) for å hente ned status på oppdraget. Dette gjøres ved å benytte ``status-url`` du fikk i :ref:`Steg 1 <directIntegrationStep1>` hvor du legger på query-parameteret (``status_query_token``) du fikk i :ref:`Steg 2 <egenDirekteIntegrasjonSteg2>`.
+        Når undertegner blir sendt tilbake til avsenders portal, kan du gjøre et API-kall (``HTTP GET``) for å hente ned status på oppdraget. Dette gjøres ved å benytte ``status-url`` du fikk i :ref:`Steg 1 <directIntegrationStep1>` hvor du legger på query-parameteret (``status_query_token``) du fikk i :ref:`Steg 2 <directIntegrationStep2>`.
 
-         Hvis signeringsoppdraget er lagt på en spesifikk kø, så må query-parameteret ``polling_queue`` settes til navnet på køen.
+        Hvis signeringsoppdraget er lagt på en spesifikk kø, så må query-parameteret ``polling_queue`` settes til navnet på køen.
 
 
         Responsen fra dette kallet er definert gjennom elementet ``direct-signature-job-status-response``. Et eksempel på denne responsen ved et suksessfullt signeringsoppdrag vises under:
@@ -394,7 +390,7 @@ If you, for any reason, are unable to retrieve status by using the status query 
 
             client.confirm(statusChange);
 
-    ..  tab:: API
+    ..  tab:: HTTP
 
         Når undertegner blir sendt tilbake til avsenders portal, kan du gjøre et API-kall (``HTTP GET``) for å hente ned status på oppdraget. Dette gjøres ved å benytte ``status-url`` du fikk i :ref:`Steg 1 <directIntegrationStep1>`.
 
@@ -403,16 +399,16 @@ If you, for any reason, are unable to retrieve status by using the status query 
 
         Responsen fra dette kallet er definert gjennom elementet ``direct-signature-job-status-response``. Et eksempel på denne responsen ved et suksessfullt signeringsoppdrag vises under:
 
-.. code:: xml
+        ..  code:: xml
 
-   <direct-signature-job-status-response xmlns="http://signering.posten.no/schema/v1">
-       <signature-job-id>1</signature-job-id>
-       <signature-job-status>COMPLETED_SUCCESSFULLY</signature-job-status>
-       <status since="2017-01-23T12:51:43+01:00">SIGNED</status>
-       <confirmation-url>https://api.signering.posten.no/api/{sender-identifier}/direct/signature-jobs/1/complete</confirmation-url>
-       <xades-url>https://api.signering.posten.no/api/{sender-identifier}/direct/signature-jobs/1/xades/1</xades-url>
-       <pades-url>https://api.signering.posten.no/api/{sender-identifier}/direct/signature-jobs/1/pades</pades-url>
-   </direct-signature-job-status-response>
+            <direct-signature-job-status-response xmlns="http://signering.posten.no/schema/v1">
+               <signature-job-id>1</signature-job-id>
+               <signature-job-status>COMPLETED_SUCCESSFULLY</signature-job-status>
+               <status since="2017-01-23T12:51:43+01:00">SIGNED</status>
+               <confirmation-url>https://api.signering.posten.no/api/{sender-identifier}/direct/signature-jobs/1/complete</confirmation-url>
+               <xades-url>https://api.signering.posten.no/api/{sender-identifier}/direct/signature-jobs/1/xades/1</xades-url>
+               <pades-url>https://api.signering.posten.no/api/{sender-identifier}/direct/signature-jobs/1/pades</pades-url>
+            </direct-signature-job-status-response>
 
 ..  TIP::
     As illustrated above, you should always query the :code:`statusChange` to find out when you are allowed to poll for statuses next time.
@@ -459,7 +455,7 @@ Step 4: Get signed documents
                 }
             }
 
-    ..  tab:: API
+    ..  tab:: HTTP
 
         I forrige steg fikk du to lenker: ``xades-url`` og ``pades-url``. Disse kan du gjøre en ``HTTP GET`` på for å laste ned det signerte dokumentet i de to formatene. For mer informasjon om format på det signerte dokumentet, se :ref:`signerte-dokumenter`.
 
@@ -468,7 +464,7 @@ Steg 5: Bekrefte ferdig prosessering
 
 ..  tabs::
 
-    ..  tab:: API
+    ..  tab:: HTTP
 
         Til slutt gjør du et ``HTTP POST``-kall mot ``confirmation-url`` for å bekrefte at du har prosessert jobben ferdig. Hvis :ref:`langtidslagring` benyttes vil dette markere oppdraget som ferdig og lagret. I motsatt fall vil oppdraget slettes fra signeringsportalen.
 
