@@ -28,6 +28,10 @@ Having problems integrating?
 
             Get help for your `Java integration here <https://github.com/digipost/signature-api-client-java/issues>`_.
 
+        ..  group-tab:: HTTP
+
+            Get help for your `HTTP integration here <https://github.com/digipost/signature-api-specification/issues>`_.
+
 .. _directIntegrationStep1:
 
 Step 1: Create signature job
@@ -64,7 +68,7 @@ Step 1: Create signature job
 
             var directJobResponse = await directClient.Create(job);
 
-    ..  tab:: Java
+    ..  group-tab:: Java
 
         ..  code-block:: java
 
@@ -85,7 +89,7 @@ Step 1: Create signature job
 
             DirectJobResponse directJobResponse = client.create(directJob);
 
-    ..  tab:: HTTP
+    ..  group-tab:: HTTP
 
         Flyten begynner ved at tjenesteeier gjør et API-kall for å opprette signeringsoppdraget. Dette kallet gjøres som en multipart-request, der den ene delen er dokumentpakken og den andre delen er metadata.
 
@@ -178,7 +182,7 @@ Respons
 
 ..  tabs::
 
-    ..  tab:: HTTP
+    ..  group-tab:: HTTP
 
         På dette kallet vil man få en respons definert av elementet ``direct-signature-job-response``. Et eksempel på en slik respons for én undertegner kan du se i `API-spesifikasjonen <https://github.com/digipost/signature-api-specification/blob/master/schema/examples/direct/response.xml>`_. Denne responsen inneholder en URL (``redirect-url``) som man redirecter brukerens nettleser til for å starte signeringen. I tillegg inneholder den en URL du benytter for å spørre om status på oppdraget. Her skal man vente til brukeren returneres til en av URLene definert i requesten, for deretter å gjøre et kall for å sjekke status. For å kunne hente status kreves det et token som du får tilbake ved redirecten. Mer informasjon kommer i  :ref:`directIntegrationStep3`.
 
@@ -265,7 +269,7 @@ The signing process is a synchrounous operation in the direct use case. There is
 
 ..  tabs::
 
-    ..  tab:: C#
+    ..  group-tab:: C#
 
         ..  code-block:: c#
 
@@ -280,7 +284,7 @@ The signing process is a synchrounous operation in the direct use case. There is
             var jobStatus = jobStatusResponse.Status;
 
 
-    ..  tab:: Java
+    ..  group-tab:: Java
 
         ..  code-block:: java
 
@@ -294,7 +298,7 @@ The signing process is a synchrounous operation in the direct use case. There is
                 .withStatusQueryToken(statusQueryToken)
             );
 
-    ..  tab:: HTTP
+    ..  group-tab:: HTTP
 
 
         Når undertegner blir sendt tilbake til avsenders portal, kan du gjøre et API-kall (``HTTP GET``) for å hente ned status på oppdraget. Dette gjøres ved å benytte ``status-url`` du fikk i :ref:`Steg 1 <directIntegrationStep1>` hvor du legger på query-parameteret (``status_query_token``) du fikk i :ref:`Steg 2 <directIntegrationStep2>`.
@@ -326,7 +330,7 @@ If you, for any reason, are unable to retrieve status by using the status query 
 
 ..  tabs::
 
-    ..  tab:: C#
+    ..  group-tab:: C#
 
         ..  code-block:: c#
 
@@ -365,7 +369,7 @@ If you, for any reason, are unable to retrieve status by using the status query 
             }
 
 
-    ..  tab:: Java
+    ..  group-tab:: Java
 
         ..  code-block:: Java
 
@@ -390,7 +394,7 @@ If you, for any reason, are unable to retrieve status by using the status query 
 
             client.confirm(statusChange);
 
-    ..  tab:: HTTP
+    ..  group-tab:: HTTP
 
         Når undertegner blir sendt tilbake til avsenders portal, kan du gjøre et API-kall (``HTTP GET``) for å hente ned status på oppdraget. Dette gjøres ved å benytte ``status-url`` du fikk i :ref:`Steg 1 <directIntegrationStep1>`.
 
@@ -418,7 +422,7 @@ Step 4: Get signed documents
 
 ..  tabs::
 
-    ..  tab:: C#
+    ..  group-tab:: C#
 
         ..  code-block:: c#
 
@@ -438,7 +442,7 @@ Step 4: Get signed documents
                 var xadesByteStream = await directClient.GetXades(signature.XadesReference);
             }
 
-    ..  tab:: Java
+    ..  group-tab:: Java
 
         ..  code-block:: java
 
@@ -455,7 +459,7 @@ Step 4: Get signed documents
                 }
             }
 
-    ..  tab:: HTTP
+    ..  group-tab:: HTTP
 
         I forrige steg fikk du to lenker: ``xades-url`` og ``pades-url``. Disse kan du gjøre en ``HTTP GET`` på for å laste ned det signerte dokumentet i de to formatene. For mer informasjon om format på det signerte dokumentet, se :ref:`signerte-dokumenter`.
 
@@ -464,7 +468,7 @@ Steg 5: Bekrefte ferdig prosessering
 
 ..  tabs::
 
-    ..  tab:: HTTP
+    ..  group-tab:: HTTP
 
         Til slutt gjør du et ``HTTP POST``-kall mot ``confirmation-url`` for å bekrefte at du har prosessert jobben ferdig. Hvis :ref:`langtidslagring` benyttes vil dette markere oppdraget som ferdig og lagret. I motsatt fall vil oppdraget slettes fra signeringsportalen.
 
