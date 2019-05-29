@@ -39,7 +39,7 @@ Step 1: Create signature job
 
 ..  tabs::
 
-    ..  tab:: C#
+    .. group-tab:: C#
 
         ..  code-block:: c#
 
@@ -146,22 +146,36 @@ You can specify a  signature type and required authentication level. If signatur
 
 ..  tabs::
 
-    ..  code-tab:: c#
+    ..  group-tab:: C#
 
-        Document documentToSign = null; //As initialized earlier
-        ExitUrls exitUrls = null; //As initialized earlier
-        var signers = new List<Signer>
-        {
-            new Signer(new PersonalIdentificationNumber("12345678910"))
+        ..  code-block:: c#
+
+            Document documentToSign = null; //As initialized earlier
+            ExitUrls exitUrls = null; //As initialized earlier
+            var signers = new List<Signer>
             {
-                SignatureType = SignatureType.AdvancedSignature
-            }
-        };
+                new Signer(new PersonalIdentificationNumber("12345678910"))
+                {
+                    SignatureType = SignatureType.AdvancedSignature
+                }
+            };
 
-        var job = new Job(documentToSign, signers, "SendersReferenceToSignatureJob", exitUrls)
-        {
-            AuthenticationLevel = AuthenticationLevel.Four
-        };
+            var job = new Job(documentToSign, signers, "SendersReferenceToSignatureJob", exitUrls)
+            {
+                AuthenticationLevel = AuthenticationLevel.Four
+            };
+
+    ..  group-tab:: Java
+
+        ..  code-block:: java
+
+            //This functionality exists in Java, but the example has not been generated yet.
+
+    ..  group-tab:: HTTP
+
+        This functionality exists with integration via HTTP, but the example has not been generated yet.
+
+
 
 Andre innstillinger for HTTP
 -----------------------------
@@ -181,6 +195,18 @@ Respons
 --------
 
 ..  tabs::
+
+    ..  group-tab:: C#
+
+        ..  code-block:: c#
+
+            //This functionality exists in C#, but the example has not been generated yet.
+
+    ..  group-tab:: Java
+
+        ..  code-block:: java
+
+            //This functionality exists in Java, but the example has not been generated yet.
 
     ..  group-tab:: HTTP
 
@@ -251,7 +277,7 @@ Steg 2: Signering av oppdraget
 ================================
 
 Hele dette steget gjennomføres i signeringsportalen. Du videresender brukeren til portalen ved å benytte URLen du får som svar på opprettelsen av oppdraget. Denne URLen inneholder et engangstoken generert av signeringstjenesten, og det er dette tokenet som gjør at brukeren får tilgang til å lese dokumentet og gjennomføre signeringen.
-ser d
+
 ..  IMPORTANT::
     **Sikkerhet i forbindelse med engangstoken:** For å håndtere sikkerheten i dette kallet vil tokenet kun fungere én gang. Brukeren vil få en cookie av signeringstjenesten ved første kall, slik at en eventuell refresh ikke stopper flyten, men du kan ikke bruke denne URLen på et senere tidspunkt. Årsaken til at vi kun tillater at den brukes kun én gang er at URLer kan fremkomme i eventuelle logger, og de vil dermed ikke være sikre etter å ha blitt benyttet.
 
@@ -468,10 +494,21 @@ Steg 5: Bekrefte ferdig prosessering
 
 ..  tabs::
 
+    ..  group-tab:: C#
+
+        ..  code-block:: c#
+
+            //This functionality exists in C#, but the example has not been generated yet.
+
+    ..  group-tab:: Java
+
+        ..  code-block:: java
+
+            //This functionality exists in Java, but the example has not been generated yet.
+
     ..  group-tab:: HTTP
 
         Til slutt gjør du et ``HTTP POST``-kall mot ``confirmation-url`` for å bekrefte at du har prosessert jobben ferdig. Hvis :ref:`langtidslagring` benyttes vil dette markere oppdraget som ferdig og lagret. I motsatt fall vil oppdraget slettes fra signeringsportalen.
-
 
 
 Specifying queues
@@ -483,53 +520,62 @@ To specify a queue, set :code:`Sender` :code:`pollingQueue` through when constru
 
 ..  tabs::
 
-    ..  code-tab:: c#
+    ..  group-tab:: C#
 
-        ClientConfiguration clientConfiguration = null; // As initialized earlier
-        var directClient = new DirectClient(clientConfiguration);
+        ..  code-block:: c#
 
-        String organizationNumber = "123456789";
-        var sender = new Sender(organizationNumber, new PollingQueue("CustomPollingQueue"));
+            ClientConfiguration clientConfiguration = null; // As initialized earlier
+            var directClient = new DirectClient(clientConfiguration);
 
-        Document documentToSign = null; // As initialized earlier
-        ExitUrls exitUrls = null; // As initialized earlier
+            String organizationNumber = "123456789";
+            var sender = new Sender(organizationNumber, new PollingQueue("CustomPollingQueue"));
 
-        var signer = new PersonalIdentificationNumber("00000000000");
+            Document documentToSign = null; // As initialized earlier
+            ExitUrls exitUrls = null; // As initialized earlier
 
-        var job = new Job(
-            documentToSign,
-            new List<Signer> { new Signer(signer) },
-            "SendersReferenceToSignatureJob",
-            exitUrls,
-            sender,
-            StatusRetrievalMethod.Polling
-        );
+            var signer = new PersonalIdentificationNumber("00000000000");
 
-        await directClient.Create(job);
+            var job = new Job(
+                documentToSign,
+                new List<Signer> { new Signer(signer) },
+                "SendersReferenceToSignatureJob",
+                exitUrls,
+                sender,
+                StatusRetrievalMethod.Polling
+            );
 
-        var changedJob = await directClient.GetStatusChange(sender);
+            await directClient.Create(job);
 
-    ..  code-tab:: java
+            var changedJob = await directClient.GetStatusChange(sender);
 
-        DirectClient client = null; // As initialized earlier
-        Sender sender = new Sender("000000000", PollingQueue.of("CustomPollingQueue"));
+    ..  group-tab:: Java
 
-        DirectJob directJob = DirectJob.builder(document, exitUrls, signer)
-              .retrieveStatusBy(StatusRetrievalMethod.POLLING).withSender(sender)
-              .build();
+        ..  code-block:: java
 
-        client.create(directJob);
+            DirectClient client = null; // As initialized earlier
+            Sender sender = new Sender("000000000", PollingQueue.of("CustomPollingQueue"));
 
-        DirectJobStatusResponse statusChange = client.getStatusChange(sender);
+            DirectJob directJob = DirectJob.builder(document, exitUrls, signer)
+                  .retrieveStatusBy(StatusRetrievalMethod.POLLING).withSender(sender)
+                  .build();
 
-        if (statusChange.is(DirectJobStatus.NO_CHANGES)) {
-          // Queue is empty. Must wait before polling again
-        } else {
-          // Recieved status update, act according to status
-          DirectJobStatus status = statusChange.getStatus();
-        }
+            client.create(directJob);
 
-        client.confirm(statusChange);
+            DirectJobStatusResponse statusChange = client.getStatusChange(sender);
+
+            if (statusChange.is(DirectJobStatus.NO_CHANGES)) {
+              // Queue is empty. Must wait before polling again
+            } else {
+              // Recieved status update, act according to status
+              DirectJobStatus status = statusChange.getStatus();
+            }
+
+            client.confirm(statusChange);
+
+    ..  group-tab:: HTTP
+
+        This functionality exists with integration via HTTP, but the example has not been generated yet.
+
 
 Delete documents
 ==================
@@ -538,12 +584,25 @@ After receiving a status change, the documents can be deleted as follows:
 
 ..  tabs::
 
-    ..  code-tab:: java
+    ..  group-tab:: C#
 
-        DirectClient client = null; // As initialized earlier
-        DirectJobStatusResponse directJobStatusResponse = null; // As returned when getting job status
+        ..  code-block:: c#
 
-        client.deleteDocuments(directJobStatusResponse.getDeleteDocumentsUrl());
+            //This functionality exists in C#, but the example has not been generated yet.
+
+    ..  group-tab:: Java
+
+        ..  code-block:: java
+
+            DirectClient client = null; // As initialized earlier
+            DirectJobStatusResponse directJobStatusResponse = null; // As returned when getting job status
+
+            client.deleteDocuments(directJobStatusResponse.getDeleteDocumentsUrl());
+
+    ..  group-tab:: HTTP
+
+        This functionality exists with integration via HTTP, but the example has not been generated yet.
+
 
 ..  |direkteflytskjema| image:: https://raw.githubusercontent.com/digipost/signature-api-specification/master/integrasjon/flytskjemaer/synkron-maskin-til-maskin.png
     :alt: Flytskjema for direkteintegrasjon
