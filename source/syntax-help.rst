@@ -1,7 +1,7 @@
 Syntax help
 ************
 
-This is a cheat-sheet for writing the documentation. It is only for internal use, but feel free to browse if you are curious about how we write documentation.
+This is a cheat-sheet for writing the documentation. It is only for internal use, but feel free to browse if you are curious about how we write our documentation.
 
 All the following examples are for using *reStructuredText* instead of *Markdown*.
 
