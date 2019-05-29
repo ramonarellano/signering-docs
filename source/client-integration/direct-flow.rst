@@ -1,5 +1,4 @@
 .. _direct-flow:
-.. _egenDirekteIntegrasjon:
 
 Direct flow
 ****************************
