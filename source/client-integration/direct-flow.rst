@@ -3,13 +3,13 @@
 Direct flow
 ****************************
 
-Dette integrasjonsmønsteret vil passe for avsendere som har egne portaler og nettløsninger, og som ønsker å tilby signering sømløst som en del av en prosess der brukeren allerede er innlogget i en sesjon på avsenders nettsider. Signeringsprosessen vil oppleves som en integrert del av brukerflyten, og brukeren blir derfor sendt tilbake til avsenders nettsider etter at signeringen er gjennomført. Se :ref:`signering-i-direkteflyt` for mer informasjon om flyten.
+This is an integration pattern suited for senders with their own portals and web solutions, wishing to offer a seamless signing experience as a part of a process where the user is logged in through a senders web portal. The signature prosess will be perceived as an integrated part of the user flow. The user will be redirected to the senders website after the signing is completed. For more information of the flow, please see :ref:`signering-i-direkteflyt`.
 
-Meldingsformatet i APIet er XML, og reelevante typer finnes i filen `direct.xsd <https://github.com/digipost/signature-api-specification/blob/master/schema/xsd/direct.xsd>`_.
+To ease the integration, we provide C# and Java libraries. If you are creating your own client, you will have to interact directly with the API. The message format of the API is XML, and relevant types can be found in `direct.xsd <https://github.com/digipost/signature-api-specification/blob/master/schema/xsd/direct.xsd>`_.
 
 |direkteflytskjema|
 
-**Flytskjema signeringsoppdrag i direkteflyt:** *skjemaet viser at en undertegner sendes til signeringsportalen fra avsenders nettside og gjennomfører en signering. Avsender henter status, henter signert dokument og bekrefter prosessering. Heltrukne linjer viser brukerflyt, mens stiplede linjer viser API-kall.*
+**Flow chart for signing in direct flow:** *The chart shows that a signer is sent to the signature portal from the senders website and completes the signing process. The sender gets the status, gets the signed document and confirms processing of the job. Full lines show user flow and broken lines shows API-calls.
 
 Having problems integrating?
 ==============================
@@ -90,14 +90,13 @@ Step 1: Create signature job
 
     ..  group-tab:: HTTP
 
-        Flyten begynner ved at tjenesteeier gjør et API-kall for å opprette signeringsoppdraget. Dette kallet gjøres som en multipart-request, der den ene delen er dokumentpakken og den andre delen er metadata.
+        The flow starts when the sender does an API-call to create the signature job. This call is a multipart request comprised of a document bundle part and a metadata part.
 
-        -  Kallet gjøres som en ``HTTP POST`` mot ressursen ``<rot-URL>/direct/signature-jobs``
-        -  Dokumentpakken legges med multipart-kallet med mediatypen ``application/octet-stream``. Se :ref:`informasjonOmDokumentpakken` for mer informasjon om dokumentpakken.
-        -  Metadataene som skal sendes med i dette kallet er definert av elementet ``direct-signature-job-request``. Disse legges med multipart-kallet med mediatypen ``application/xml``.
+        - The call is a ``HTTP POST`` to the resource ``<rot-URL>/direct/signature-jobs``.
+        - The document bundle is added to the multipart call with ``application/octet-stream`` as media type. See :ref:`informasjonOmDokumentpakken` for more information on the document bundle.
+        - The metadata in this call is defined by the ``direct-signature-job-request`` element. These are added with media type ``application/xml``.
 
-
-        Følgende er et eksempel på metadata for et signeringsoppdrag:
+        The following example shows the metadata for a signature job:
 
         ..  code-block:: xml
 
@@ -112,13 +111,13 @@ Step 1: Create signature job
                <polling-queue>custom-queue</polling-queue>
             </direct-signature-job-request>
 
-        En del av metadataene er et sett med URLer definert i elementet ``exit-urls``. Disse URLene vil bli benyttet av signeringstjenesten til å redirecte undertegneren tilbake avsenders portal ved fullført signering. Følgende tre URLer skal oppgis:
+        A part of the metadata is a set of URLs defined by the element ``exit-urls``. These URLs will be used by the signature service to redirect the signer back to the senders portal after completing the signing. The following three URLs must be defined:
 
-        -  **completion-url:** Undertegner sendes hit hvis signeringen er vellykket.
-        -  **rejection-url:** Undertegner sendes hit hvis vedkommende *selv velger* å avbryte signeringen.
-        -  **error-url:** Undertegner sendes hit hvis det skjer noe galt under signeringen. Dette er noe undertegner *ikke* velger å gjøre selv.
+        -  **completion-url:** The signer is sent here after a successful signing process.
+        -  **rejection-url:** The signer is sent here if Undertegner sendes hit hvis *he or she chooses* to cancel the signing process.
+        -  **error-url:** The signer is sent here if something fails during the signing process. This *is not* a result of a user action.
 
-        Følgende er et eksempel på ``manifest.xml`` fra dokumentpakken:
+        The following is an example of the ``manifext.xml`` from the document bundle:
 
         ..  code-block:: xml
 
