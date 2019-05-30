@@ -220,7 +220,7 @@ Status retrieval method
 
 
 
-Respons
+Response
 --------
 
 ..  tabs::
@@ -239,7 +239,7 @@ Respons
 
     ..  group-tab:: HTTP
 
-        På dette kallet vil man få en respons definert av elementet ``direct-signature-job-response``. Et eksempel på en slik respons for én undertegner kan du se i `API-spesifikasjonen <https://github.com/digipost/signature-api-specification/blob/master/schema/examples/direct/response.xml>`_. Denne responsen inneholder en URL (``redirect-url``) som man redirecter brukerens nettleser til for å starte signeringen. I tillegg inneholder den en URL du benytter for å spørre om status på oppdraget. Her skal man vente til brukeren returneres til en av URLene definert i requesten, for deretter å gjøre et kall for å sjekke status. For å kunne hente status kreves det et token som du får tilbake ved redirecten. Mer informasjon kommer i  :ref:`directIntegrationStep3`.
+        The call will result in a response defined by the element ``direct-signature-job-response``. An example of such response for one signer can be seen in the `API-specification <https://github.com/digipost/signature-api-specification/blob/master/schema/examples/direct/response.xml>`_. This response contains a URL (``redirect-url``), which redirects the signers browser to initiate the signing process. In addition, the response contains the URL used to retrieve statuses for the job. The sender must wait until the user is redirected to one of the URLs defined in the request, and then do a call to retrieve the latest status update. The status retrieval requires a token that is aquired when the signer is redirected. Please see :ref:`directIntegrationStep3` for more information.
 
         ..  code-block:: xml
 
@@ -251,54 +251,70 @@ Respons
                <status-url>https://api.signering.posten.no/api/{sender-identifier}/direct/signature-jobs/1/status</status-url>
             </direct-signature-job-response>
 
-Undertegner
+The signer
 ------------
 
-Du bør se :ref:`varsler` og :ref:`adressering-av-undertegner` før du starter med dette kapitlet.
+Before starting this chapter, please reed up on :ref:`varsler` :ref:`adressering-av-undertegner`. Signers can be adressed and notified in different ways.
 
-Undertegnere kan adresseres og varsles på ulike måter.
-
-Adressering av undertegner med HTTP
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Adressing the signer
+^^^^^^^^^^^^^^^^^^^^^^
 
 ..  tabs::
 
-    ..  tab:: Fødselsnummer
+    ..  group-tab:: Java
 
-        ..  code-block:: xml
+        ..  code-block:: c#
 
-            <signer>
-               <personal-identification-number>12345678910</personal-identification-number>
-               <on-behalf-of>SELF</on-behalf-of>
-            </signer>
+            //This functionality exists in C#, but the example has not been generated yet.
 
-        For et utfyllende eksempel, se gjerne `eksempelmanifest for signeringstype og autentisering i API-spesifikasjonen <https://github.com/digipost/signature-api-specification/blob/master/schema/examples/direct/manifest-specify-signtype-and-auth.xml>`_.
+    ..  group-tab:: Java
 
-    ..  tab:: Selvvalgt identifikator
+        ..  code-block:: java
 
-        Det er mulig å bruke en selvvalgt identifikator for å gjøre koblingen mellom en person i avsenders system og et signeringsoppdrag. En slik identifikator kan være hva som helst som gir mening for avsender, for eksempel kundenummer.
+            //This functionality exists in Java, but the example has not been generated yet.
 
-        ..  code-block:: xml
+    ..  group-tab:: HTTP
 
-            <signer>
-                <signer-identifier>kundenummer-134AB47</signer-identifier>
-                <on-behalf-of>SELF</on-behalf-of>
-            </signer>
+        ..  tabs::
 
-        For et utfyllende eksempel, se gjerne `eksempelmanifest for selvvalgt identifikator i API-spesifikasjonen <https://github.com/digipost/signature-api-specification/blob/master/schema/examples/direct/manifest-signer-without-pin.xml>`_.
+            ..  tab:: Fødselsnummer
 
-    ..  tab:: På vegne av
+                ..  code-block:: xml
 
-        En avsender kan velge om undertegner signerer på vegne av seg selv eller i kraft av en rolle. Dette gjøres ved å sette attributtet ``on-behalf-of`` til enten ``SELF`` eller ``OTHER``.
+                    <signer>
+                       <personal-identification-number>12345678910</personal-identification-number>
+                       <on-behalf-of>SELF</on-behalf-of>
+                    </signer>
 
-         Dersom man signerer på vegne av noen andre, vil det i praksis bety at signert dokument ikke sendes videre til undertegners postkasse.
+                For et utfyllende eksempel, se gjerne `eksempelmanifest for signeringstype og autentisering i API-spesifikasjonen <https://github.com/digipost/signature-api-specification/blob/master/schema/examples/direct/manifest-specify-signtype-and-auth.xml>`_.
 
-        ..  code-block:: xml
+            ..  tab:: Selvvalgt identifikator
 
-            <signer>
-               <personal-identification-number>12345678910</personal-identification-number>
-               <on-behalf-of>OTHER</on-behalf-of>
-            </signer>
+                Det er mulig å bruke en selvvalgt identifikator for å gjøre koblingen mellom en person i avsenders system og et signeringsoppdrag. En slik identifikator kan være hva som helst som gir mening for avsender, for eksempel kundenummer.
+
+                ..  code-block:: xml
+
+                    <signer>
+                        <signer-identifier>kundenummer-134AB47</signer-identifier>
+                        <on-behalf-of>SELF</on-behalf-of>
+                    </signer>
+
+                For et utfyllende eksempel, se gjerne `eksempelmanifest for selvvalgt identifikator i API-spesifikasjonen <https://github.com/digipost/signature-api-specification/blob/master/schema/examples/direct/manifest-signer-without-pin.xml>`_.
+
+            ..  tab:: På vegne av
+
+                En avsender kan velge om undertegner signerer på vegne av seg selv eller i kraft av en rolle. Dette gjøres ved å sette attributtet ``on-behalf-of`` til enten ``SELF`` eller ``OTHER``.
+
+                 Dersom man signerer på vegne av noen andre, vil det i praksis bety at signert dokument ikke sendes videre til undertegners postkasse.
+
+                ..  code-block:: xml
+
+                    <signer>
+                       <personal-identification-number>12345678910</personal-identification-number>
+                       <on-behalf-of>OTHER</on-behalf-of>
+                    </signer>
+
+
 
 .. _directIntegrationStep2:
 
