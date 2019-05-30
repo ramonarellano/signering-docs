@@ -374,13 +374,11 @@ The signing process is a synchrounous operation in the direct use case. There is
 
     ..  group-tab:: HTTP
 
+        When the signer is sent back to the sender's portal, you can make an API call (``HTTP GET``) to retrieve the status of the job. This is done by using the ``status-url`` you got in :ref:`Step 1 <directIntegrationStep1>` where you add the query parameter (``status_query_token``) you got in :ref:`Step 2 <directIntegrationStep2>`.
 
-        Når undertegner blir sendt tilbake til avsenders portal, kan du gjøre et API-kall (``HTTP GET``) for å hente ned status på oppdraget. Dette gjøres ved å benytte ``status-url`` du fikk i :ref:`Steg 1 <directIntegrationStep1>` hvor du legger på query-parameteret (``status_query_token``) du fikk i :ref:`Steg 2 <directIntegrationStep2>`.
+        If the signature job is placed on a specific queue, then the query parameter ``polling_queue`` must be set to the queue name.
 
-        Hvis signeringsoppdraget er lagt på en spesifikk kø, så må query-parameteret ``polling_queue`` settes til navnet på køen.
-
-
-        Responsen fra dette kallet er definert gjennom elementet ``direct-signature-job-status-response``. Et eksempel på denne responsen ved et suksessfullt signeringsoppdrag vises under:
+        The response from this call is defined by the ``direct-signature-job-status-response`` element. An example of this response to a successful signing of a job is shown below:
 
         ..  code:: xml
 
