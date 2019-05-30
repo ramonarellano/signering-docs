@@ -9,7 +9,7 @@ To ease the integration, we provide C# and Java libraries. If you are creating y
 
 |direkteflytskjema|
 
-**Flow chart for signing in direct flow:** *The chart shows that a signer is sent to the signature portal from the senders website and completes the signing process. The sender gets the status, gets the signed document and confirms processing of the job. Full lines show user flow and broken lines shows API-calls.
+**Flow chart for signing in direct flow:** *The chart shows that a signer is sent to the signature portal from the senders website and completes the signing process. The sender gets the status, gets the signed document and confirms processing of the job. Full lines show user flow and broken lines shows API-calls*.
 
 Having problems integrating?
 ==============================
@@ -174,20 +174,51 @@ You can specify a  signature type and required authentication level. If signatur
         This functionality exists with integration via HTTP, but the example has not been generated yet.
 
 
+Other settings
+----------------
 
-Andre innstillinger for HTTP
------------------------------
+Identifier in the signed document
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..  tabs::
+
+    ..  group-tab:: C#
+
+        ..  code-block:: c#
+
+            //This functionality exists in C#, but the example has not been generated yet.
+
+    ..  group-tab:: Java
+
+        ..  code-block:: java
+
+            //This functionality exists in Java, but the example has not been generated yet.
+
+    ..  group-tab:: HTTP
+
+        The element ``identifier-in-signed-documents`` is used to specify how the signer(s) are to be identified in the signed documents. Allowed values are ``PERSONAL_IDENTIFICATION_NUMBER_AND_NAME``, ``DATE_OF_BIRTH_AND_NAME`` and ``NAME``. Please note that applicable values may be restricted by the type of signature job and sender. For more information, see :ref:`identifisereUndertegnere`.
+
+Status retrieval method
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+..  tabs::
+
+    ..  group-tab:: C#
+
+        ..  code-block:: c#
+
+            //This functionality exists in C#, but the example has not been generated yet.
+
+    ..  group-tab:: Java
+
+        ..  code-block:: java
+
+            //This functionality exists in Java, but the example has not been generated yet.
+
+    ..  group-tab:: HTTP
+
+        The element ``status-retrieval-method`` is used to set how the sender wishes to get status updates for the signature job. ``WAIT_FOR_CALLBACK`` is the standard value, and means that the sender waits until a signer is sent to one of the URLs given by the element ``exit-urls`` before acting accordingly. The alternative is to use ``POLLING`` to specify regular polling to fetch status updates. We recommend using ``WAIT_FOR_CALLBACK``.
 
 
-Identifikator i signert dokument
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Elementet ``identifier-in-signed-documents`` brukes for å angi hvordan undertegneren(e) skal identifiseres i de signerte dokumentene. Tillatte verdier er ``PERSONAL_IDENTIFICATION_NUMBER_AND_NAME``, ``DATE_OF_BIRTH_AND_NAME`` og ``NAME``, men ikke alle er gyldige for alle typer signeringsoppdrag og avsendere. For mer informasjon, se :ref:`identifisereUndertegnere`.
-
-Metode for å hente status
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Elementet ``status-retrieval-method`` brukes for å angi hvordan avsender ønsker å hente status for oppdraget. Standardverdien for dette er ``WAIT_FOR_CALLBACK``, som innebærer at avsender ikke foretar seg noe før undertegner sendes til en av URLene angitt i ``exit-urls``. Alternativt kan man bruke verdien ``POLLING`` for å angi at man ønsker å jevnlig spørre etter status. Vi anbefaler å bruke ``WAIT_FOR_CALLBACK``.
 
 Respons
 --------
