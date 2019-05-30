@@ -277,7 +277,7 @@ Adressing the signer
 
         ..  tabs::
 
-            ..  tab:: Fødselsnummer
+            ..  tab:: Social Security Number
 
                 ..  code-block:: xml
 
@@ -286,11 +286,11 @@ Adressing the signer
                        <on-behalf-of>SELF</on-behalf-of>
                     </signer>
 
-                For et utfyllende eksempel, se gjerne `eksempelmanifest for signeringstype og autentisering i API-spesifikasjonen <https://github.com/digipost/signature-api-specification/blob/master/schema/examples/direct/manifest-specify-signtype-and-auth.xml>`_.
+                For a full example, please see `the example manifest for signature type and authentication in the API-specification  <https://github.com/digipost/signature-api-specification/blob/master/schema/examples/direct/manifest-specify-signtype-and-auth.xml>`_.
 
-            ..  tab:: Selvvalgt identifikator
+            ..  tab:: Chosen identifier
 
-                Det er mulig å bruke en selvvalgt identifikator for å gjøre koblingen mellom en person i avsenders system og et signeringsoppdrag. En slik identifikator kan være hva som helst som gir mening for avsender, for eksempel kundenummer.
+                It is possible to use a chosen identifier to create a connection between a person in the senders system and a signature job. A customer number or anything that makes sense the sender can be chosen.
 
                 ..  code-block:: xml
 
@@ -299,13 +299,13 @@ Adressing the signer
                         <on-behalf-of>SELF</on-behalf-of>
                     </signer>
 
-                For et utfyllende eksempel, se gjerne `eksempelmanifest for selvvalgt identifikator i API-spesifikasjonen <https://github.com/digipost/signature-api-specification/blob/master/schema/examples/direct/manifest-signer-without-pin.xml>`_.
+                For a full example, please see `eksempelmanifest for selvvalgt identifikator i API-spesifikasjonen <https://github.com/digipost/signature-api-specification/blob/master/schema/examples/direct/manifest-signer-without-pin.xml>`_.
 
-            ..  tab:: På vegne av
+            ..  tab:: On behalf of
 
-                En avsender kan velge om undertegner signerer på vegne av seg selv eller i kraft av en rolle. Dette gjøres ved å sette attributtet ``on-behalf-of`` til enten ``SELF`` eller ``OTHER``.
+                A sender can choose if the signer is signing on behalf of himself or by virtue of a role. This is done by setting the attribute ``on-behalf-of`` to ``SELF`` or ``OTHER``.
 
-                 Dersom man signerer på vegne av noen andre, vil det i praksis bety at signert dokument ikke sendes videre til undertegners postkasse.
+                 The signed document will not be sent to the signers digital mailbox if signing on behalf of someone else.
 
                 ..  code-block:: xml
 
