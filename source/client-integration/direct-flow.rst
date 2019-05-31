@@ -755,6 +755,43 @@ For security reasons, the redirect URL for a signer can only be used once. If th
 
     ..  group-tab:: HTTP
 
-        This functionality exists with integration via HTTP, but the example has not been generated yet.
+        A new redirect URL can be requested using the `href` property on a signer:
+
+        ..  code-block:: xml
+
+            <direct-signature-job-response xmlns="http://signering.posten.no/schema/v1">
+                <signature-job-id>1</signature-job-id>
+                <redirect-url>
+                    https://signering.posten.no#/redirect/421e7ac38da1f81150
+                </redirect-url>
+                <status-url>https://api.signering.posten.no/api/123456789/direct/signature-jobs/1/status</status-url>
+                <signer href="https://api.signering.posten.no/api/123456789/direct/signature-jobs/1/signers/1">
+                    <personal-identification-number>12345678910</personal-identification-number>
+                    <redirect-url>
+                        https://signering.posten.no#/redirect/421e7ac38da1f81150
+                    </redirect-url>
+                </signer>
+            </direct-signature-job-response>
+
+        Use the `href` and do a post with the following body:
+
+        ..  code-block:: xml
+
+            <direct-signer-update-request xmlns="http://signering.posten.no/schema/v1">
+                <redirect-url />
+            </direct-signer-update-request>
+
+        The response will contain the new redirect URL:
+
+        ..  code-block:: xml
+
+            <direct-signer-response xmlns="http://signering.posten.no/schema/v1"
+                        href="https://api.signering.posten.no/api/123456789/direct/signature-jobs/1/signers/1">
+                <personal-identification-number>12345678910</personal-identification-number>
+                <redirect-url>
+                    https://signering.posten.no#/redirect/cwYjoZOX5jOc1BACfTdhuIPj
+                </redirect-url>
+            </direct-signer-response>
+
 
 
