@@ -3,13 +3,13 @@
 Direct flow
 ****************************
 
-Dette integrasjonsmønsteret vil passe for avsendere som har egne portaler og nettløsninger, og som ønsker å tilby signering sømløst som en del av en prosess der brukeren allerede er innlogget i en sesjon på avsenders nettsider. Signeringsprosessen vil oppleves som en integrert del av brukerflyten, og brukeren blir derfor sendt tilbake til avsenders nettsider etter at signeringen er gjennomført. Se :ref:`signering-i-direkteflyt` for mer informasjon om flyten.
+This is an integration pattern suited for senders with their own portals and web solutions, wishing to offer a seamless signing experience as a part of a process where the user is logged in through a senders web portal. The signature prosess will be perceived as an integrated part of the user flow. The user will be redirected to the senders website after the signing is completed. For more information of the flow, please see :ref:`signering-i-direkteflyt`.
 
-Meldingsformatet i APIet er XML, og reelevante typer finnes i filen `direct.xsd <https://github.com/digipost/signature-api-specification/blob/master/schema/xsd/direct.xsd>`_.
+To ease the integration, we provide C# and Java libraries. If you are creating your own client, you will have to interact directly with the API. The message format of the API is XML, and relevant types can be found in `direct.xsd <https://github.com/digipost/signature-api-specification/blob/master/schema/xsd/direct.xsd>`_.
 
 |direkteflytskjema|
 
-**Flytskjema signeringsoppdrag i direkteflyt:** *skjemaet viser at en undertegner sendes til signeringsportalen fra avsenders nettside og gjennomfører en signering. Avsender henter status, henter signert dokument og bekrefter prosessering. Heltrukne linjer viser brukerflyt, mens stiplede linjer viser API-kall.*
+**Flow chart for signing in direct flow:** *The chart shows that a signer is sent to the signing portal from the sender's website and completes the signing process. The sender gets the status, gets the signed document and confirms processing of the job. Solid lines show user flow and dashed lines shows requests to and responses from the API.*
 
 Having problems integrating?
 ==============================
@@ -90,14 +90,13 @@ Step 1: Create signature job
 
     ..  group-tab:: HTTP
 
-        Flyten begynner ved at tjenesteeier gjør et API-kall for å opprette signeringsoppdraget. Dette kallet gjøres som en multipart-request, der den ene delen er dokumentpakken og den andre delen er metadata.
+        The flow starts when the sender sends a request to create the signature job to the API. This request is a `multipart message <https://en.wikipedia.org/wiki/MIME#Multipart_messages>`_ comprised of a document bundle part and a metadata part.
 
-        -  Kallet gjøres som en ``HTTP POST`` mot ressursen ``<rot-URL>/direct/signature-jobs``
-        -  Dokumentpakken legges med multipart-kallet med mediatypen ``application/octet-stream``. Se :ref:`informasjonOmDokumentpakken` for mer informasjon om dokumentpakken.
-        -  Metadataene som skal sendes med i dette kallet er definert av elementet ``direct-signature-job-request``. Disse legges med multipart-kallet med mediatypen ``application/xml``.
+        - The request is a ``HTTP POST`` to the resource ``<rot-URL>/direct/signature-jobs``.
+        - The document bundle is added to the multipart message with ``application/octet-stream`` as media type. See :ref:`informasjonOmDokumentpakken` for more information on the document bundle.
+        - The metadata in the multipart request is defined by the ``direct-signature-job-request`` element. These are added with media type ``application/xml``.
 
-
-        Følgende er et eksempel på metadata for et signeringsoppdrag:
+        The following example shows the metadata for a signature job:
 
         ..  code-block:: xml
 
@@ -112,13 +111,13 @@ Step 1: Create signature job
                <polling-queue>custom-queue</polling-queue>
             </direct-signature-job-request>
 
-        En del av metadataene er et sett med URLer definert i elementet ``exit-urls``. Disse URLene vil bli benyttet av signeringstjenesten til å redirecte undertegneren tilbake avsenders portal ved fullført signering. Følgende tre URLer skal oppgis:
+        A part of the metadata is a set of URLs defined by the element ``exit-urls``. These URLs will be used by the signature service to redirect the signer back to the sender's portal after completing the signing. The following three URLs must be defined:
 
-        -  **completion-url:** Undertegner sendes hit hvis signeringen er vellykket.
-        -  **rejection-url:** Undertegner sendes hit hvis vedkommende *selv velger* å avbryte signeringen.
-        -  **error-url:** Undertegner sendes hit hvis det skjer noe galt under signeringen. Dette er noe undertegner *ikke* velger å gjøre selv.
+        -  **completion-url:** The signer is sent here after a successful signing process.
+        -  **rejection-url:** The signer is sent here if *he or she chooses* to cancel the signing process.
+        -  **error-url:** The signer is sent here if something fails during the signing process. This *is not* a result of a user action.
 
-        Følgende er et eksempel på ``manifest.xml`` fra dokumentpakken:
+        The following is an example of the ``manifext.xml`` from the document bundle:
 
         ..  code-block:: xml
 
@@ -175,22 +174,53 @@ You can specify a  signature type and required authentication level. If signatur
         This functionality exists with integration via HTTP, but the example has not been generated yet.
 
 
+Other settings
+----------------
 
-Andre innstillinger for HTTP
------------------------------
+Identifier in the signed document
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..  tabs::
+
+    ..  group-tab:: C#
+
+        ..  code-block:: c#
+
+            //This functionality exists in C#, but the example has not been generated yet.
+
+    ..  group-tab:: Java
+
+        ..  code-block:: java
+
+            //This functionality exists in Java, but the example has not been generated yet.
+
+    ..  group-tab:: HTTP
+
+        The element ``identifier-in-signed-documents`` is used to specify how the signer(s) are to be identified in the signed documents. Allowed values are ``PERSONAL_IDENTIFICATION_NUMBER_AND_NAME``, ``DATE_OF_BIRTH_AND_NAME`` and ``NAME``. Please note that applicable values may be restricted by the type of signature job and sender. For more information, see :ref:`identifisereUndertegnere`.
+
+Status retrieval method
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+..  tabs::
+
+    ..  group-tab:: C#
+
+        ..  code-block:: c#
+
+            //This functionality exists in C#, but the example has not been generated yet.
+
+    ..  group-tab:: Java
+
+        ..  code-block:: java
+
+            //This functionality exists in Java, but the example has not been generated yet.
+
+    ..  group-tab:: HTTP
+
+        The element ``status-retrieval-method`` is used to set how the sender wishes to get status updates for the signature job. ``WAIT_FOR_CALLBACK`` is the standard value, and means that the sender waits until a signer is sent to one of the URLs given by the element ``exit-urls`` before acting accordingly. The alternative is to use ``POLLING`` to specify regular polling to fetch status updates. We recommend using ``WAIT_FOR_CALLBACK``.
 
 
-Identifikator i signert dokument
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Elementet ``identifier-in-signed-documents`` brukes for å angi hvordan undertegneren(e) skal identifiseres i de signerte dokumentene. Tillatte verdier er ``PERSONAL_IDENTIFICATION_NUMBER_AND_NAME``, ``DATE_OF_BIRTH_AND_NAME`` og ``NAME``, men ikke alle er gyldige for alle typer signeringsoppdrag og avsendere. For mer informasjon, se :ref:`identifisereUndertegnere`.
-
-Metode for å hente status
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Elementet ``status-retrieval-method`` brukes for å angi hvordan avsender ønsker å hente status for oppdraget. Standardverdien for dette er ``WAIT_FOR_CALLBACK``, som innebærer at avsender ikke foretar seg noe før undertegner sendes til en av URLene angitt i ``exit-urls``. Alternativt kan man bruke verdien ``POLLING`` for å angi at man ønsker å jevnlig spørre etter status. Vi anbefaler å bruke ``WAIT_FOR_CALLBACK``.
-
-Respons
+Response
 --------
 
 ..  tabs::
@@ -209,7 +239,7 @@ Respons
 
     ..  group-tab:: HTTP
 
-        På dette kallet vil man få en respons definert av elementet ``direct-signature-job-response``. Et eksempel på en slik respons for én undertegner kan du se i `API-spesifikasjonen <https://github.com/digipost/signature-api-specification/blob/master/schema/examples/direct/response.xml>`_. Denne responsen inneholder en URL (``redirect-url``) som man redirecter brukerens nettleser til for å starte signeringen. I tillegg inneholder den en URL du benytter for å spørre om status på oppdraget. Her skal man vente til brukeren returneres til en av URLene definert i requesten, for deretter å gjøre et kall for å sjekke status. For å kunne hente status kreves det et token som du får tilbake ved redirecten. Mer informasjon kommer i  :ref:`directIntegrationStep3`.
+        The request will result in a response defined by the element ``direct-signature-job-response``. An example of such response for one signer can be seen in the `API-specification <https://github.com/digipost/signature-api-specification/blob/master/schema/examples/direct/response.xml>`_. This response contains a URL (``redirect-url``), which redirects the signers browser to initiate the signing process. In addition, the response contains the URL used to retrieve statuses for the job. The sender must wait until the user is redirected to one of the URLs defined in the request, and then send a request to retrieve the latest status update. The status retrieval requires a token that is aquired when the signer is redirected. Please see :ref:`directIntegrationStep3` for more information.
 
         ..  code-block:: xml
 
@@ -221,66 +251,85 @@ Respons
                <status-url>https://api.signering.posten.no/api/{sender-identifier}/direct/signature-jobs/1/status</status-url>
             </direct-signature-job-response>
 
-Undertegner
+The signer
 ------------
 
-Du bør se :ref:`varsler` og :ref:`adressering-av-undertegner` før du starter med dette kapitlet.
+Before starting this chapter, please reed up on :ref:`varsler` :ref:`adressering-av-undertegner`. Signers can be adressed and notified in different ways.
 
-Undertegnere kan adresseres og varsles på ulike måter.
-
-Adressering av undertegner med HTTP
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Adressing the signer
+^^^^^^^^^^^^^^^^^^^^^^
 
 ..  tabs::
 
-    ..  tab:: Fødselsnummer
+    ..  group-tab:: C#
 
-        ..  code-block:: xml
+        ..  code-block:: c#
 
-            <signer>
-               <personal-identification-number>12345678910</personal-identification-number>
-               <on-behalf-of>SELF</on-behalf-of>
-            </signer>
+            //This functionality exists in C#, but the example has not been generated yet.
 
-        For et utfyllende eksempel, se gjerne `eksempelmanifest for signeringstype og autentisering i API-spesifikasjonen <https://github.com/digipost/signature-api-specification/blob/master/schema/examples/direct/manifest-specify-signtype-and-auth.xml>`_.
+    ..  group-tab:: Java
 
-    ..  tab:: Selvvalgt identifikator
+        ..  code-block:: java
 
-        Det er mulig å bruke en selvvalgt identifikator for å gjøre koblingen mellom en person i avsenders system og et signeringsoppdrag. En slik identifikator kan være hva som helst som gir mening for avsender, for eksempel kundenummer.
+            //This functionality exists in Java, but the example has not been generated yet.
 
-        ..  code-block:: xml
+    ..  group-tab:: HTTP
 
-            <signer>
-                <signer-identifier>kundenummer-134AB47</signer-identifier>
-                <on-behalf-of>SELF</on-behalf-of>
-            </signer>
+        ..  tabs::
 
-        For et utfyllende eksempel, se gjerne `eksempelmanifest for selvvalgt identifikator i API-spesifikasjonen <https://github.com/digipost/signature-api-specification/blob/master/schema/examples/direct/manifest-signer-without-pin.xml>`_.
+            ..  tab:: Social Security Number
 
-    ..  tab:: På vegne av
+                ..  code-block:: xml
 
-        En avsender kan velge om undertegner signerer på vegne av seg selv eller i kraft av en rolle. Dette gjøres ved å sette attributtet ``on-behalf-of`` til enten ``SELF`` eller ``OTHER``.
+                    <signer>
+                       <personal-identification-number>12345678910</personal-identification-number>
+                       <on-behalf-of>SELF</on-behalf-of>
+                    </signer>
 
-         Dersom man signerer på vegne av noen andre, vil det i praksis bety at signert dokument ikke sendes videre til undertegners postkasse.
+                For a full example, please see `the example manifest for signature type and authentication in the API-specification  <https://github.com/digipost/signature-api-specification/blob/master/schema/examples/direct/manifest-specify-signtype-and-auth.xml>`_.
 
-        ..  code-block:: xml
+            ..  tab:: Chosen identifier
 
-            <signer>
-               <personal-identification-number>12345678910</personal-identification-number>
-               <on-behalf-of>OTHER</on-behalf-of>
-            </signer>
+                It is possible to use a chosen identifier to create a connection between a person in the senders system and a signature job. A customer number or anything that makes sense the sender can be chosen.
+
+                ..  code-block:: xml
+
+                    <signer>
+                        <signer-identifier>kundenummer-134AB47</signer-identifier>
+                        <on-behalf-of>SELF</on-behalf-of>
+                    </signer>
+
+                For a full example, please see `eksempelmanifest for selvvalgt identifikator i API-spesifikasjonen <https://github.com/digipost/signature-api-specification/blob/master/schema/examples/direct/manifest-signer-without-pin.xml>`_.
+
+            ..  tab:: On behalf of
+
+                A sender can choose if the signer is signing on behalf of himself or by virtue of a role. This is done by setting the attribute ``on-behalf-of`` to ``SELF`` or ``OTHER``.
+
+                 The signed document will not be sent to the signers digital mailbox if signing on behalf of someone else.
+
+                ..  code-block:: xml
+
+                    <signer>
+                       <personal-identification-number>12345678910</personal-identification-number>
+                       <on-behalf-of>OTHER</on-behalf-of>
+                    </signer>
+
+
 
 .. _directIntegrationStep2:
 
-Steg 2: Signering av oppdraget
+Step 2: Signing the document
 ================================
 
-Hele dette steget gjennomføres i signeringsportalen. Du videresender brukeren til portalen ved å benytte URLen du får som svar på opprettelsen av oppdraget. Denne URLen inneholder et engangstoken generert av signeringstjenesten, og det er dette tokenet som gjør at brukeren får tilgang til å lese dokumentet og gjennomføre signeringen.
+..  todo::
+    Write about how to request new tokens here!
+
+This whole step is carried out in the signing portal. You forward the user to the portal using the URL you receive in response to the creation of the job. This URL contains a one-time token generated by the signature service, and it is this token that allows the user to read the document and complete the signing.
 
 ..  IMPORTANT::
-    **Sikkerhet i forbindelse med engangstoken:** For å håndtere sikkerheten i dette kallet vil tokenet kun fungere én gang. Brukeren vil få en cookie av signeringstjenesten ved første kall, slik at en eventuell refresh ikke stopper flyten, men du kan ikke bruke denne URLen på et senere tidspunkt. Årsaken til at vi kun tillater at den brukes kun én gang er at URLer kan fremkomme i eventuelle logger, og de vil dermed ikke være sikre etter å ha blitt benyttet.
+    **Security in connection with the one-time token:** To handle the security of this request, the token will only work once. The user will receive a cookie from the signature service when accessing the URL, so that any refresh does not stop the flow. This URL cannot be reused at a later time. The reason we only allow it to be used only once is that URLs can appear in logs, and it will therefore not be safe to reuse.
 
-Brukeren gjennomfører signeringen og blir deretter sendt tilbake til avsenders portal via URLen spesifisert av ``completion-url``. På slutten av denne URLen vil det legges på et query-parameter (``status_query_token``), som du senere skal benytte når du spør om status. Hvis undertegner avbryter signeringen, eller det skjer en feil, sendes undertegner til henholdsvis ``rejection-url`` eller ``error-url``.
+The user completes the signing and is then returned to the sender's portal via the URL specified by ``completion url``. At the end of this URL, a query parameter (``status_query_token``) will be added, which you will use later when you ask for the signature job status. If the signer interrupts the signing, or an error occurs, the signer will be sent to the ``rejection-url`` or the ``error-url`` respectively.
 
 .. _directIntegrationStep3:
 
@@ -325,13 +374,11 @@ The signing process is a synchrounous operation in the direct use case. There is
 
     ..  group-tab:: HTTP
 
+        When the signer is sent back to the sender's portal, you will be able to retrieve the status of the job. This is done by sending an ``HTTP GET`` request to the ``status-url`` you got in :ref:`Step 1 <directIntegrationStep1>` where you add the query parameter (``status_query_token``) you got in :ref:`Step 2 <directIntegrationStep2>`.
 
-        Når undertegner blir sendt tilbake til avsenders portal, kan du gjøre et API-kall (``HTTP GET``) for å hente ned status på oppdraget. Dette gjøres ved å benytte ``status-url`` du fikk i :ref:`Steg 1 <directIntegrationStep1>` hvor du legger på query-parameteret (``status_query_token``) du fikk i :ref:`Steg 2 <directIntegrationStep2>`.
+        If the signature job is placed on a specific queue, then the query parameter ``polling_queue`` must be set to the queue name.
 
-        Hvis signeringsoppdraget er lagt på en spesifikk kø, så må query-parameteret ``polling_queue`` settes til navnet på køen.
-
-
-        Responsen fra dette kallet er definert gjennom elementet ``direct-signature-job-status-response``. Et eksempel på denne responsen ved et suksessfullt signeringsoppdrag vises under:
+        The response from this request is defined by the ``direct-signature-job-status-response`` element. An example of this response to a successful signing of a job is shown below:
 
         ..  code:: xml
 
@@ -421,12 +468,12 @@ If you, for any reason, are unable to retrieve status by using the status query 
 
     ..  group-tab:: HTTP
 
-        Når undertegner blir sendt tilbake til avsenders portal, kan du gjøre et API-kall (``HTTP GET``) for å hente ned status på oppdraget. Dette gjøres ved å benytte ``status-url`` du fikk i :ref:`Steg 1 <directIntegrationStep1>`.
 
-        Hvis signeringsoppdraget er lagt på en spesifikk kø, så må query-parameteret ``polling_queue`` settes til navnet på køen.
+        When the signer is sent back to the sender's portal, you will be able to retrieve the status of the signature job. This is done by sending an ``HTTP GET`` request to the ``status url`` you received in :ref:`Step 1 <directIntegrationStep1>`.
 
+        If the signature job is placed on a specific queue, then the query parameter ``polling_queue`` must be set to the queue name.
 
-        Responsen fra dette kallet er definert gjennom elementet ``direct-signature-job-status-response``. Et eksempel på denne responsen ved et suksessfullt signeringsoppdrag vises under:
+        The response from this request is defined by the ``direct-signature-job-status-response`` element. An example of this response to a successful signing of a job is shown below:
 
         ..  code:: xml
 
@@ -486,7 +533,7 @@ Step 4: Get signed documents
 
     ..  group-tab:: HTTP
 
-        I forrige steg fikk du to lenker: ``xades-url`` og ``pades-url``. Disse kan du gjøre en ``HTTP GET`` på for å laste ned det signerte dokumentet i de to formatene. For mer informasjon om format på det signerte dokumentet, se :ref:`signerte-dokumenter`.
+        In the previous step you got two links: ``xades-url`` and ``pades-url``. Do a ``HTTP GET`` on these to download the signed document in the two formats. For more information on the format of the signed document, see :ref:`signerte-dokumenter`.
 
 Steg 5: Bekrefte ferdig prosessering
 =======================================
@@ -507,7 +554,7 @@ Steg 5: Bekrefte ferdig prosessering
 
     ..  group-tab:: HTTP
 
-        Til slutt gjør du et ``HTTP POST``-kall mot ``confirmation-url`` for å bekrefte at du har prosessert jobben ferdig. Hvis :ref:`langtidslagring` benyttes vil dette markere oppdraget som ferdig og lagret. I motsatt fall vil oppdraget slettes fra signeringsportalen.
+        Finally, make a ``HTTP POST`` request to the ``confirmation-url`` to confirm that you have completed the job. If :ref:`langtidslagring` is used, this will mark the assignment as completed and stored. Otherwise, the assignment will be deleted from the signing portal.
 
 
 Specifying queues
@@ -604,4 +651,4 @@ After receiving a status change, the documents can be deleted as follows:
 
 
 ..  |direkteflytskjema| image:: https://raw.githubusercontent.com/digipost/signature-api-specification/master/integrasjon/flytskjemaer/synkron-maskin-til-maskin.png
-    :alt: Flytskjema for direkteintegrasjon
+    :alt: Flow chart for signing in direct flow
