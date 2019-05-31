@@ -318,7 +318,7 @@ Adressing the signer
 
 .. _directIntegrationStep2:
 
-Steg 2: Signering av oppdraget
+Step 2: Signing the document
 ================================
 
 ..  todo::
