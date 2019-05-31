@@ -277,7 +277,7 @@ Adressing the signer
 
         ..  tabs::
 
-            ..  tab:: Social Security Number
+            ..  group-tab:: Social Security Number
 
                 ..  code-block:: xml
 
@@ -288,7 +288,7 @@ Adressing the signer
 
                 For a full example, please see `the example manifest for signature type and authentication in the API-specification  <https://github.com/digipost/signature-api-specification/blob/master/schema/examples/direct/manifest-specify-signtype-and-auth.xml>`_.
 
-            ..  tab:: Chosen identifier
+            ..  group-tab:: Chosen identifier
 
                 It is possible to use a chosen identifier to create a connection between a person in the senders system and a signature job. A customer number or anything that makes sense the sender can be chosen.
 
@@ -301,7 +301,7 @@ Adressing the signer
 
                 For a full example, please see `eksempelmanifest for selvvalgt identifikator i API-spesifikasjonen <https://github.com/digipost/signature-api-specification/blob/master/schema/examples/direct/manifest-signer-without-pin.xml>`_.
 
-            ..  tab:: On behalf of
+            ..  group-tab:: On behalf of
 
                 A sender can choose if the signer is signing on behalf of himself or by virtue of a role. This is done by setting the attribute ``on-behalf-of`` to ``SELF`` or ``OTHER``.
 
