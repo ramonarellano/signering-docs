@@ -329,7 +329,7 @@ This whole step is carried out in the signing portal. You forward the user to th
 ..  IMPORTANT::
     ** Security in connection with the one-time token: ** To handle the security of this call, the token will only work once. The user will receive a cookie from the signing service when accessing the URL, so that any refresh does not stop the flow. This URL cannot be reused at a later time. The reason we only allow it to be used only once is that URLs can appear in logs, and it will therefore not be safe to reuse.
 
-The user completes the signing and is then returned to the sender's portal via the URL specified by ``completion url``. At the end of this URL, a query parameter (``status_query_token``) will be added, which you will use later when you ask for the signature job status. If the signer interrupts the signing, or an error occurs, the signer will be sent to the ``rejection url`` or the ``error url` respectively.
+The user completes the signing and is then returned to the sender's portal via the URL specified by ``completion url``. At the end of this URL, a query parameter (``status_query_token``) will be added, which you will use later when you ask for the signature job status. If the signer interrupts the signing, or an error occurs, the signer will be sent to the ``rejection url`` or the ``error url`` respectively.
 
 .. _directIntegrationStep3:
 
@@ -533,7 +533,7 @@ Step 4: Get signed documents
 
     ..  group-tab:: HTTP
 
-        I forrige steg fikk du to lenker: ``xades-url`` og ``pades-url``. Disse kan du gjøre en ``HTTP GET`` på for å laste ned det signerte dokumentet i de to formatene. For mer informasjon om format på det signerte dokumentet, se :ref:`signerte-dokumenter`.
+        In the previous step you got two links: ``xades-url`` and ``pades-url``. Do a ``HTTP GET`` on these to download the signed document in the two formats. For more information on the format of the signed document, see :ref:`signerte-dokumenter`.
 
 Steg 5: Bekrefte ferdig prosessering
 =======================================
@@ -554,7 +554,7 @@ Steg 5: Bekrefte ferdig prosessering
 
     ..  group-tab:: HTTP
 
-        Til slutt gjør du et ``HTTP POST``-kall mot ``confirmation-url`` for å bekrefte at du har prosessert jobben ferdig. Hvis :ref:`langtidslagring` benyttes vil dette markere oppdraget som ferdig og lagret. I motsatt fall vil oppdraget slettes fra signeringsportalen.
+        Finally, make a ``HTTP POST`` call against ``confirmation-url`` to confirm that you have completed the job. If :ref:`langtidslagring` is used, this will mark the assignment as completed and stored. Otherwise, the assignment will be deleted from the signing portal.
 
 
 Specifying queues
@@ -651,4 +651,4 @@ After receiving a status change, the documents can be deleted as follows:
 
 
 ..  |direkteflytskjema| image:: https://raw.githubusercontent.com/digipost/signature-api-specification/master/integrasjon/flytskjemaer/synkron-maskin-til-maskin.png
-    :alt: Flytskjema for direkteintegrasjon
+    :alt: Flow chart for signing in direct flow
