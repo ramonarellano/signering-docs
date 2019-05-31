@@ -652,3 +652,109 @@ After receiving a status change, the documents can be deleted as follows:
 
 ..  |direkteflytskjema| image:: https://raw.githubusercontent.com/digipost/signature-api-specification/master/integrasjon/flytskjemaer/synkron-maskin-til-maskin.png
     :alt: Flow chart for signing in direct flow
+
+Request new redirect URL
+==========================
+For security reasons, the redirect URL for a signer can only be used once. If the signing process is to be initiated again, a new redirect URL must be requested.
+
+..  tabs::
+
+    ..  group-tab:: C#
+
+        If the `JobResponse` is kept in memory from job creation until a new URL is requested, it can be done like this:
+
+        ..  code-block:: c#
+
+            ClientConfiguration clientConfiguration = null; //As initialized earlier
+            Job job = null; //As created earlier
+            var directClient = new DirectClient(clientConfiguration);
+            var directJobResponse = await directClient.Create(job);
+
+            var signerFromResponse = directJobResponse
+                .Signers
+                .First(s => s
+                    .Identifier
+                    .IsSameAs(new PersonalIdentificationNumber("12345678910"))
+                );
+
+            var signerWithUpdatedRedirectUrl = await directClient
+                .RequestNewRedirectUrl(signerFromResponse);
+            var newRedirectUrl = signerWithUpdatedRedirectUrl.RedirectUrl;
+
+        Otherwise, do like this:
+
+        ..  code-block:: c#
+
+            ClientConfiguration clientConfiguration = null; //As initialized earlier
+            Job job = null; //As created earlier
+            var directClient = new DirectClient(clientConfiguration);
+            var directJobResponse = await directClient.Create(job);
+
+            // Step 1:
+            foreach (var signer in directJobResponse.Signers)
+            {
+                //Persist signer URL in sender system
+                var signerResponseSignerUrl = signer.SignerUrl;
+            }
+
+            // ... some time later ...
+
+            // Step 2: Request new redirect URL for signer
+            Uri persistedSignerUrl = null; //Persisted URL from step 1.
+            var signerWithUpdatedRedirectUrl = await directClient
+                .RequestNewRedirectUrl(
+                    NewRedirectUrlRequest
+                        .FromSignerUrl(persistedSignerUrl)
+                );
+            var newRedirectUrl = signerWithUpdatedRedirectUrl.RedirectUrl;
+
+    ..  group-tab:: Java
+
+        If the `DirectJobResponse` is kept in memory from job creation until a new URL is requested, it can be done like this:
+
+        ..  code-block:: java
+
+            ClientConfiguration clientConfiguration = null; // As initialized earlier
+            DirectClient client = new DirectClient(clientConfiguration);
+            DirectJobResponse directJobResponse = null; // As created earlier
+
+            //Request new redirect URL from response
+            DirectSignerResponse signerFromResponse = directJobResponse
+                    .getSigners()
+                    .stream()
+                    .filter(s -> s.hasIdentifier("12345678910"))
+                    .findAny().orElseThrow(NoSuchElementException::new);
+
+            DirectSignerResponse signerWithUpdatedRedirectUrl = client
+                    .requestNewRedirectUrl(signerFromResponse);
+            URI newRedirectUrl = signerWithUpdatedRedirectUrl.getRedirectUrl();
+
+        Otherwise, do like this:
+
+        ..  code-block:: java
+
+            ClientConfiguration clientConfiguration = null; // As initialized earlier
+            DirectClient client = new DirectClient(clientConfiguration);
+            DirectJobResponse directJobResponse = null; // As created earlier
+
+            // Step 1:
+            for (DirectSignerResponse signer : directJobResponse.getSigners()) {
+                //Persist signer URL in sender system
+                URI signerResponseSignerUrl = signer.getSignerUrl();
+            }
+
+            // ... some time later ...
+
+            // Step 2: Request new redirect URL for signer
+            URI persistedSignerUrl = null; //Persisted URL from step 1
+            DirectSignerResponse signerWithUpdatedRedirectUrl = client
+                    .requestNewRedirectUrl(
+                            WithSignerUrl.of(persistedSignerUrl)
+                    );
+            URI newRedirectUrl = signerWithUpdatedRedirectUrl.getRedirectUrl();
+
+    ..  group-tab:: HTTP
+
+        This functionality exists with integration via HTTP, but the example has not been generated yet.
+
+
