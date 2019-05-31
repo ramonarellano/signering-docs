@@ -261,7 +261,7 @@ Adressing the signer
 
 ..  tabs::
 
-    ..  group-tab:: Java
+    ..  group-tab:: C#
 
         ..  code-block:: c#
 
