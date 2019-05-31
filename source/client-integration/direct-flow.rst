@@ -652,3 +652,146 @@ After receiving a status change, the documents can be deleted as follows:
 
 ..  |direkteflytskjema| image:: https://raw.githubusercontent.com/digipost/signature-api-specification/master/integrasjon/flytskjemaer/synkron-maskin-til-maskin.png
     :alt: Flow chart for signing in direct flow
+
+Request new redirect URL
+==========================
+For security reasons, the redirect URL for a signer can only be used once. If the signing process is to be initiated again, a new redirect URL must be requested.
+
+..  tabs::
+
+    ..  group-tab:: C#
+
+        If the `JobResponse` is kept in memory from job creation until a new URL is requested, it can be done like this:
+
+        ..  code-block:: c#
+
+            ClientConfiguration clientConfiguration = null; //As initialized earlier
+            Job job = null; //As created earlier
+            var directClient = new DirectClient(clientConfiguration);
+            var directJobResponse = await directClient.Create(job);
+
+            var signerFromResponse = directJobResponse
+                .Signers
+                .First(s => s
+                    .Identifier
+                    .IsSameAs(new PersonalIdentificationNumber("12345678910"))
+                );
+
+            var signerWithUpdatedRedirectUrl = await directClient
+                .RequestNewRedirectUrl(signerFromResponse);
+            var newRedirectUrl = signerWithUpdatedRedirectUrl.RedirectUrl;
+
+        Otherwise, do like this:
+
+        ..  code-block:: c#
+
+            ClientConfiguration clientConfiguration = null; //As initialized earlier
+            Job job = null; //As created earlier
+            var directClient = new DirectClient(clientConfiguration);
+            var directJobResponse = await directClient.Create(job);
+
+            // Step 1:
+            foreach (var signer in directJobResponse.Signers)
+            {
+                //Persist signer URL in sender system
+                var signerResponseSignerUrl = signer.SignerUrl;
+            }
+
+            // ... some time later ...
+
+            // Step 2: Request new redirect URL for signer
+            Uri persistedSignerUrl = null; //Persisted URL from step 1.
+            var signerWithUpdatedRedirectUrl = await directClient
+                .RequestNewRedirectUrl(
+                    NewRedirectUrlRequest
+                        .FromSignerUrl(persistedSignerUrl)
+                );
+            var newRedirectUrl = signerWithUpdatedRedirectUrl.RedirectUrl;
+
+    ..  group-tab:: Java
+
+        If the `DirectJobResponse` is kept in memory from job creation until a new URL is requested, it can be done like this:
+
+        ..  code-block:: java
+
+            ClientConfiguration clientConfiguration = null; // As initialized earlier
+            DirectClient client = new DirectClient(clientConfiguration);
+            DirectJobResponse directJobResponse = null; // As created earlier
+
+            //Request new redirect URL from response
+            DirectSignerResponse signerFromResponse = directJobResponse
+                    .getSigners()
+                    .stream()
+                    .filter(s -> s.hasIdentifier("12345678910"))
+                    .findAny().orElseThrow(NoSuchElementException::new);
+
+            DirectSignerResponse signerWithUpdatedRedirectUrl = client
+                    .requestNewRedirectUrl(signerFromResponse);
+            URI newRedirectUrl = signerWithUpdatedRedirectUrl.getRedirectUrl();
+
+        Otherwise, do like this:
+
+        ..  code-block:: java
+
+            ClientConfiguration clientConfiguration = null; // As initialized earlier
+            DirectClient client = new DirectClient(clientConfiguration);
+            DirectJobResponse directJobResponse = null; // As created earlier
+
+            // Step 1:
+            for (DirectSignerResponse signer : directJobResponse.getSigners()) {
+                //Persist signer URL in sender system
+                URI signerResponseSignerUrl = signer.getSignerUrl();
+            }
+
+            // ... some time later ...
+
+            // Step 2: Request new redirect URL for signer
+            URI persistedSignerUrl = null; //Persisted URL from step 1
+            DirectSignerResponse signerWithUpdatedRedirectUrl = client
+                    .requestNewRedirectUrl(
+                            WithSignerUrl.of(persistedSignerUrl)
+                    );
+            URI newRedirectUrl = signerWithUpdatedRedirectUrl.getRedirectUrl();
+
+    ..  group-tab:: HTTP
+
+        A new redirect URL can be requested using the `href` attribute on a signer:
+
+        ..  code-block:: xml
+
+            <direct-signature-job-response xmlns="http://signering.posten.no/schema/v1">
+                <signature-job-id>1</signature-job-id>
+                <redirect-url>
+                    https://signering.posten.no#/redirect/421e7ac38da1f81150
+                </redirect-url>
+                <status-url>https://api.signering.posten.no/api/123456789/direct/signature-jobs/1/status</status-url>
+                <signer href="https://api.signering.posten.no/api/123456789/direct/signature-jobs/1/signers/1">
+                    <personal-identification-number>12345678910</personal-identification-number>
+                    <redirect-url>
+                        https://signering.posten.no#/redirect/421e7ac38da1f81150
+                    </redirect-url>
+                </signer>
+            </direct-signature-job-response>
+
+        Use the `href` and do a post with the following body:
+
+        ..  code-block:: xml
+
+            <direct-signer-update-request xmlns="http://signering.posten.no/schema/v1">
+                <redirect-url />
+            </direct-signer-update-request>
+
+        The response will contain the new redirect URL:
+
+        ..  code-block:: xml
+
+            <direct-signer-response xmlns="http://signering.posten.no/schema/v1"
+                        href="https://api.signering.posten.no/api/123456789/direct/signature-jobs/1/signers/1">
+                <personal-identification-number>12345678910</personal-identification-number>
+                <redirect-url>
+                    https://signering.posten.no#/redirect/cwYjoZOX5jOc1BACfTdhuIPj
+                </redirect-url>
+            </direct-signer-response>
+
+
+
