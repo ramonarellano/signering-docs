@@ -114,7 +114,7 @@ Step 1: Create signature job
         A part of the metadata is a set of URLs defined by the element ``exit-urls``. These URLs will be used by the signature service to redirect the signer back to the sender's portal after completing the signing. The following three URLs must be defined:
 
         -  **completion-url:** The signer is sent here after a successful signing process.
-        -  **rejection-url:** The signer is sent here if Undertegner sendes hit hvis *he or she chooses* to cancel the signing process.
+        -  **rejection-url:** The signer is sent here if *he or she chooses* to cancel the signing process.
         -  **error-url:** The signer is sent here if something fails during the signing process. This *is not* a result of a user action.
 
         The following is an example of the ``manifext.xml`` from the document bundle:
