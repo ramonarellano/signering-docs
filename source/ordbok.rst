@@ -1,6 +1,16 @@
 Ordbok
 ********
 
+Tjenesten
+==========
+
+*Signeringstjenesten* på norsk, *Signature service* på engelsk.
+
+Nettside
+==========
+
+På engelsk kaller vi det *website*
+
 .. _bedrift-virksomhet-ordbok:
 
 Bedrift/Virksomhet
@@ -17,6 +27,8 @@ Avsender
 :ref:`bedrift-virksomhet-ordbok` som sender signeringsoppdrag i en :ref:`signeringsflyt-ordbok`.
 
 Vi skal **ikke** bruke ord som *tjenesteeier*.
+
+På engelsk kaller vi det *sender*.
 
 .. _undertegner-ordbok:
 
@@ -41,11 +53,20 @@ En :ref:`undertegner-ordbok` starter en signering.
 
 Vi skal **ikke** bruke ord som *signeringsseremoni*.
 
+Jobb
+=====
+
+Avhengig av kontekst kan det kalles *signeringsjobb* eller bare *jobb*. En jobb har en *dokumentpakke*
+
+På engelsk kaller vi det *signature job* eller *job*, og den har en *document bundle*.
+
 Portal
 =======
 
 - *Avsenderportal*: Dette er webgrensesnittet for avsendere. signering.posten.no/virksomhet/
 - *Signeringsportal*: Dette er webgrensesnittet for undertegnere.
+
+På engelsk kaller vi det *sender portal* og *signing portal*.
 
 API
 ====

@@ -1,7 +1,7 @@
 Syntax help
 ************
 
-This is a cheat-sheet for writing the documentation. It is only for internal use, but feel free to browse if you are curious about how we write documentation.
+This is a cheat-sheet for writing the documentation. It is only for internal use, but feel free to browse if you are curious about how we write our documentation.
 
 All the following examples are for using *reStructuredText* instead of *Markdown*.
 
@@ -102,7 +102,7 @@ The different tabs are `tab`, `group-tab` and `code-tab`.
          Pears are green.
 
 .. TIP::
-   The different tabs are `tab`, `group-tab` and `code-tab`. With `group-tab`, all examples changes tab at the  same time. `code-tab` is self explanatory, but not that it behaves like `group-tab`.
+   The different tabs are `tab`, `group-tab` and `code-tab`. With `group-tab`, all examples changes tab at the  same time. `code-tab` is self explanatory, but note that it behaves like `group-tab`.
 
 Example tab
 -------------
