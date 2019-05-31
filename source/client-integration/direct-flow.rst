@@ -9,7 +9,7 @@ To ease the integration, we provide C# and Java libraries. If you are creating y
 
 |direkteflytskjema|
 
-**Flow chart for signing in direct flow:** *The chart shows that a signer is sent to the signature portal from the senders website and completes the signing process. The sender gets the status, gets the signed document and confirms processing of the job. Full lines show user flow and broken lines shows API-calls*.
+**Flow chart for signing in direct flow:** *The chart shows that a signer is sent to the signing portal from the senders website and completes the signing process. The sender gets the status, gets the signed document and confirms processing of the job. Full lines show user flow and broken lines shows API-calls*.
 
 Having problems integrating?
 ==============================
@@ -111,7 +111,7 @@ Step 1: Create signature job
                <polling-queue>custom-queue</polling-queue>
             </direct-signature-job-request>
 
-        A part of the metadata is a set of URLs defined by the element ``exit-urls``. These URLs will be used by the signature service to redirect the signer back to the senders portal after completing the signing. The following three URLs must be defined:
+        A part of the metadata is a set of URLs defined by the element ``exit-urls``. These URLs will be used by the signature service to redirect the signer back to the sender's portal after completing the signing. The following three URLs must be defined:
 
         -  **completion-url:** The signer is sent here after a successful signing process.
         -  **rejection-url:** The signer is sent here if Undertegner sendes hit hvis *he or she chooses* to cancel the signing process.
@@ -329,7 +329,7 @@ This whole step is carried out in the signing portal. You forward the user to th
 ..  IMPORTANT::
     ** Security in connection with the one-time token: ** To handle the security of this call, the token will only work once. The user will receive a cookie from the signing service when accessing the URL, so that any refresh does not stop the flow. This URL cannot be reused at a later time. The reason we only allow it to be used only once is that URLs can appear in logs, and it will therefore not be safe to reuse.
 
-The user completes the signing and is then returned to the sender's portal via the URL specified by ``completion url``. At the end of this URL, a query parameter (``status_query_token``) will be added, which you will use later when you ask for the signature job status. If the signer interrupts the signing, or an error occurs, the signer will be sent to the ``rejection url`` or the ``error url`` respectively.
+The user completes the signing and is then returned to the sender's portal via the URL specified by ``completion url``. At the end of this URL, a query parameter (``status_query_token``) will be added, which you will use later when you ask for the signature job status. If the signer interrupts the signing, or an error occurs, the signer will be sent to the ``rejection-url`` or the ``error-url`` respectively.
 
 .. _directIntegrationStep3:
 
