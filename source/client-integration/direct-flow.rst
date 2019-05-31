@@ -9,7 +9,7 @@ To ease the integration, we provide C# and Java libraries. If you are creating y
 
 |direkteflytskjema|
 
-**Flow chart for signing in direct flow:** *The chart shows that a signer is sent to the signing portal from the senders website and completes the signing process. The sender gets the status, gets the signed document and confirms processing of the job. Full lines show user flow and broken lines shows API-calls*.
+**Flow chart for signing in direct flow:** *The chart shows that a signer is sent to the signing portal from the sender's website and completes the signing process. The sender gets the status, gets the signed document and confirms processing of the job. Solid lines show user flow and dashed lines shows API-calls*.
 
 Having problems integrating?
 ==============================
