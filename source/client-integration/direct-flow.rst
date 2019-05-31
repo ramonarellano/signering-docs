@@ -755,7 +755,7 @@ For security reasons, the redirect URL for a signer can only be used once. If th
 
     ..  group-tab:: HTTP
 
-        A new redirect URL can be requested using the `href` property on a signer:
+        A new redirect URL can be requested using the `href` attribute on a signer:
 
         ..  code-block:: xml
 
