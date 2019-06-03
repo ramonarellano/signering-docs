@@ -533,7 +533,7 @@ Step 4: Get signed documents
 
         In the previous step you got two links: ``xades-url`` and ``pades-url``. Do a ``HTTP GET`` on these to download the signed document in the two formats. For more information on the format of the signed document, see :ref:`signerte-dokumenter`.
 
-Steg 5: Bekrefte ferdig prosessering
+Steg 5: Confirm finished processing
 =======================================
 
 ..  tabs::
