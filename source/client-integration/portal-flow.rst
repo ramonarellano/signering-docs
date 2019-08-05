@@ -169,6 +169,111 @@ Before starting this chapter, please reed up on :ref:`varsler` :ref:`adressering
 Adressing the signer
 ^^^^^^^^^^^^^^^^^^^^^^
 
+..  tabs::
+
+    ..  group-tab:: C#
+
+        ..  code-block:: c#
+
+            //This functionality exists in C#, but the example has not been generated yet.
+
+    ..  group-tab:: Java
+
+        ..  code-block:: java
+
+            //This functionality exists in Java, but the example has not been generated yet.
+
+    ..  group-tab:: HTTP
+
+        ..  tabs::
+
+            ..  tab:: E-mail
+
+                ..  code-block:: xml
+
+                    <signer>
+                        <identified-by-contact-information/>
+                        <notifications>
+                            <email address="email@example.com"/>
+                        </notifications>
+                        <on-behalf-of>SELF</on-behalf-of>
+                    </signer>
+
+            ..  tab:: Mobile
+
+                ..  code-block:: xml
+
+                    <signer>
+                        <identified-by-contact-information/>
+                        <notifications>
+                            <sms number="00000000" />
+                        </notifications>
+                        <on-behalf-of>SELF</on-behalf-of>
+                    </signer>
+
+            ..  tab:: E-mail and mobile
+
+                ..  code-block:: xml
+
+                    <signer>
+                        <identified-by-contact-information/>
+                        <notifications>
+                            <email address="email@example.com"/>
+                            <sms number="00000000" />
+                        </notifications>
+                        <on-behalf-of>SELF</on-behalf-of>
+                    </signer>
+
+            ..  tab:: SSN
+
+                Social Security number, with notification by e-mail:
+
+                ..  code-block:: xml
+
+                    <signer>
+                        <personal-identification-number>12345678910</personal-identification-number>
+                        <notifications>
+                            <email address="email@example.com"/>
+                        </notifications>
+                        <on-behalf-of>SELF</on-behalf-of>
+                    </signer>
+
+
+                With notification as public organization:
+
+                ..  NOTE::
+                    Public organizations must use Kontakt- og Reservasjonsregisteret as lookup method.
+
+                ..  code-block:: xml
+
+                    <signer>
+                        <personal-identification-number>12345678910</personal-identification-number>
+                        <notifications>
+                            <notifications-using-lookup/>
+                        </notifications>
+                        <on-behalf-of>SELF</on-behalf-of>
+                    </signer>
+
+            ..  tab:: On behalf of
+
+                A sender can choose if the signer is signing on behalf of himself or by virtue of a role. This is done by setting the attribute ``on-behalf-of`` to ``SELF`` or ``OTHER``.
+
+                The signed document will not be sent to the signers digital mailbox if signing on behalf of someone else. For public organizations, you must address the signer by a chosen phone number and e-mail, as Kontakt- og Reservasjonsregisteret will not be used.
+
+                ..  code-block:: xml
+
+                    <signer>
+                        <personal-identification-number>12345678910</personal-identification-number>
+                        <notifications>
+                            <email address="email@example.com"/>
+                            <sms number="00000000" />
+                        </notifications>
+                        <on-behalf-of>OTHER</on-behalf-of>
+                    </signer>
+
+                ..  NOTE::
+
+                    The element ``notifications-using-lookup`` is only available for public organizations. As this will look up the signers *private* contact information, it is not possible at the same time to indicate that the person signing on behalf of someone else. Thus, you cannot set ``on-behalf-of`` to ``OTHER`` if you want to use the Kontakt- og Reservasjonsregisteret to address signers.
 
 You can specify a  signature type and required authentication level. If signature type or required authentication level is omitted, default values as specified by the `functional documentation <http://digipost.github.io/signature-api-specification/v1.0/#signaturtype>`_ will apply:
 
