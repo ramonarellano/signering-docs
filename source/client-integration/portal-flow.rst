@@ -31,58 +31,143 @@ Step 1: Create signature job
 
 ..  tabs::
 
-    ..  code-tab:: c#
+    ..  group-tab:: C#
 
-        ClientConfiguration clientConfiguration = null; //As initialized earlier
-        var portalClient = new PortalClient(clientConfiguration);
+        ..  code-block:: c#
 
-        var documentToSign = new Document(
-            "Subject of Message",
-            "This is the content",
-            FileType.Pdf,
-            @"C:\Path\ToDocument\File.pdf"
-        );
+            ClientConfiguration clientConfiguration = null; //As initialized earlier
+            var portalClient = new PortalClient(clientConfiguration);
 
-        var signers = new List<Signer>
-        {
-            new Signer(new PersonalIdentificationNumber("00000000000"), new NotificationsUsingLookup()),
-            new Signer(new PersonalIdentificationNumber("11111111111"), new Notifications(
-                new Email("email1@example.com"),
-                new Sms("999999999"))),
-            new Signer(new ContactInformation {Email = new Email("email2@example.com")}),
-            new Signer(new ContactInformation {Sms = new Sms("88888888")}),
-            new Signer(new ContactInformation
+            var documentToSign = new Document(
+                "Subject of Message",
+                "This is the content",
+                FileType.Pdf,
+                @"C:\Path\ToDocument\File.pdf"
+            );
+
+            var signers = new List<Signer>
             {
-                Email = new Email("email3@example.com"),
-                Sms = new Sms("77777777")
-            })
-        };
+                new Signer(new PersonalIdentificationNumber("00000000000"), new NotificationsUsingLookup()),
+                new Signer(new PersonalIdentificationNumber("11111111111"), new Notifications(
+                    new Email("email1@example.com"),
+                    new Sms("999999999"))),
+                new Signer(new ContactInformation {Email = new Email("email2@example.com")}),
+                new Signer(new ContactInformation {Sms = new Sms("88888888")}),
+                new Signer(new ContactInformation
+                {
+                    Email = new Email("email3@example.com"),
+                    Sms = new Sms("77777777")
+                })
+            };
 
-        var portalJob = new Job(documentToSign, signers, "myReferenceToJob");
+            var portalJob = new Job(documentToSign, signers, "myReferenceToJob");
 
-        var portalJobResponse = await portalClient.Create(portalJob);
+            var portalJobResponse = await portalClient.Create(portalJob);
 
-    ..  code-tab:: java
+    ..  group-tab:: Java
 
-        ClientConfiguration clientConfiguration = null; // As initialized earlier
-        PortalClient client = new PortalClient(clientConfiguration);
+        ..  code-block:: java
 
-        byte[] documentBytes = null; // Loaded document bytes
-        PortalDocument document = PortalDocument.builder("Subject", "document.pdf", documentBytes).build();
+            ClientConfiguration clientConfiguration = null; // As initialized earlier
+            PortalClient client = new PortalClient(clientConfiguration);
 
-        PortalJob portalJob = PortalJob.builder(
-                document,
-                PortalSigner.identifiedByPersonalIdentificationNumber("12345678910",
-                        NotificationsUsingLookup.EMAIL_ONLY).build(),
-                PortalSigner.identifiedByPersonalIdentificationNumber("12345678911",
-                        Notifications.builder().withEmailTo("email@example.com").build()).build(),
-                PortalSigner.identifiedByEmail("email@example.com").build()
-        ).build();
+            byte[] documentBytes = null; // Loaded document bytes
+            PortalDocument document = PortalDocument.builder("Subject", "document.pdf", documentBytes).build();
 
-        PortalJobResponse portalJobResponse = client.create(portalJob);
+            PortalJob portalJob = PortalJob.builder(
+                    document,
+                    PortalSigner.identifiedByPersonalIdentificationNumber("12345678910",
+                            NotificationsUsingLookup.EMAIL_ONLY).build(),
+                    PortalSigner.identifiedByPersonalIdentificationNumber("12345678911",
+                            Notifications.builder().withEmailTo("email@example.com").build()).build(),
+                    PortalSigner.identifiedByEmail("email@example.com").build()
+            ).build();
+
+            PortalJobResponse portalJobResponse = client.create(portalJob);
+
+    ..  group-tab:: HTTP
+
+        The flow starts when the sender sends a request to create the signature job to the API. This request is a `multipart message <https://en.wikipedia.org/wiki/MIME#Multipart_messages>`_ comprised of a document bundle part and a metadata part.
+
+        - The request is a ``HTTP POST`` mot ressursen ``<rot-URL>/portal/signature-jobs``.
+        - The document bundle is added to the multipart message with ``application/octet-stream`` as media type. See :ref:`informasjonOmDokumentpakken` for more information on the document bundle.
+        - The metadata in the multipart request is defined by the ``portal-signature-job-request`` element. These are added with media type ``application/xml``.
+
+        The following example shows metadata for a signature job in a portal flow:
+
+        ..  code-block:: xml
+
+            <portal-signature-job-request xmlns="http://signering.posten.no/schema/v1">
+                <reference>123-ABC</reference>
+                <polling-queue>custom-queue</polling-queue>
+            </portal-signature-job-request>
+
+        An example of the ``manifest.xml`` from the document bundle for a singature job that is to be signed by four signers:
+
+        ..  code-block:: xml
+
+            <portal-signature-job-manifest xmlns="http://signering.posten.no/schema/v1">
+               <signers>
+                   <signer order="1">
+                       <personal-identification-number>12345678910</personal-identification-number>
+                       <signature-type>ADVANCED_ELECTRONIC_SIGNATURE</signature-type>
+                       <notifications>
+                           <!-- Override contact information to be used for notifications -->
+                           <email address="signer1@example.com" />
+                           <sms number="00000000" />
+                       </notifications>
+                   </signer>
+                   <signer order="2">
+                       <personal-identification-number>10987654321</personal-identification-number>
+                       <signature-type>AUTHENTICATED_ELECTRONIC_SIGNATURE</signature-type>
+                       <notifications>
+                           <email address="signer2@example.com" />
+                       </notifications>
+                   </signer>
+                   <signer order="2">
+                       <personal-identification-number>01013300001</personal-identification-number>
+                       <signature-type>AUTHENTICATED_ELECTRONIC_SIGNATURE</signature-type>
+                       <notifications-using-lookup>
+                           <!-- Try to send notifications in both e-mail and SMS using lookup -->
+                           <email/>
+                           <sms/>
+                       </notifications-using-lookup>
+                   </signer>
+                   <signer order="3">
+                       <personal-identification-number>02038412546</personal-identification-number>
+                       <signature-type>AUTHENTICATED_ELECTRONIC_SIGNATURE</signature-type>
+                       <notifications-using-lookup>
+                           <email/>
+                       </notifications-using-lookup>
+                   </signer>
+               </signers>
+               <sender>
+                   <organization-number>123456789</organization-number>
+               </sender>
+               <document href="document.pdf" mime="application/pdf">
+                   <title>Tittel</title>
+                   <nonsensitive-title>Sensitiv tittel</nonsensitive-title>
+                   <description>Melding til undertegner</description>
+               </document>
+               <required-authentication>4</required-authentication>
+               <availability>
+                   <activation-time>2016-02-10T12:00:00+01:00</activation-time>
+                   <available-seconds>864000</available-seconds>
+               </availability>
+               <identifier-in-signed-documents>PERSONAL_IDENTIFICATION_NUMBER_AND_NAME</identifier-in-signed-documents>
+            </portal-signature-job-manifest>
+
 
 ..  NOTE::
     You may identify the signature job’s signers by personal identification number :code:`IdentifiedByPersonalIdentificationNumber` or contact information. When identifying by contact information, you may choose between instantiating a :code:`PortalSigner` using :code:`IdentifiedByEmail, :code:`IdentifiedByMobileNumber` or :code:`IdentifiedByEmailAndMobileNumber`.
+
+The signer
+-----------------
+
+Before starting this chapter, please reed up on :ref:`varsler` :ref:`adressering-av-undertegner`. Signers can be adressed and notified in different ways.
+
+Adressing the signer
+^^^^^^^^^^^^^^^^^^^^^^
 
 
 You can specify a  signature type and required authentication level. If signature type or required authentication level is omitted, default values as specified by the `functional documentation <http://digipost.github.io/signature-api-specification/v1.0/#signaturtype>`_ will apply:
