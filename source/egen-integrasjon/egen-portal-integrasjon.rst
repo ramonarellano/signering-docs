@@ -1,17 +1,3 @@
-.. _egenPortalIntegrasjon:
-
-API-integrasjon for signering i portalflyt
-********************************************
-
-Dette integrasjonsmønsteret passer for tjenesteeiere som ønsker å opprette :ref:`signeringsoppdrag i portalflyt <signering-i-portalflyt>`. Signeringsseremonien gjennomføres av sluttbruker i Signeringsportalen, og tjenesteeier vil deretter kunne polle på status og hente ned det signerte dokumentet.
-
-Dette scenariet er utviklet med tanke på å støtte en flyt hvor det er behov for å innhente signaturer fra flere enn én undertegner.
-
-Meldingsformatet i APIet er XML, og reelevante typer finnes i filen `portal.xsd <https://github.com/digipost/signature-api-specification/blob/master/schema/xsd/portal.xsd>`_.
-
-|portalflytskjema|
- **Flytskjema signeringsoppdrag i portalflyt:** *skjemaet viser at avsender sender inn et oppdrag, starter polling, at undertegner(e) signerer oppdraget, og avsender får oppdatert status via polling, og laster ned signert dokument. Dersom du sender et oppdrag til kun én undertegner, kan du se bort i fra den første "steg 4"-seksjonen. Heltrukne linjer viser brukerflyt, mens stiplede linjer viser API-kall.*
-
 .. _egenPortalIntegrasjonSteg1:
 
 Steg 1: Opprette signeringsoppdraget
@@ -304,5 +290,4 @@ Steg 4: Bekrefte ferdig prosessering
 Til slutt gjør du et ``HTTP POST``-kall mot ``confirmation-url`` for å bekrefte at du har mottatt/persistert statusoppdateringen. Dersom statusen indikerer at oppdraget er helt ferdig, så vil dette kallet også bekrefte at du er ferdig med å prosessere hele oppdraget.
 Hvis :ref:`langtidslagring` benyttes vil dette markere oppdraget som ferdig og lagret, ellers vil oppdraget slettes fra signeringstjenesten.
 
-..  |portalflytskjema| image:: https://raw.githubusercontent.com/digipost/signature-api-specification/master/integrasjon/flytskjemaer/asynkron-maskin-til-maskin.png
-    :alt: Flytskjema for portalintegrasjon
+

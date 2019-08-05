@@ -3,9 +3,15 @@
 Portal flow
 ****************************
 
+This integration pattern is suitable for senders who want to create :ref:`a signature job in portal flow <signering-i-portalflyt>`. The signing ceremony is performed by the signer in the signing portal, and the sender will then be able to poll for a status and retrieve the signed document. This scenario is designed to support a flow where it is necessary to obtain signatures from more than one signer.
+
+To ease the integration, we provide C# and Java libraries. If you are creating your own client, you will have to interact directly with the API. The message format of the API is XML, and relevant types can be found in `portal.xsd <https://github.com/digipost/signature-api-specification/blob/master/schema/xsd/portal.xsd>`_.
+
+|portalflytskjema|
+ **Flow chart for signing in portal flow:** *The chart shows that a sender creates a signature job, starts polling, signers signing the job, a status update is fetched by polling by the sender, followed by downloading the signed document. If you send only one job to one signer, please disregard the first "steg 4"-section. Solid lines show user flow and dashed lines shows requests to and responses from the API.*
 
 Having problems integrating?
-#############################
+===============================
 
 ..  TIP::
     Remember that if you are having problems creating a job in a portal signature flow, you can always get in touch with a human on Github:
@@ -20,8 +26,8 @@ Having problems integrating?
 
             Get help for your `Java integration here <https://github.com/digipost/signature-api-client-java/issues>`_.
 
-Create job
-###########
+Step 1: Create signature job
+==============================
 
 ..  tabs::
 
@@ -279,3 +285,5 @@ After receiving a status change, the documents can be deleted as follows:
 
         client.deleteDocuments(statusChange.getDeleteDocumentsUrl());
 
+..  |portalflytskjema| image:: https://raw.githubusercontent.com/digipost/signature-api-specification/master/integrasjon/flytskjemaer/asynkron-maskin-til-maskin.png
+    :alt: Flytskjema for portalintegrasjon
