@@ -3,45 +3,6 @@
 Steg 1: Opprette signeringsoppdraget
 ======================================
 
-Andre innstillinger
----------------------------
-
-Rekkefølge
-^^^^^^^^^^^
-``order``-attributtet på ``signer`` brukes til å angi rekkefølgen på undertegnerne. I eksempelet over vil signeringsoppdraget først kun bli tilgjengelig for undertegnerne med ``order="1"``. Når disse har signert, blir oppdraget tilgjengelig for de med ``order="2"``, og for undertegneren med ``order="3"`` når de med ``order="2"`` har signert.
-
-Tilgjengelighet
-^^^^^^^^^^^^^^^^
-Elementet ``availability`` brukes til å kontrollere tidsrommet et signeringsoppdrag er tilgjengelig for undertegner(e).
-
-
-..  code-block:: xml
-
-    <availability>
-        <activation-time>2016-02-10T12:00:00+01:00</activation-time>
-        <available-seconds>864000</available-seconds>
-    </availability>
-
-Tidspunktet angitt i ``activation-time`` angir når jobben aktiveres, og de første undertegnerne får mulighet til å signere oppdraget. Varigheten angitt i ``available-seconds`` gjelder for alle undertegnere. Det vil si at alle undertegnere vil få like lang tid til å signere eller avvise oppdraget fra det blir tilgjengelig for dem. Dette tidsrommet gjelder altså for hvert sett med undertegnere med samme ``order``.
-
-**Eksempel, angi 345600 sekunder (4 dager) for undertegnere med rekkefølge:**
-
-#. Undertegnere med ``order=1`` får 4 dager fra ``activation-time`` til å signere.
-#. Undertegnere med ``order=2`` vil få tilgjengeliggjort dokumentet *umiddelbart* når alle undertegnere med ``order=1`` har signert. De vil da få 4 dager fra tidspunktet de fikk oppdraget tilgjengelig.
-
-..  NOTE::
-    Dersom man utelater ``availability`` vil jobben aktiveres umiddelbart, og oppdraget vil være tilgjengelig i maks 30 dager for hvert sett med ``order``-grupperte undertegnere.
-
-..  IMPORTANT::
-    Et signeringsoppdrag utløper og stopper dersom minst én undertegner ikke signerer innenfor sitt tidsrom når oppdraget er tilgjengelig.
-
-..  IMPORTANT::
-    Jobber som angir større ``available-seconds`` enn 7 776 000 sekunder (90 dager) blir avvist av tjenesten.
-
-Identifikator i signert dokument
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Elementet ``identifier-in-signed-documents`` brukes for å angi hvordan undertegner skal identifiseres i de signerte dokumentene. Tillatte verdier er ``PERSONAL_IDENTIFICATION_NUMBER_AND_NAME``, ``DATE_OF_BIRTH_AND_NAME`` og ``NAME``, men ikke alle er gyldige for alle typer signeringsoppdrag og avsendere. For mer informasjon, se :ref:`identifisereUndertegnere`.
 
 Respons
 --------

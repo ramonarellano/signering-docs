@@ -275,6 +275,46 @@ Adressing the signer
 
                     The element ``notifications-using-lookup`` is only available for public organizations. As this will look up the signers *private* contact information, it is not possible at the same time to indicate that the person signing on behalf of someone else. Thus, you cannot set ``on-behalf-of`` to ``OTHER`` if you want to use the Kontakt- og Reservasjonsregisteret to address signers.
 
+Other settings
+---------------------------
+
+Order
+^^^^^^^^^^^
+The ``order`` attribute on ``signer`` is used to specify the order of the signers. In the example above, the signature job will only be available to the signers with ``order = "1"``. Once signed, the job becomes available to those with ``order = "2"``, and for the signer with ``order = "3"`` when those with `` order = "2" `` have signed.
+
+Availability
+^^^^^^^^^^^^^^^^
+The element ``availability`` is used to control the period of time a signature job is available to the signer(s).
+
+..  code-block:: xml
+
+    <availability>
+        <activation-time>2016-02-10T12:00:00+01:00</activation-time>
+        <available-seconds>864000</available-seconds>
+    </availability>
+
+The time specified in ``activation-time`` indicates when the job is activated, and the first signers are given the opportunity to sign the job. The duration specified in ``available-seconds`` applies to all signers. That is, all signers will have the same time to sign or reject the job from it becomes available to them. Thus, this period applies to each set of signers with the same ``order``.
+
+**For example, enter 345600 seconds (4 days) for signers with an order:**
+
+#. Signers with ``order = 1`` get 4 days from `` activation-time`` to sign.
+#. Signers with ``order = 2`` will have the document made available *immediately* when all signers with ``order = 1`` have signed. They will then have 4 days from the time signature job is made available.
+
+..  NOTE::
+    If you omit ``availability``, the job will be activated immediately, and the job will be available for a maximum of 30 days for each set of ``order`` grouped signers.
+
+..  IMPORTANT::
+    A signature job expires and stops if at least one signer does not sign within their time period when the job is available.
+
+..  IMPORTANT::
+    Jobs that specify greater ``available-seconds`` than 7,776,000 seconds (90 days) are rejected.
+
+Identifier in the signed document
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The element ``identifier-in-signed-documents`` is used to specify how signers are to be identified in the signed documents. Allowed values are ``PERSONAL_IDENTIFICATION_NUMBER_AND_NAME``, ``DATE_OF_BIRTH_AND_NAME`` and ``NAME``, but not all are valid for all types of signature jobs and senders. For more information, see :ref:`identifisereUndertegnere`.
+
+
 You can specify a  signature type and required authentication level. If signature type or required authentication level is omitted, default values as specified by the `functional documentation <http://digipost.github.io/signature-api-specification/v1.0/#signaturtype>`_ will apply:
 
 ..  tabs::
