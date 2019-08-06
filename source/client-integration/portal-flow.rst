@@ -89,7 +89,7 @@ Step 1: Create signature job
 
         The flow starts when the sender sends a request to create the signature job to the API. This request is a `multipart message <https://en.wikipedia.org/wiki/MIME#Multipart_messages>`_ comprised of a document bundle part and a metadata part.
 
-        - The request is a ``HTTP POST`` mot ressursen ``<rot-URL>/portal/signature-jobs``.
+        - The request is a ``HTTP POST`` to the resource ``<rot-URL>/portal/signature-jobs``.
         - The document bundle is added to the multipart message with ``application/octet-stream`` as media type. See :ref:`informasjonOmDokumentpakken` for more information on the document bundle.
         - The metadata in the multipart request is defined by the ``portal-signature-job-request`` element. These are added with media type ``application/xml``.
 
@@ -168,12 +168,12 @@ Step 1: Create signature job
 
 
 ..  NOTE::
-    You may identify the signature job’s signers by personal identification number :code:`IdentifiedByPersonalIdentificationNumber` or contact information. When identifying by contact information, you may choose between instantiating a :code:`PortalSigner` using :code:`IdentifiedByEmail, :code:`IdentifiedByMobileNumber` or :code:`IdentifiedByEmailAndMobileNumber`.
+    You may identify the signature job’s signers by personal identification number :code:`IdentifiedByPersonalIdentificationNumber` or contact information. When identifying by contact information, you may choose between instantiating a :code:`PortalSigner` using :code:`IdentifiedByEmail`, :code:`IdentifiedByMobileNumber` or :code:`IdentifiedByEmailAndMobileNumber`.
 
 The signer
 -----------------
 
-Before starting this chapter, please reed up on :ref:`varsler` :ref:`adressering-av-undertegner`. Signers can be adressed and notified in different ways.
+Before starting this chapter, please read up on :ref:`varsler` :ref:`adressering-av-undertegner`. Signers can be adressed and notified in different ways.
 
 Adressing the signer
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -509,7 +509,7 @@ When getting XAdES and PAdES for a PortalJob, remember that the XAdES is per sig
 
     ..  group-tab:: HTTP
 
-        The response in the previous step contains the links ``xades-url`` and ``pades-url``. These you can do a `` HTTP GET '' on to download the signed document in the two formats. For more information on the format of the signed document, see: ref: `signerte-dokumenter`.
+        The response in the previous step contains the links ``xades-url`` and ``pades-url``. These you can do a ``HTTP GET`` on to download the signed document in the two formats. For more information on the format of the signed document, see :ref:`signerte-dokumenter`.
 
         You download the XAdES file per signer, while the PAdES file is downloaded across all signers. This will include signing information for all signers who have so far signed the job. In most cases, it is not necessary to download the PAdES until all signers have the status ``SIGNED``.
 
@@ -522,54 +522,61 @@ To specify a queue, set :code:`Sender` :code:`pollingQueue` through when constru
 
 ..  tabs::
 
-    ..  code-tab:: c#
+    ..  group-tab:: C#
 
+        ..  code-block:: c#
 
-        PortalClient portalClient = null; //As initialized earlier
+            PortalClient portalClient = null; //As initialized earlier
 
-        var organizationNumber = "123456789";
-        var sender = new Sender(organizationNumber, new PollingQueue("CustomPollingQueue"));
+            var organizationNumber = "123456789";
+            var sender = new Sender(organizationNumber, new PollingQueue("CustomPollingQueue"));
 
-        var documentToSign = new Document(
-            "Subject of Message",
-            "This is the content",
-            FileType.Pdf,
-            @"C:\Path\ToDocument\File.pdf"
-        );
+            var documentToSign = new Document(
+                "Subject of Message",
+                "This is the content",
+                FileType.Pdf,
+                @"C:\Path\ToDocument\File.pdf"
+            );
 
-        var signers = new List<Signer>
-        {
-            new Signer(new PersonalIdentificationNumber("00000000000"), new NotificationsUsingLookup())
-        };
+            var signers = new List<Signer>
+            {
+                new Signer(new PersonalIdentificationNumber("00000000000"), new NotificationsUsingLookup())
+            };
 
-        var portalJob = new Job(documentToSign, signers, "myReferenceToJob", sender);
+            var portalJob = new Job(documentToSign, signers, "myReferenceToJob", sender);
 
-        var portalJobResponse = await portalClient.Create(portalJob);
+            var portalJobResponse = await portalClient.Create(portalJob);
 
-        var changedJob = await portalClient.GetStatusChange(sender);
+            var changedJob = await portalClient.GetStatusChange(sender);
 
-    ..  code-tab:: java
+    ..  group-tab:: Java
 
-        ClientConfiguration clientConfiguration = null; // As initialized earlier
-        PortalClient client = new PortalClient(clientConfiguration);
+        ..  code-block:: java
 
-        Sender sender = new Sender("000000000", PollingQueue.of("CustomPollingQueue"));
+            ClientConfiguration clientConfiguration = null; // As initialized earlier
+            PortalClient client = new PortalClient(clientConfiguration);
 
-        byte[] documentBytes = null; // Loaded document bytes
-        PortalDocument document = PortalDocument.builder("Subject", "document.pdf", documentBytes).build();
+            Sender sender = new Sender("000000000", PollingQueue.of("CustomPollingQueue"));
 
-        PortalJob portalJob = PortalJob.builder(
-                document,
-                PortalSigner.identifiedByPersonalIdentificationNumber("12345678910",
-                        NotificationsUsingLookup.EMAIL_ONLY).build(),
-                PortalSigner.identifiedByPersonalIdentificationNumber("12345678911",
-                        Notifications.builder().withEmailTo("email@example.com").build()).build(),
-                PortalSigner.identifiedByEmail("email@example.com").build()
-        ).withSender(sender).build();
+            byte[] documentBytes = null; // Loaded document bytes
+            PortalDocument document = PortalDocument.builder("Subject", "document.pdf", documentBytes).build();
 
-        PortalJobResponse portalJobResponse = client.create(portalJob);
+            PortalJob portalJob = PortalJob.builder(
+                    document,
+                    PortalSigner.identifiedByPersonalIdentificationNumber("12345678910",
+                            NotificationsUsingLookup.EMAIL_ONLY).build(),
+                    PortalSigner.identifiedByPersonalIdentificationNumber("12345678911",
+                            Notifications.builder().withEmailTo("email@example.com").build()).build(),
+                    PortalSigner.identifiedByEmail("email@example.com").build()
+            ).withSender(sender).build();
 
-        PortalJobStatusChanged statusChange = client.getStatusChange(sender);
+            PortalJobResponse portalJobResponse = client.create(portalJob);
+
+            PortalJobStatusChanged statusChange = client.getStatusChange(sender);
+
+    ..  group-tab:: HTTP
+
+        This functionality exists with integration via HTTP, but the example has not been generated yet.
 
 Delete documents
 ==================
@@ -578,12 +585,24 @@ After receiving a status change, the documents can be deleted as follows:
 
 ..  tabs::
 
-    ..  code-tab:: java
+    ..  group-tab:: C#
+
+        ..  code-block:: c#
+
+            //This functionality exists in C#, but the example has not been generated yet.
+
+    ..  group-tab:: Java
+
+        ..  code-block:: java
 
         PortalClient client = null; // As initialized earlier
         PortalJobStatusChanged statusChange = null; // As returned when polling for status changes
 
         client.deleteDocuments(statusChange.getDeleteDocumentsUrl());
+
+    ..  group-tab:: HTTP
+
+        This functionality exists with integration via HTTP, but the example has not been generated yet.
 
 ..  |portalflytskjema| image:: https://raw.githubusercontent.com/digipost/signature-api-specification/master/integrasjon/flytskjemaer/asynkron-maskin-til-maskin.png
     :alt: Flytskjema for portalintegrasjon
