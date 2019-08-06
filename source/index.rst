@@ -60,7 +60,6 @@ Welcome to the Posten signering documentation!
    :caption: Egen integrasjon
 
    egen-integrasjon/dokumentpakke
-   egen-integrasjon/egen-portal-integrasjon
    egen-integrasjon/sikkerhet
 
 .. toctree::
