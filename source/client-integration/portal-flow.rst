@@ -24,7 +24,7 @@ Having problems integrating?
 
         ..  group-tab:: Java
 
-            Get help for your `Java integration here <https://github.com/digipost/signature-api-client-java/issues`_.
+            Get help for your `Java integration here <https://github.com/digipost/signature-api-client-java/issues>`_.
 
         ..  group-tab:: HTTP
 
