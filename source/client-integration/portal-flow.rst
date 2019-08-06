@@ -447,53 +447,78 @@ Responses will always include the next permitted poll time, which tells you when
 
         The ``X-Next-permitted-poll-time`` header will give the next permitted poll time in each response.
 
-
-
-
-
-Get signed documents
-======================
+Step 3: Get signed documents
+==============================
 
 When getting XAdES and PAdES for a PortalJob, remember that the XAdES is per signer, while there is only one PAdES.
 
 ..  tabs::
 
-    ..  code-tab:: c#
+    .. group-tab:: C#
 
-        PortalClient portalClient = null; //As initialized earlier
-        var jobStatusChanged = await portalClient.GetStatusChange();
+        ..  code-block:: c#
 
-        //Get XAdES:
-        var xades = await portalClient.GetXades(jobStatusChanged.Signatures.ElementAt(0).XadesReference);
+            PortalClient portalClient = null; //As initialized earlier
+            var jobStatusChanged = await portalClient.GetStatusChange();
 
-        //Get PAdES:
-        var pades = await portalClient.GetPades(jobStatusChanged.PadesReference);
+            //Get XAdES:
+            var xades = await portalClient.GetXades(jobStatusChanged.Signatures.ElementAt(0).XadesReference);
 
+            //Get PAdES:
+            var pades = await portalClient.GetPades(jobStatusChanged.PadesReference);
 
-    ..  code-tab:: java
+    .. group-tab:: Java
 
-        PortalClient client = null; // As initialized earlier
-        PortalJobStatusChanged statusChange = null; // As returned when polling for status changes
+        ..  code-block:: java
 
-        // Retrieve PAdES:
-        if (statusChange.isPAdESAvailable()) {
-            InputStream pAdESStream = client.getPAdES(statusChange.getpAdESUrl());
-        }
+            PortalClient client = null; // As initialized earlier
+            PortalJobStatusChanged statusChange = null; // As returned when polling for status changes
 
-        // Retrieve XAdES for all signers:
-        for (Signature signature : statusChange.getSignatures()) {
+            // Retrieve PAdES:
+            if (statusChange.isPAdESAvailable()) {
+                InputStream pAdESStream = client.getPAdES(statusChange.getpAdESUrl());
+            }
+
+            // Retrieve XAdES for all signers:
+            for (Signature signature : statusChange.getSignatures()) {
+                if (signature.is(SignatureStatus.SIGNED)) {
+                    InputStream xAdESStream = client.getXAdES(signature.getxAdESUrl());
+                }
+            }
+
+            // … or for one specific signer:
+            Signature signature = statusChange.getSignatureFrom(
+                    SignerIdentifier.identifiedByPersonalIdentificationNumber("12345678910"));
             if (signature.is(SignatureStatus.SIGNED)) {
                 InputStream xAdESStream = client.getXAdES(signature.getxAdESUrl());
             }
-        }
 
-        // … or for one specific signer:
-        Signature signature = statusChange.getSignatureFrom(
-                SignerIdentifier.identifiedByPersonalIdentificationNumber("12345678910"));
-        if (signature.is(SignatureStatus.SIGNED)) {
-            InputStream xAdESStream = client.getXAdES(signature.getxAdESUrl());
-        }
+    ..  group-tab:: HTTP
 
+        The response in the previous step contains the links ``xades-url`` and ``pades-url``. These you can do a `` HTTP GET '' on to download the signed document in the two formats. For more information on the format of the signed document, see: ref: `signerte-dokumenter`.
+
+        You download the XAdES file per signer, while the PAdES file is downloaded across all signers. This will include signing information for all signers who have so far signed the job. In most cases, it is not necessary to download the PAdES until all signers have the status ``SIGNED``.
+
+Step 4: Confirm finished processing
+=====================================
+
+..  tabs::
+
+    ..  group-tab:: C#
+
+        ..  code-block:: c#
+
+            //This functionality exists in C#, but the example has not been generated yet.
+
+    ..  group-tab:: Java
+
+        ..  code-block:: java
+
+            //This functionality exists in Java, but the example has not been generated yet.
+
+    ..  group-tab:: HTTP
+
+        Finally, make a ``HTTP POST`` request to the ``confirmation-url`` to confirm that you have completed the job. If :ref:`langtidslagring` is used, this will mark the assignment as completed and stored. Otherwise, the assignment will be deleted from the signing portal.
 
 Specifying queues
 ===================
