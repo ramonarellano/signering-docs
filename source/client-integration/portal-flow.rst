@@ -24,7 +24,11 @@ Having problems integrating?
 
         ..  group-tab:: Java
 
-            Get help for your `Java integration here <https://github.com/digipost/signature-api-client-java/issues>`_.
+            Get help for your `Java integration here <https://github.com/digipost/signature-api-client-java/issues`_.
+
+        ..  group-tab:: HTTP
+
+            Get help for your `HTTP integration here <https://github.com/digipost/signature-api-specification>`_.
 
 Step 1: Create signature job
 ==============================
