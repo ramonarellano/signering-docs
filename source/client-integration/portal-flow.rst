@@ -3,7 +3,7 @@
 Portal flow
 ****************************
 
-This integration pattern is suitable for senders who want to create :ref:`a signature job in portal flow <signering-i-portalflyt>`. The signing ceremony is performed by the signer in the signing portal, and the sender will then be able to poll for a status and retrieve the signed document. This scenario is designed to support a flow where it is necessary to obtain signatures from more than one signer.
+This integration pattern is suitable for senders who want to create :ref:`a signature job in portal flow <signering-i-portalflyt>`. The signer logs in to the signing portal, signs the document, and the sender will then be able to poll for a status and retrieve the signed document. This scenario is designed to support a flow where it is necessary to obtain signatures from more than one signer.
 
 To ease the integration, we provide C# and Java libraries. If you are creating your own client, you will have to interact directly with the API. The message format of the API is XML, and relevant types can be found in `portal.xsd <https://github.com/digipost/signature-api-specification/blob/master/schema/xsd/portal.xsd>`_.
 
