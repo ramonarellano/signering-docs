@@ -417,10 +417,13 @@ Responses will always include the next permitted poll time, which tells you when
                 // Queue is empty. Must wait before polling again
                 Instant nextPermittedPollTime = statusChange.getNextPermittedPollTime();
             } else {
-                // Recieved status update, act according to status
+                // Received status update, act according to status
                 PortalJobStatus signatureJobStatus = statusChange.getStatus();
                 Instant nextPermittedPollTime = statusChange.getNextPermittedPollTime();
             }
+
+            //Confirm the receipt to remove it from the queue
+            client.confirm(statusChange);
 
     ..  group-tab:: HTTP
 
