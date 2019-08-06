@@ -362,7 +362,7 @@ The response to this call will be one of two things:
 The following example shows how this can be handled and examples of data to extract from a change response.
 
 ..  NOTE::
-    Status updates you download will disappear from the queue. This allows you to ask for status updates in parallel, and you will not receive the same status update twice. It is therefore important that you confirm receipt of each status update as soon as possible, because if an error still occurs during transmission or processing, the receipt will be queued again after 10 minutes. More information on how to verify a receipt is described in: ref: `egen-integrasjon-steg-4`.
+    Status updates you download will disappear from the queue. This allows you to ask for status updates in parallel, and you will not receive the same status update twice. It is therefore important that you confirm receipt of each status update as soon as possible, because if an error still occurs during transmission or processing, the receipt will be queued again after 10 minutes.
 
 Responses will always include the next permitted poll time, which tells you when you can make the next request, and it is important that this time is met. If you send a request before this time has passed, you will receive a ``429 Too Many Requests`` response. This will also contain a next permitted poll time, containing a new time.
 
@@ -401,6 +401,9 @@ Responses will always include the next permitted poll time, which tells you when
             {
                 //Wait until next permitted poll time has passed before polling again.
             }
+
+            //Confirm the receipt to remove it from the queue
+            await portalClient.Confirm(change.ConfirmationReference);
 
     ..  group-tab:: Java
 
@@ -446,6 +449,9 @@ Responses will always include the next permitted poll time, which tells you when
             </portal-signature-job-status-change-response>
 
         The ``X-Next-permitted-poll-time`` header will give the next permitted poll time in each response.
+
+        Finally, make a ``HTTP POST`` request to the ``confirmation-url`` to confirm that you have successfully retrieved the status change. If it is the last update and the job is completed successfully and :ref:`langtidslagring` is used, this will mark the assignment as completed and stored. Otherwise, the assignment will be deleted from the signing portal.
+
 
 Step 3: Get signed documents
 ==============================
@@ -498,27 +504,6 @@ When getting XAdES and PAdES for a PortalJob, remember that the XAdES is per sig
         The response in the previous step contains the links ``xades-url`` and ``pades-url``. These you can do a `` HTTP GET '' on to download the signed document in the two formats. For more information on the format of the signed document, see: ref: `signerte-dokumenter`.
 
         You download the XAdES file per signer, while the PAdES file is downloaded across all signers. This will include signing information for all signers who have so far signed the job. In most cases, it is not necessary to download the PAdES until all signers have the status ``SIGNED``.
-
-Step 4: Confirm finished processing
-=====================================
-
-..  tabs::
-
-    ..  group-tab:: C#
-
-        ..  code-block:: c#
-
-            //This functionality exists in C#, but the example has not been generated yet.
-
-    ..  group-tab:: Java
-
-        ..  code-block:: java
-
-            //This functionality exists in Java, but the example has not been generated yet.
-
-    ..  group-tab:: HTTP
-
-        Finally, make a ``HTTP POST`` request to the ``confirmation-url`` to confirm that you have completed the job. If :ref:`langtidslagring` is used, this will mark the assignment as completed and stored. Otherwise, the assignment will be deleted from the signing portal.
 
 Specifying queues
 ===================
