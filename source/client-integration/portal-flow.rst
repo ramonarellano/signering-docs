@@ -422,6 +422,11 @@ Responses will always include the next permitted poll time, which tells you when
                 Instant nextPermittedPollTime = statusChange.getNextPermittedPollTime();
             }
 
+            //Get status for signer
+            Signature signature = statusChange.getSignatureFrom(
+                    SignerIdentifier.identifiedByPersonalIdentificationNumber("12345678910")
+            );
+
             //Confirm the receipt to remove it from the queue
             client.confirm(statusChange);
 
