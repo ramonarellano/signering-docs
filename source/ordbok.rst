@@ -63,10 +63,10 @@ På engelsk kaller vi det *signature job* eller *job*, og den har en *document b
 Portal
 =======
 
-- *Avsenderportal*: Dette er webgrensesnittet for avsendere. signering.posten.no/virksomhet/
-- *Signeringsportal*: Dette er webgrensesnittet for undertegnere.
+- *avsenderportal*: Dette er webgrensesnittet for avsendere. signering.posten.no/virksomhet/
+- *signeringsportal*: Dette er webgrensesnittet for undertegnere.
 
-På engelsk kaller vi det *sender portal* og *signing portal*.
+På engelsk kaller vi det *sender portal* og *signing portal*, og på nynorsk kaller vi det *avsendarportal* og *signeringsportal*. 
 
 API
 ====
