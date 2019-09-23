@@ -117,7 +117,7 @@ Step 1: Create signature job
         -  **rejection-url:** The signer is sent here if *he or she chooses* to cancel the signing process.
         -  **error-url:** The signer is sent here if something fails during the signing process. This *is not* a result of a user action.
 
-        The following is an example of the ``manifext.xml`` from the document bundle:
+        The following is an example of the ``manifest.xml`` from the document bundle:
 
         ..  code-block:: xml
 
