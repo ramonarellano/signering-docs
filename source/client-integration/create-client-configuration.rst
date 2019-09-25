@@ -19,7 +19,7 @@ A client configuration includes all organization specific configuration and all 
 
         Where :code:`ReadCertificate` is:
 
-        ..  code-block:: none
+        ..  code-block:: c#
 
             var pathToSecrets = $"{System.Environment.GetEnvironmentVariable("HOME")}/.microsoft/usersecrets/enterprise-certificate/secrets.json";
             _logger.LogDebug($"Reading certificate details from secrets file: {pathToSecrets}");
