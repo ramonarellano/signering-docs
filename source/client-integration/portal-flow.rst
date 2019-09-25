@@ -30,6 +30,8 @@ Having problems integrating?
 
             Get help for your `HTTP integration here <https://github.com/digipost/signature-api-specification>`_.
 
+.. _portalIntegrationStep1:
+
 Step 1: Create signature job
 ==============================
 

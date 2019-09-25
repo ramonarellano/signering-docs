@@ -27,7 +27,7 @@ Manifest
 
 Filen ``manifest.xml`` følger skjemaet `direct-and-portal.xsd <https://github.com/digipost/signature-api-specification/blob/master/schema/xsd/direct-and-portal.xsd>`_, som igjen importerer `direct.xsd <https://github.com/digipost/signature-api-specification/blob/master/schema/xsd/direct.xsd>`_ og `portal.xsd <https://github.com/digipost/signature-api-specification/blob/master/schema/xsd/portal.xsd>`_.
 
-Se :ref:`directIntegrationStep1` og :ref:`egenPortalIntegrasjon` for eksempler på forskjellige måter elementene kan bygges opp.
+Se :ref:`directIntegrationStep1` og :ref:`portalIntegrationStep1` for eksempler på forskjellige måter elementene kan bygges opp.
 
 .. _signaturesxml:
 
