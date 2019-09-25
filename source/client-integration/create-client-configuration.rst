@@ -5,6 +5,41 @@ A client configuration includes all organization specific configuration and all 
 
 ..  tabs::
 
+    ..  group-tab:: C#
+
+        ..  code-block:: c#
+
+            const string organizationNumber = "123456789";
+
+            var clientConfiguration = new ClientConfiguration(
+                Environment.DifiTest,
+                CertificateReader.ReadCertificate(),
+                new Sender(organizationNumber)
+            );
+
+        Where :code:`ReadCertificate` is:
+
+        ..  code-block:: none
+
+            var pathToSecrets = $"{System.Environment.GetEnvironmentVariable("HOME")}/.microsoft/usersecrets/enterprise-certificate/secrets.json";
+            _logger.LogDebug($"Reading certificate details from secrets file: {pathToSecrets}");
+
+            var fileExists = File.Exists(pathToSecrets);
+            if (!fileExists)
+            {
+                _logger.LogDebug($"Did not find file at {pathToSecrets}");
+            }
+
+            var certificateConfig = File.ReadAllText(pathToSecrets);
+            var deserializeObject = JsonConvert.DeserializeObject<Dictionary<string, string>>(certificateConfig);
+
+            deserializeObject.TryGetValue("Certificate:Path:Absolute", out var certificatePath);
+            deserializeObject.TryGetValue("Certificate:Password", out var certificatePassword);
+
+            _logger.LogDebug("Reading certificate from path found in secrets file: " + certificatePath);
+
+            return new X509Certificate2(certificatePath, certificatePassword, X509KeyStorageFlags.Exportable);
+
     ..  group-tab:: Java
 
         The first step is to load the enterprise certificate (virksomhetssertifikat) through the :code:`KeyStoreConfig`. It can be created from a Java Key Store (JKS) or directly from a PKCS12-container, which is the usual format of an enterprise certificate. The latter is the recommended way of loading it if you have the certificate stored as a simple file:
@@ -43,41 +78,6 @@ A client configuration includes all organization specific configuration and all 
                     .serviceUri(ServiceUri.DIFI_TEST)
                     .globalSender(new Sender("123456789"))
                     .build();
-
-    ..  group-tab:: C#
-
-        ..  code-block:: c#
-
-            const string organizationNumber = "123456789";
-
-            var clientConfiguration = new ClientConfiguration(
-                Environment.DifiTest,
-                CertificateReader.ReadCertificate(),
-                new Sender(organizationNumber)
-            );
-
-        Where :code:`ReadCertificate` is:
-
-        ..  code-block:: none
-
-            var pathToSecrets = $"{System.Environment.GetEnvironmentVariable("HOME")}/.microsoft/usersecrets/enterprise-certificate/secrets.json";
-            _logger.LogDebug($"Reading certificate details from secrets file: {pathToSecrets}");
-
-            var fileExists = File.Exists(pathToSecrets);
-            if (!fileExists)
-            {
-                _logger.LogDebug($"Did not find file at {pathToSecrets}");
-            }
-
-            var certificateConfig = File.ReadAllText(pathToSecrets);
-            var deserializeObject = JsonConvert.DeserializeObject<Dictionary<string, string>>(certificateConfig);
-
-            deserializeObject.TryGetValue("Certificate:Path:Absolute", out var certificatePath);
-            deserializeObject.TryGetValue("Certificate:Password", out var certificatePassword);
-
-            _logger.LogDebug("Reading certificate from path found in secrets file: " + certificatePath);
-
-            return new X509Certificate2(certificatePath, certificatePassword, X509KeyStorageFlags.Exportable);
 
 
 ..  NOTE::
