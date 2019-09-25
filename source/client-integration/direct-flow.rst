@@ -92,7 +92,7 @@ Step 1: Create signature job
 
         The flow starts when the sender sends a request to create the signature job to the API. This request is a `multipart message <https://en.wikipedia.org/wiki/MIME#Multipart_messages>`_ comprised of a document bundle part and a metadata part.
 
-        - The request is a ``HTTP POST`` to the resource ``<rot-URL>/direct/signature-jobs``.
+        - The request is a ``HTTP POST`` to the resource ``api.<environment>.signering.posten.no/api/<organization-number>/direct/signature-jobs``, where ``<environment>`` is ``difiqa``, ``difitest`` or just remove the environment part for the production environment.
         - The document bundle is added to the multipart message with ``application/octet-stream`` as media type. See :ref:`informasjonOmDokumentpakken` for more information on the document bundle.
         - The metadata in the multipart request is defined by the ``direct-signature-job-request`` element. These are added with media type ``application/xml``.
 
