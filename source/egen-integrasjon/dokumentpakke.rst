@@ -13,7 +13,7 @@ Pakken er i ZIP-format, og inneholder:
 
 - dokumentet som skal signeres (en PDF eller ren tekstfil)
 - filen ``manifest.xml`` som beskriver metadata for dokumentet (emner, hvem som skal signere osv.)
-- filen ``signatures.xml`` som er signaturen over hele dokumentpakken.
+- filen ``META-INF/signatures.xml`` som er signaturen over hele dokumentpakken.
 
 Dokument
 --------
