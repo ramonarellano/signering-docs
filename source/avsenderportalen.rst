@@ -1,7 +1,7 @@
 Avsenderportalen
 =================
 
-Avsenderportalen er et web-grensesnitt for avsendere hvor man kan sende ut signeringsoppdrag som skal signeres, samt administrere oppdrag og virksomhetskonto. Som avsender kan du ha tilgang til flere virksomhetskontoer. Etter innlogging velger du den virksomheten du ønsker å sende ut oppdrag fra eller administrere. [Se gjerne hjelpeguiden med skjermbilder](https://docs.google.com/presentation/d/1VQks9CUNEv3ssuJd_z7ZA0ngEwWwJ_fY22IhvBOQbfs/edit?usp=sharing).
+Avsenderportalen er et web-grensesnitt for avsendere hvor man kan sende ut signeringsoppdrag som skal signeres, samt administrere oppdrag og virksomhetskonto. Som avsender kan du ha tilgang til flere virksomhetskontoer. Etter innlogging velger du den virksomheten du ønsker å sende ut oppdrag fra eller administrere. `Se gjerne hjelpeguiden med skjermbilder<https://docs.google.com/presentation/d/1VQks9CUNEv3ssuJd_z7ZA0ngEwWwJ_fY22IhvBOQbfs/edit?usp=sharing>`_.
 
 Din konto
 ______________
