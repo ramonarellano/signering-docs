@@ -63,6 +63,8 @@ For PDF/A vil tjenesten alltid produsere signerte PAdES-dokumenter av typen PDF/
 
 For arkivering av signerte dokumenter anbefaler vi å bruke originaldokumenter av typen PDF/A. Dette er et krav hvis det signerte dokumentet skal avleveres til Riksarkivet.
 
+For testing kan du bruke eksempeldokumentene :download:`PDF-1.2 <files/PDF-1-2-testdokument.pdf>`, :download:`PDF-1.3 <files/PDF-1-3-testdokument.pdf>`, :download:`PDF-1.4 <files/PDF-1-4-testdokument.pdf>`, :download:`PDF-1.5 <files/PDF-1-5-testdokument.pdf>`, :download:`PDF-1.6 <files/PDF-1-6-testdokument.pdf>` og :download:`PDF-A <files/PDF-A-testdokument.pdf>`.
+
 ..  NOTE::
     Filen kan maksimalt være 3 MB (:code:`3 145 728 bytes`) stor. PDF-versjoner som støttes er PDF 1.1-1.7.
 
@@ -84,4 +86,3 @@ Oppdragets levetid
 Angir hvor lenge *etter aktivering* et signeringsoppdrag er tilgjengelig for undertegner før det utløper. Kan maksimalt være 90 dager etter aktivering.
 
 Signeringsoppdrag i direkteflyt har alltid 30 dagers levetid for å unngå at et dokument blir signert uhensiktsmessig lenge etter opprettelsen av oppdraget. Eventuell frist fra avsenders perspektiv må kommuniseres og håndteres i avsenders tjenester.
-
