@@ -140,7 +140,7 @@ Step 1: Create signature job
             </direct-signature-job-manifest>
 
 
-You can specify a  signature type and required authentication level. If signature type or required authentication level is omitted, default values as specified by the `functional documentation <http://digipost.github.io/signature-api-specification/v1.0/#signaturtype>`_ will apply:
+..  NOTE:: You can specify a  signature type and required authentication level. If signature type or required authentication level is omitted, default values will be set as specified by :ref:`signaturtype` and :ref:`sikkerhetsnivå`.
 
 ..  tabs::
 
