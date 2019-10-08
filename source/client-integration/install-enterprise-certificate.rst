@@ -4,9 +4,6 @@ Install enterprise certificate
 In order to use the client, the enterprise certificate must be set up according to your environment. We currently
 support .NET Core, .NET Framework and Java.
 
-..  NOTE::
-    The .NET Framework version of the client only exists for versions 1 to 4. The documentation can be found `here <http://digipost.github.io/signature-api-client-dotnet/v4.x/>`_. The documentation for installing the certificate is the same, though.
-
 
 .NET Core
 ==========
