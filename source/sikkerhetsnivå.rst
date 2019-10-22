@@ -22,7 +22,7 @@ Offentlig virksomhet
 =====================
 Som offentlig virksomhet kan du velge sikkerhetsnivå 3 eller 4. Et signeringsoppdrag som er på nivå 4 vil kun kunne vises og signeres i sin helhet med alle e-IDer unntatt MinID, som er sikkerhetsnivå 3.
 
-Er bruker innlogget på nivå 3 vil få en begrenset visning av signeringsoppdraget, der kun *ikke-sensitiv* tittel er synlig. For å se alle detaljer om oppdraget vil brukeren bli bedt om å logge inn på nytt på til sikkerhetsnivå 4. Brukeren vil alltid bli veiledet til den innloggingsmetoden som kreves for oppdraget som skal signeres, slik at brukeropplevelsen blir så god som mulig.
+Er bruker innlogget på nivå 3 vil hen få en begrenset visning av signeringsoppdraget, der kun *ikke-sensitiv* tittel er synlig. For å se alle detaljer om oppdraget vil brukeren bli bedt om å logge inn på nytt til sikkerhetsnivå 4. Brukeren vil alltid bli veiledet til den innloggingsmetoden som kreves for oppdraget som skal signeres, slik at brukeropplevelsen blir så god som mulig.
 
 ..  TIP::
     Tilgjenglige metoder for innlogging og signering er *BankID*, *BankID på mobil*, *Buypass id på smartkort*, *Buypass id i mobil* og *Commfides*.
