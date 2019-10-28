@@ -5,6 +5,7 @@ Archive Client
 
 
 If you have created a job  as explained in the documentation, you can also retrieve the signed documents by the generated Id.
+Instead of using a global sender, you need to create as well a document owner, corresponding the organization that owns the archived documents.
 
 From Direct Flow
 ===============================
@@ -45,9 +46,6 @@ From Direct Flow
 
             InputStream PAdESStream = await archiveClient.GetPades(owner, jobid);
 
-    ..  group-tab:: HTTP
-
-        //This functionality exists, but the example has not been generated yet.
 
 From Portal Flow
 ===============================
@@ -58,14 +56,33 @@ From Portal Flow
 
         ..  code-block:: c#
 
-            //This functionality exists in C#, but the example has not been generated yet.
+            ClientConfiguration clientConfiguration = null; //As initialized earlier
+
+            ...
+
+            var portalJobResponse = await portalClient.Create(portalJob);
+
+            var jobid = directJobResponse.JobId;
+
+            var archiveClient = new ArchiveClient(clientConfiguration);
+            var owner = new DocumentOwner(clientConfiguration.GlobalSender.OrganizationNumber);
+
+            var padesByteStream = await archiveClient.GetPades(owner, jobid);
 
     ..  group-tab:: Java
 
         ..  code-block:: java
 
-            //This functionality exists in Java, but the example has not been generated yet.
+            ClientConfiguration clientConfiguration = null; // As initialized earlier
 
-    ..  group-tab:: HTTP
+            ...
 
-        //This functionality exists, but the example has not been generated yet.
+            PortalJobResponse portalJobResponse = client.create(portalJob);
+
+            long jobid = directJobResponse.getSignatureJobId();
+
+            ArchiveClient archiveClient = new ArchiveClient(clientConfiguration);
+            DocumentOwner owner = new DocumentOwner(clientConfiguration.getGlobalSender.getOrganizationNumber());
+
+            InputStream PAdESStream = await archiveClient.GetPades(owner, jobid);
+
