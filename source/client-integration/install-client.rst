@@ -10,6 +10,7 @@ Install client
         The client is available via `Nuget <https://www.nuget.org/packages?q=signature.api.client>`_.
 
         The library has several packages with the prefix :code:`Digipost.Signature.Api.Client`. If you are using the portal cases, use :code:`Digipost.Signature.Api.Client.Portal`, and for direct cases, use :code:`Digipost.Signature.Api.Client.Direct`.
+        If you want to download signed documents from the archive, use :code:`Digipost.Signature.Api.Client.Archive`.
 
     ..  group-tab:: Java
 

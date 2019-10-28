@@ -1,17 +1,12 @@
-.. _archive_client
+.. _archive-client:
 
 Archive Client
 ****************************
 
+If you have documents in the archive, you can retrieve them by their Ids.
+Read :ref:`client-configuration` to set up the archive client.
 
-If you have created a job  as explained in the documentation, you can also retrieve the signed documents by the generated job Ids.
 
-
-From Direct Flow
-===============================
-
-If you have created a direct client already, you can use the same configuration to create an Archive client.
-Instead of using a global sender, you need to create as well a document owner, corresponding the organization that owns the archived documents.
 
 ..  tabs::
 
@@ -23,14 +18,12 @@ Instead of using a global sender, you need to create as well a document owner, c
 
             ...
 
-            var directJobResponse = await directClient.Create(job);
-
-            var jobid = directJobResponse.JobId;
-
             var archiveClient = new ArchiveClient(clientConfiguration);
-            var owner = new DocumentOwner(clientConfiguration.GlobalSender.OrganizationNumber);
 
-            var padesByteStream = await archiveClient.GetPades(owner, jobid);
+            var owner = new DocumentOwner("123456789");
+            var archivedDocumentId = new ArchivedDocumentId("abcde12345");
+
+            var padesByteStream = await archiveClient.GetPades(owner, archivedDocumentId);
 
     ..  group-tab:: Java
 
@@ -40,54 +33,17 @@ Instead of using a global sender, you need to create as well a document owner, c
 
             ...
 
-            DirectJobResponse directJobResponse = client.create(directJob);
-
-            long jobid = directJobResponse.getSignatureJobId();
-
             ArchiveClient archiveClient = new ArchiveClient(clientConfiguration);
-            DocumentOwner owner = new DocumentOwner(clientConfiguration.getGlobalSender.getOrganizationNumber());
 
-            InputStream PAdESStream = await archiveClient.GetPades(owner, jobid);
+            DocumentOwner owner = DocumentOwner.ofOrganizationNumber("123456789");
+            String archivedDocumentId = "abcde12345";
 
+            InputStream pAdESStream = archiveClient.GetPades(owner, archivedDocumentId);
 
-From Portal Flow
-===============================
+    .. group-tab:: Http
 
-If you have created a Portal client, You can use the same configuration and make a new Archive client in the same way as in the Direct flow.
+            To download a document do a ``HTTP GET`` to: ``api.<environment>.signering.posten.no/api/<org-num>/archive/documents/<id>/pades`` , where <environment> is difiqa, difitest or just remove the environment part for the production environment.
 
-..  tabs::
+            For more information on the format of the signed document, see :ref:`signerte-dokumenter`.
 
-    .. group-tab:: C#
-
-        ..  code-block:: c#
-
-            ClientConfiguration clientConfiguration = null; //As initialized earlier
-
-            ...
-
-            var portalJobResponse = await portalClient.Create(portalJob);
-
-            var jobid = directJobResponse.JobId;
-
-            var archiveClient = new ArchiveClient(clientConfiguration);
-            var owner = new DocumentOwner(clientConfiguration.GlobalSender.OrganizationNumber);
-
-            var padesByteStream = await archiveClient.GetPades(owner, jobid);
-
-    ..  group-tab:: Java
-
-        ..  code-block:: java
-
-            ClientConfiguration clientConfiguration = null; // As initialized earlier
-
-            ...
-
-            PortalJobResponse portalJobResponse = client.create(portalJob);
-
-            long jobid = directJobResponse.getSignatureJobId();
-
-            ArchiveClient archiveClient = new ArchiveClient(clientConfiguration);
-            DocumentOwner owner = new DocumentOwner(clientConfiguration.getGlobalSender.getOrganizationNumber());
-
-            InputStream PAdESStream = await archiveClient.GetPades(owner, jobid);
 
