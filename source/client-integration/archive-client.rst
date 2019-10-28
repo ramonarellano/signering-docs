@@ -4,11 +4,14 @@ Archive Client
 ****************************
 
 
-If you have created a job  as explained in the documentation, you can also retrieve the signed documents by the generated Id.
-Instead of using a global sender, you need to create as well a document owner, corresponding the organization that owns the archived documents.
+If you have created a job  as explained in the documentation, you can also retrieve the signed documents by the generated job Ids.
+
 
 From Direct Flow
 ===============================
+
+If you have created a direct client already, you can use the same configuration to create an Archive client.
+Instead of using a global sender, you need to create as well a document owner, corresponding the organization that owns the archived documents.
 
 ..  tabs::
 
@@ -49,6 +52,8 @@ From Direct Flow
 
 From Portal Flow
 ===============================
+
+If you have created a Portal client, You can use the same configuration and make a new Archive client in the same way as in the Direct flow.
 
 ..  tabs::
 
