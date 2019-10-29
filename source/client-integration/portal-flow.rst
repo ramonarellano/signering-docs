@@ -523,9 +523,11 @@ When getting XAdES and PAdES for a PortalJob, remember that the XAdES is per sig
 Specifying queues
 ===================
 
-Specifies the queue that jobs and status changes for a signature job will occur in for signature jobs where :code:`StatusRetrievalMethod == POLLING`. This is a feature aimed at organizations where it makes sense to retrieve status changes from several queues. This may be if the organization has more than one division, and each division has an application that create signature jobs through the API and want to retrieve status changes independent of the other division’s actions.
+An important and necessary feature for organizations using more than one application to create signature jobs through the API. It enables an application to retrieve status changes independent of other applications.
 
-To specify a queue, set :code:`Sender` :code:`pollingQueue` through when constructing a sender. Please note that the same sender must be specified when polling to retrieve status changes. The :code:`Sender` can be set globally in :code:`ClientConfiguration` or on every job.
+The feature specifies the queue that jobs and status changes for a signature job will occur in. It is used for signature jobs where ``StatusRetrievalMethod == POLLING``. If your organization is using more than one application/integration to access our API, we strongly recommend using a separate queue for each one. This is to ensure that one does not retrieve the others' receipts. This may result in missing status changes for jobs in one of the applications, which in turn will result in a poor user experience. Only use the default queue, eg. not specifying a queue, when only one of your applications access our API.
+
+To specify a queue, set :code:`pollingQueue` through when constructing a :code:`Sender`. Please note that the same sender must be specified when polling to retrieve status changes. The :code:`Sender` can be set globally in :code:`ClientConfiguration` or on every job.
 
 ..  tabs::
 
