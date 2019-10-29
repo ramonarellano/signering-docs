@@ -52,6 +52,7 @@ Welcome to the Posten signering documentation!
    client-integration/create-client-configuration
    client-integration/direct-flow
    client-integration/portal-flow
+   client-integration/archive-client
    client-integration/error-handling
    client-integration/debugging
 
