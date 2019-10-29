@@ -3,8 +3,9 @@
 Archive Client
 ****************************
 
-If you have documents in the archive, you can retrieve them by their Ids.
-Read :ref:`client-configuration` to set up the archive client.
+If you have documents in the archive, you can retrieve them by their IDs.
+
+See :ref:`client-configuration` for instructions on how to set up the configuration for the archive client. Note that the concept of "global sender" is not used by the archive client, and may be omitted in the configuration.
 
 
 
@@ -38,12 +39,16 @@ Read :ref:`client-configuration` to set up the archive client.
             DocumentOwner owner = DocumentOwner.ofOrganizationNumber("123456789");
             String archivedDocumentId = "abcde12345";
 
-            InputStream pAdESStream = archiveClient.GetPades(owner, archivedDocumentId);
+            try (InputStream pAdESStream = archiveClient.getPades(owner, archivedDocumentId)) {
+                // consume the downloaded PAdES document
+            }
 
     .. group-tab:: Http
 
-            To download a document do a ``HTTP GET`` to: ``api.<environment>.signering.posten.no/api/<org-num>/archive/documents/<id>/pades`` , where <environment> is difiqa, difitest or just remove the environment part for the production environment.
-
-            For more information on the format of the signed document, see :ref:`signerte-dokumenter`.
+            To download a document, send an ``HTTP GET`` request to ``api.<env>.signering.posten.no/api/<organization-num>/archive/documents/<id>/pades``.
 
 
+            - ``<env>`` is difiqa, difitest, or just remove the environment part for the production environment.
+            - ``<organization-num>`` is the organization number whose archive you want to access
+            - ``<id>`` is the ID of the document you want to download.
+            - The ending ``/pades`` indicates the variant of the document you want to download, and at this point only signed documents (PAdES) is supported. For more information on the format of the signed document, see :ref:`signerte-dokumenter`.
