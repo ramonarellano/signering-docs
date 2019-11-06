@@ -60,7 +60,7 @@ A client configuration includes all organization specific configuration and all 
                 Environment.DifiTest,
                 CertificateReader.ReadCertificate(),
                 new Sender(organizationNumber),
-                new WebProxy( proxyAddress ,true),
+                new WebProxy(proxyAddress),
                 new NetworkCredential(userName, userPassword)
             );
 
