@@ -54,14 +54,14 @@ A client configuration includes all organization specific configuration and all 
 
             const string proxyAddress = "http://proxyserver:80/";
             const string proxyUserName = "username";
-            const string proxyUserPassword = "password";
+            const string proxyPassword = "password";
 
             var clientConfiguration = new ClientConfiguration(
                 Environment.DifiTest,
                 CertificateReader.ReadCertificate(),
                 new Sender(organizationNumber),
                 new WebProxy(proxyAddress),
-                new NetworkCredential(proxyUserName, proxyUserPassword)
+                new NetworkCredential(proxyUserName, proxyPassword)
             );
 
         Where :code:`ReadCertificate` is:
