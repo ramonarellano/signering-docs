@@ -351,7 +351,7 @@ The signing process is a synchrounous operation in the direct use case. There is
             var statusQueryToken = "0A3BQ54C...";
 
             var jobStatusResponse =
-                await directClient.GetStatus(jobResponse.ResponseUrls.Status(statusQueryToken));
+                await directClient.GetStatus(jobResponse.StatusUrl.Status(statusQueryToken));
 
             var jobStatus = jobStatusResponse.Status;
 
